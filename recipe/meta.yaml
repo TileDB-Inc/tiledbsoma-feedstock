@@ -21,6 +21,7 @@ requirements:
     - cmake >=3.21
     - make
   host:
+    - pip
     - pybind11
     - python
     - setuptools
