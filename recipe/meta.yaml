@@ -8,7 +8,7 @@ source:
 #  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
 #  sha256: "845cc7f9c6b9e7d9c2393befb2750df80699338055d9239768df158b3bd0f8a7"
   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-  git_rev: gspowley/build-updates
+  git_rev: main
 
 build:
   number: 0
