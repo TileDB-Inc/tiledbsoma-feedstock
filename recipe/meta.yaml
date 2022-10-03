@@ -34,7 +34,7 @@ requirements:
     - python
     - scanpy
     - scipy
-    - tiledb-py
+    - tiledb-py >=0.17.4
 
 test:
   commands:
