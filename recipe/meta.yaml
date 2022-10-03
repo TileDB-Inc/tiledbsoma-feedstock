@@ -11,7 +11,7 @@ source:
   git_rev: main
 
 build:
-  number: 0
+  number: 1
   script: python -m pip install apis/python -vv
   skip: true  # [win]
 
