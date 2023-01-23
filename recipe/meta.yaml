@@ -1,43 +1,80 @@
 {% set name = "tiledbsoma" %}
-{% set version = "0.5.0a2" %}
+{% set version = "1.0rc0" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e0fb16e55e01315a46f102739dcd3d1b15f24d636e00a2d737c0dde674b86370
-
-build:
-  number: 0
-  script: python -m pip install . -vv
-  skip: true  # [win]
+  #path: ~/TileDB-SOMA
+  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  git_rev: ba7cc8d7e531171681664cb2e1cba1dbccb47a0f
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
     - cmake >=3.21
     - make
   host:
-    - pip
+    - tiledb 2.14.*
     - pybind11
-    - python
-    - setuptools
-    - setuptools_scm
-    - wheel
+    - spdlog
   run:
-    - anndata
-    - pandas
-    - pyarrow
-    - python
-    - scanpy
-    - scipy
-    - tiledb-py
+    - tiledb 2.14.*
+    - spdlog
 
-test:
-  commands:
-    - python -c "import tiledbsoma.libtiledbsoma; print(tiledbsoma.libtiledbsoma.version())"
+outputs:
+  - name: libtiledbsoma
+    version: {{ version }}
+    script: build-libtiledbsoma.sh
+    requirements:
+      build:
+        - {{ compiler('cxx') }}
+        - {{ compiler('c') }}
+        - cmake
+        - make
+        - pybind11
+      host:
+        - tiledb 2.14.*
+        - spdlog
+      run:
+        - tiledb 2.14.*
+        - spdlog
+
+  - name: tiledbsoma-py
+    version: {{ version }}
+    script: build-tiledbsoma-py.sh
+    build:
+      binary_relocation: False
+    requirements:
+      build:
+        - {{ compiler('cxx') }}
+        - {{ compiler('c') }}
+        - cmake >=3.21
+        - make
+      host:
+        - libtiledbsoma {{ version }}
+        - pip
+        - python
+        - cross-python_{{ target_platform }} # [build_platform != target_platform]
+        - pybind11
+        - setuptools
+        - setuptools_scm
+        - spdlog
+        - wheel
+      run:
+        - {{ pin_subpackage('libtiledbsoma', exact=True) }}
+        - anndata
+        - pandas
+        - pyarrow
+        - scanpy
+        - scipy
+        - spdlog
+        - tiledb-py
+    test:
+      commands:
+        - python -c "import tiledbsoma"
 
 about:
   home: http://tiledb.com
