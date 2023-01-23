@@ -1,13 +1,14 @@
 {% set name = "tiledbsoma" %}
 {% set version = "0.5.0a2" %}
+{% set sha256 = "217652ad87b0ef448460597d589342d5850c653afabc5fa939cd32b787a5e9ba" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e0fb16e55e01315a46f102739dcd3d1b15f24d636e00a2d737c0dde674b86370
+  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   number: 0
