@@ -6,9 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  #path: ~/TileDB-SOMA
   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-  git_rev: ba7cc8d7e531171681664cb2e1cba1dbccb47a0f
+  git_rev: 8a57a05edecc2b2e17675dc59791c2dedc764034
 
 requirements:
   build:
@@ -46,7 +45,9 @@ outputs:
     version: {{ version }}
     script: build-tiledbsoma-py.sh
     build:
-      binary_relocation: False
+      binary_relocation: 
+        - lib/python3.10/site-packages/tiledbsoma/libtiledbsoma.*
+        - lib/python3.10/site-packages/tiledbsoma/pytiledbsoma.*.so
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -74,7 +75,7 @@ outputs:
         - tiledb-py
     test:
       commands:
-        - python -c "import tiledbsoma"
+        - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"
 
 about:
   home: http://tiledb.com
