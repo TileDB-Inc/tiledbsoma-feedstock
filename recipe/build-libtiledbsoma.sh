@@ -2,5 +2,7 @@
 
 set -exo pipefail
 
-cd libtiledbsoma-build
+mkdir libtiledbsoma-build && cd libtiledbsoma-build
+cmake -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" ../libtiledbsoma
+make -j ${CPU_COUNT}
 make install-libtiledbsoma

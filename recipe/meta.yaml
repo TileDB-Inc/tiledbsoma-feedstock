@@ -9,20 +9,6 @@ source:
   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
   git_rev: 8a57a05edecc2b2e17675dc59791c2dedc764034
 
-requirements:
-  build:
-    - {{ compiler('cxx') }}
-    - {{ compiler('c') }}
-    - cmake >=3.21
-    - make
-  host:
-    - tiledb 2.14.*
-    - pybind11
-    - spdlog
-  run:
-    - tiledb 2.14.*
-    - spdlog
-
 outputs:
   - name: libtiledbsoma
     version: {{ version }}
@@ -52,8 +38,6 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ compiler('c') }}
-        - cmake >=3.21
-        - make
       host:
         - libtiledbsoma {{ version }}
         - pip
