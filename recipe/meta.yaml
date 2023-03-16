@@ -7,7 +7,7 @@ package:
 
 source:
     git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-    git_rev: 123cb4370057eb47c5657ca2f846336a86e6032e
+    git_rev: 047dee7af0e48401db0e9133479adcf6165f2983
 
 outputs:
   - name: libtiledbsoma
