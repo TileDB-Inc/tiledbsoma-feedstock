@@ -1,11 +1,11 @@
-About tiledbsoma
-================
+About tiledbsoma-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/tiledbsoma-feedstock/blob/main/LICENSE.txt)
 
 Home: http://tiledb.com
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/tiledbsoma-feedstock/blob/master/LICENSE.txt)
 
 Summary: TileDB-SOMA API
 
@@ -26,52 +26,31 @@ Current build status
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=master">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=master">
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=main">
           </a>
         </summary>
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_python3.10.____cpython</td>
+              <td>linux_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=master&jobName=linux&configuration=linux%20linux_64_python3.10.____cpython" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_python3.8.____cpython</td>
+              <td>osx_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=master&jobName=linux&configuration=linux%20linux_64_python3.8.____cpython" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_python3.9.____cpython</td>
+              <td>win_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=master&jobName=linux&configuration=linux%20linux_64_python3.9.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=master&jobName=osx&configuration=osx%20osx_64_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=master&jobName=osx&configuration=osx%20osx_64_python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.9.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=master&jobName=osx&configuration=osx%20osx_64_python3.9.____cpython" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -87,7 +66,8 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-tiledbsoma-green.svg)](https://anaconda.org/conda-forge/tiledbsoma) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tiledbsoma.svg)](https://anaconda.org/conda-forge/tiledbsoma) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tiledbsoma.svg)](https://anaconda.org/conda-forge/tiledbsoma) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tiledbsoma.svg)](https://anaconda.org/conda-forge/tiledbsoma) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libtiledbsoma-green.svg)](https://anaconda.org/conda-forge/libtiledbsoma) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libtiledbsoma.svg)](https://anaconda.org/conda-forge/libtiledbsoma) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libtiledbsoma.svg)](https://anaconda.org/conda-forge/libtiledbsoma) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libtiledbsoma.svg)](https://anaconda.org/conda-forge/libtiledbsoma) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-tiledbsoma--py-green.svg)](https://anaconda.org/conda-forge/tiledbsoma-py) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tiledbsoma-py.svg)](https://anaconda.org/conda-forge/tiledbsoma-py) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tiledbsoma-py.svg)](https://anaconda.org/conda-forge/tiledbsoma-py) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tiledbsoma-py.svg)](https://anaconda.org/conda-forge/tiledbsoma-py) |
 
 Installing tiledbsoma
 =====================
@@ -99,41 +79,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `tiledbsoma` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libtiledbsoma, tiledbsoma-py` can be installed with `conda`:
 
 ```
-conda install tiledbsoma
-```
-
-or with `mamba`:
-
-```
-mamba install tiledbsoma
-```
-
-It is possible to list all of the versions of `tiledbsoma` available on your platform with `conda`:
-
-```
-conda search tiledbsoma --channel conda-forge
+conda install libtiledbsoma tiledbsoma-py
 ```
 
 or with `mamba`:
 
 ```
-mamba search tiledbsoma --channel conda-forge
+mamba install libtiledbsoma tiledbsoma-py
+```
+
+It is possible to list all of the versions of `libtiledbsoma` available on your platform with `conda`:
+
+```
+conda search libtiledbsoma --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search libtiledbsoma --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search tiledbsoma --channel conda-forge
+mamba repoquery search libtiledbsoma --channel conda-forge
 
-# List packages depending on `tiledbsoma`:
-mamba repoquery whoneeds tiledbsoma --channel conda-forge
+# List packages depending on `libtiledbsoma`:
+mamba repoquery whoneeds libtiledbsoma --channel conda-forge
 
-# List dependencies of `tiledbsoma`:
-mamba repoquery depends tiledbsoma --channel conda-forge
+# List dependencies of `libtiledbsoma`:
+mamba repoquery depends libtiledbsoma --channel conda-forge
 ```
 
 
@@ -205,5 +185,6 @@ Feedstock Maintainers
 
 * [@gspowley](https://github.com/gspowley/)
 * [@johnkerl](https://github.com/johnkerl/)
+* [@mlin](https://github.com/mlin/)
 * [@shelnutt2](https://github.com/shelnutt2/)
 
