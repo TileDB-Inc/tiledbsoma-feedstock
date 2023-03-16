@@ -1,5 +1,5 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.0.1" %}
+{% set version = "1.1.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
     git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-    git_rev: 047dee7af0e48401db0e9133479adcf6165f2983
+    git_rev: b0b91f6d875f71a542859d944aae1fc82c107862
 
 outputs:
   - name: libtiledbsoma
