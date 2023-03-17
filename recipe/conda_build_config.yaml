@@ -5,7 +5,7 @@ MACOSX_DEPLOYMENT_TARGET: # [osx and x86_64]
 channel_sources:
   - conda-forge
 channel_targets:
-  - tiledb tiledbsoma_dev
+  - tiledb main
 python:
   - 3.10.* *_cpython
 python_impl:
