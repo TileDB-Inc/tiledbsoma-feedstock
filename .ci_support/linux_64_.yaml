@@ -1,7 +1,3 @@
-c_compiler:
-- gcc
-c_compiler_version:
-- '11'
 cdt_name:
 - cos6
 channel_sources:
@@ -27,6 +23,3 @@ spdlog:
 - '1.11'
 target_platform:
 - linux-64
-zip_keys:
-- - c_compiler_version
-  - cxx_compiler_version
