@@ -1,9 +1,7 @@
-c_compiler:
-- vs2019
 channel_sources:
 - conda-forge
 channel_targets:
-- tiledb tiledbsoma_dev
+- tiledb main
 cxx_compiler:
 - vs2019
 pin_run_as_build:
@@ -12,6 +10,7 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - 3.10.* *_cpython
+- 3.7.* *_cpython
 - 3.8.* *_cpython
 - 3.9.* *_cpython
 spdlog:

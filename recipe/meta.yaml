@@ -16,7 +16,6 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
-        - {{ compiler('c') }}
         - cmake
         - make
         - pybind11
@@ -32,23 +31,21 @@ outputs:
     script: build-tiledbsoma-py.sh
     build:
       binary_relocation: 
-        - lib/python3.10/site-packages/tiledbsoma/libtiledbsoma.*
-        - lib/python3.10/site-packages/tiledbsoma/pytiledbsoma.*.so
+        - lib/python*/site-packages/tiledbsoma/libtiledbsoma.*
+        - lib/python*/site-packages/tiledbsoma/pytiledbsoma.*.so
     requirements:
       build:
         - {{ compiler('cxx') }}
-        - {{ compiler('c') }}
       host:
         - libtiledbsoma {{ version }}
         - pip
         - python
-        - cross-python_{{ target_platform }} # [build_platform != target_platform]
         - pybind11
         - setuptools
         - setuptools_scm
-        - spdlog
         - wheel
       run:
+        - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - anndata
         - pandas
@@ -56,7 +53,6 @@ outputs:
         - scanpy
         - scipy
         - spdlog
-        - tiledb-py
     test:
       commands:
         - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"
