@@ -1,13 +1,9 @@
-c_compiler:
-- gcc
-c_compiler_version:
-- '11'
 cdt_name:
 - cos6
 channel_sources:
 - conda-forge
 channel_targets:
-- tiledb tiledbsoma_dev
+- tiledb main
 cxx_compiler:
 - gxx
 cxx_compiler_version:
@@ -20,12 +16,10 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - 3.10.* *_cpython
+- 3.7.* *_cpython
 - 3.8.* *_cpython
 - 3.9.* *_cpython
 spdlog:
 - '1.11'
 target_platform:
 - linux-64
-zip_keys:
-- - c_compiler_version
-  - cxx_compiler_version
