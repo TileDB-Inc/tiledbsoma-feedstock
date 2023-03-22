@@ -4,5 +4,5 @@ set -ex
 
 cd apis/python
 
-echo "1.1.1" >> RELEASE-VERSION
+echo "$PKG_VERSION" >> RELEASE-VERSION
 $PYTHON -m pip install . -vv
