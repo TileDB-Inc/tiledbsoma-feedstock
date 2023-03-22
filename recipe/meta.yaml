@@ -1,19 +1,17 @@
 {% set name = "tiledbsoma" %}
 {% set version = "1.1.1" %}
-{% set sha256 = "ac01357ed1f793fe96f728e4abb4965c7303918510cec38fda1ea5ef5ad47643" %}
+{% set sha256 = "a5ee104c326104d2a95777ca4b05f67d3422198879abc06f9269e6e5d101e037" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-  #  git_rev: b0b91f6d875f71a542859d944aae1fc82c107862
-  url: https://github.com/TileDB-Inc/single-cell-data/TileDB-SOMA/{{ version }}.tar.gz
+  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   skip: true  # [linux32 or py2k]
 
 outputs:
@@ -48,6 +46,7 @@ outputs:
         - pybind11                               # [build_platform != target_platform]
         - pyarrow 9.0.*                          # [build_platform != target_platform]
         - numpy                                  # [build_platform != target_platform]
+        - cmake                                  # [build_platform != target_platform]
       host:
         - libtiledbsoma {{ version }}
         - pip
@@ -56,6 +55,7 @@ outputs:
         - setuptools
         - setuptools_scm
         - wheel
+        - cmake
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
