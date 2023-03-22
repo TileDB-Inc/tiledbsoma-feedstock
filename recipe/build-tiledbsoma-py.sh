@@ -4,4 +4,5 @@ set -ex
 
 cd apis/python
 
-$PYTHON -m pip install . -vv
+echo "$PKG_VERSION" >> RELEASE-VERSION
+$PYTHON setup.py install --single-version-externally-managed --record record.txt --libtiledbsoma="${PREFIX}"

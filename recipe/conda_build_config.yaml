@@ -1,23 +1,25 @@
-MACOSX_SDK_VERSION: # [osx and x86_64]
-  - 10.14 # [osx and x86_64]
-MACOSX_DEPLOYMENT_TARGET: # [osx and x86_64]
-  - "10.14" # [osx and x86_64]
+MACOSX_SDK_VERSION:  # [osx and x86_64]
+  - 10.14            # [osx and x86_64]
+MACOSX_DEPLOYMENT_TARGET:  # [osx and x86_64]
+  - "10.14"                # [osx and x86_64]
 channel_sources:
-  - conda-forge
+  - conda-forge,tiledb
 channel_targets:
   - tiledb main
+channel_priority:
+  - strict
 numpy:
-  - 1.20 # [not (osx and arm64)]
+  - 1.20   # [not osx]
   - 1.20
   - 1.20
   - 1.21
 python:
-  - 3.7.* *_cpython # [not (osx and arm64)]
+  - 3.7.* *_cpython   # [not osx]
   - 3.8.* *_cpython
   - 3.9.* *_cpython
   - 3.10.* *_cpython
 python_impl:
-  - cpython # [not (osx and arm64)]
+  - cpython   # [not osx]
   - cpython
   - cpython
   - cpython
