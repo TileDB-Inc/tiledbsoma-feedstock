@@ -1,29 +1,36 @@
 {% set name = "tiledbsoma" %}
 {% set version = "1.1.1" %}
+{% set sha256 = "ac01357ed1f793fe96f728e4abb4965c7303918510cec38fda1ea5ef5ad47643" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-    git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-    git_rev: b0b91f6d875f71a542859d944aae1fc82c107862
+  #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  #  git_rev: b0b91f6d875f71a542859d944aae1fc82c107862
+  url: https://github.com/TileDB-Inc/single-cell-data/TileDB-SOMA/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 1
+  skip: true  # [linux32 or py2k]
 
 outputs:
   - name: libtiledbsoma
     version: {{ version }}
-    script: build-libtiledbsoma.sh
+    script: build-libtiledbsoma.sh  # [not win]
     requirements:
       build:
         - {{ compiler('cxx') }}
         - cmake
-        - make
+        - make  # [not win]
         - pybind11
       host:
-        - tiledb 2.14.*
+        - tiledb 2.15.*
         - spdlog
       run:
-        - tiledb 2.14.*
+        - tiledb 2.15.*
         - spdlog
 
   - name: tiledbsoma-py
@@ -36,6 +43,11 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - pybind11                               # [build_platform != target_platform]
+        - pyarrow 9.0.*                          # [build_platform != target_platform]
+        - numpy                                  # [build_platform != target_platform]
       host:
         - libtiledbsoma {{ version }}
         - pip
@@ -53,6 +65,8 @@ outputs:
         - scanpy
         - scipy
         - spdlog
+    imports:
+      - tiledbsoma
     test:
       commands:
         - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"

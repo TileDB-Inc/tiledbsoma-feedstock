@@ -1,1 +1,13 @@
-{}
+# - only affects README installation instructions
+# - edit recipe/conda_build_config.yaml to affect build
+channels:
+  targets:
+    - ["tiledb", "main"]
+github:
+  user_or_org: TileDB-Inc
+  branch_name: master
+  tooling_branch_name: main
+build_platform:
+  osx_arm64: osx_64
+conda_forge_output_validation: true
+test_on_native_only: true
