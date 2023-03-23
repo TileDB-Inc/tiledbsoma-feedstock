@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
 {% set version = "1.1.1" %}
-{% set sha256 = "e0a594dd416ba3adbca2acccae5a02e9cefbc79126733e14d2857c8f4f62982b" %}
+{% set sha256 = "28b37b0c896a08c0b6261d7deb2940300735a492ac82fa71f7b3de543b57b1c2" %}
 
 
 
@@ -10,7 +10,7 @@ package:
 
 source:
   #url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/10412eff0d358ec22418a5ce437f5aa750e67808.tar.gz
+  url: https://github.com/single-cell-data/TileDB-SOMA/archive/089fb868ebd633b2808b9d39c5024287d69a650d.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -31,10 +31,14 @@ outputs:
       host:
         - tiledb 2.15.*
         - spdlog
+        - fmt
       run:
         - tiledb 2.15.*
         - spdlog
-
+        - fmt
+    test:
+      commands:
+        - tdbsoma version
   - name: tiledbsoma-py
     version: {{ version }}
     script: build-tiledbsoma-py.sh
