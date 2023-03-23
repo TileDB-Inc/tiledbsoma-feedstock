@@ -12,7 +12,7 @@ source:
 
 build:
   number: 2
-  skip: true  # [linux32 or py2k]
+  skip: true  # [win or linux32 or py2k]
 
 outputs:
   - name: libtiledbsoma
@@ -61,7 +61,7 @@ outputs:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - anndata
         - pandas
-        - pyarrow
+        - pyarrow 9.0.*
         - scanpy
         - scipy
         - spdlog
