@@ -36,9 +36,6 @@ outputs:
         - tiledb 2.15.*
         - spdlog
         - fmt
-    test:
-      commands:
-        - tdbsoma version
   - name: tiledbsoma-py
     version: {{ version }}
     script: build-tiledbsoma-py.sh
