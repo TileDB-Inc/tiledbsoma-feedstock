@@ -60,6 +60,7 @@ outputs:
         - setuptools
         - setuptools_scm
         - wheel
+        - pip
         # - scipy
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
