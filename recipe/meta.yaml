@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.1.1" %}
-{% set sha256 = "28b37b0c896a08c0b6261d7deb2940300735a492ac82fa71f7b3de543b57b1c2" %}
+{% set version = "1.1.2" %}
+{% set sha256 = "4057354336cd867af0357d49a4d86fb40898c3d0ffd78e2016039943f1b16b05" %}
 
 
 
@@ -10,7 +10,7 @@ package:
 
 source:
   #url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/089fb868ebd633b2808b9d39c5024287d69a650d.tar.gz
+  url: https://github.com/single-cell-data/TileDB-SOMA/archive/d44c2f2522174fc8db150843bfba54beead411ab.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -40,32 +40,20 @@ outputs:
     version: {{ version }}
     script: build-tiledbsoma-py.sh
     build:
-      # binary_relocation: 
-      #   - lib/python*/site-packages/tiledbsoma/libtiledbsoma.*
-      #   - lib/python*/site-packages/tiledbsoma/pytiledbsoma.*.so
     requirements:
       build:
         - {{ compiler('cxx') }}
         - {{ compiler('c') }}
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-        # - pybind11                               # [build_platform != target_platform]
-        # - pyarrow 9.0.*                          # [build_platform != target_platform]
-        # - numba                                  # [build_platform != target_platform]
-        # - scipy                                  # [build_platform != target_platform]
-        # - numpy                                  # [build_platform != target_platform]
       host:
         - python
-        # - numba
-        # - numpy
         - libtiledbsoma {{ version }}
         - pyarrow 9.0.*
         - pybind11
         - setuptools
         - setuptools_scm
         - wheel
-        # - pip
-        # - scipy
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
