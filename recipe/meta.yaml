@@ -52,15 +52,15 @@ outputs:
         # - numpy                                  # [build_platform != target_platform]
       host:
         - python
-        - numba
-        - numpy
+        # - numba
+        # - numpy
         - libtiledbsoma {{ version }}
         - pyarrow 9.0.*
         - pybind11
         - setuptools
         - setuptools_scm
         - wheel
-        - scipy
+        # - scipy
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
@@ -74,6 +74,7 @@ outputs:
         - typing-extensions
         - numba
         - attrs
+        - numpy
         # - somacore 1.0.*
     imports:
       - tiledbsoma
