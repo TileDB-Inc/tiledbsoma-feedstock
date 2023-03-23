@@ -36,20 +36,20 @@ outputs:
     version: {{ version }}
     script: build-tiledbsoma-py.sh
     build:
-      binary_relocation: 
-        - lib/python*/site-packages/tiledbsoma/libtiledbsoma.*
-        - lib/python*/site-packages/tiledbsoma/pytiledbsoma.*.so
+      # binary_relocation: 
+      #   - lib/python*/site-packages/tiledbsoma/libtiledbsoma.*
+      #   - lib/python*/site-packages/tiledbsoma/pytiledbsoma.*.so
     requirements:
       build:
         - {{ compiler('cxx') }}
         - {{ compiler('c') }}
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-        - pybind11                               # [build_platform != target_platform]
-        - pyarrow 9.0.*                          # [build_platform != target_platform]
-        - numba                                  # [build_platform != target_platform]
-        - scipy                                  # [build_platform != target_platform]
-        - numpy                                  # [build_platform != target_platform]
+        # - pybind11                               # [build_platform != target_platform]
+        # - pyarrow 9.0.*                          # [build_platform != target_platform]
+        # - numba                                  # [build_platform != target_platform]
+        # - scipy                                  # [build_platform != target_platform]
+        # - numpy                                  # [build_platform != target_platform]
       host:
         - numpy
         - libtiledbsoma {{ version }}
