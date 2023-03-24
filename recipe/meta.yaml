@@ -60,7 +60,7 @@ outputs:
         - anndata
         - pandas
         - pyarrow 9.0.*
-        - scanpy 1.9.*
+        # - scanpy 1.9.*
         - scipy
         - anndata
         - tiledb-py 0.21.*
@@ -68,7 +68,6 @@ outputs:
         - numba
         - attrs
         - numpy
-        # - somacore 1.0.*
     imports:
       - tiledbsoma
     test:
