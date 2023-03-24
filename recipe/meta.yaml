@@ -53,14 +53,12 @@ outputs:
         - setuptools
         - setuptools_scm
         - wheel
-        - scanpy 1.9.*
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - anndata
         - pandas
         - pyarrow 9.0.*
-        - scanpy 1.9.*
         - scipy
         - anndata
         - tiledb-py 0.21.*
