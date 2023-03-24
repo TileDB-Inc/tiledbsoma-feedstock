@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
 {% set version = "1.1.2" %}
-{% set sha256 = "4057354336cd867af0357d49a4d86fb40898c3d0ffd78e2016039943f1b16b05" %}
+{% set sha256 = "7c10b39df50b3bf90eaa2237fcfdca349b2d6efdecaef81103979930edd5b1c8" %}
 
 
 
@@ -10,7 +10,7 @@ package:
 
 source:
   #url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/d44c2f2522174fc8db150843bfba54beead411ab.tar.gz
+  url: https://github.com/single-cell-data/TileDB-SOMA/archive/64b262c1336c0498ff001d4180d0eb27d1d574cc.tar.gz
   sha256: {{ sha256 }}
 
 build:
