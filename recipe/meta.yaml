@@ -68,6 +68,7 @@ outputs:
         - numba
         - attrs
         - numpy
+        - somacore 1.0.*
     imports:
       - tiledbsoma
     test:
