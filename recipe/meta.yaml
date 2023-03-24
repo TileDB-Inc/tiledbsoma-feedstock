@@ -59,7 +59,7 @@ outputs:
         - anndata
         - pandas
         - pyarrow 9.0.*
-        - scanpy 1.9.*
+        - scanpy
         - scipy
         - anndata
         - tiledb-py 0.21.*
