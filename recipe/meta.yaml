@@ -66,6 +66,7 @@ outputs:
         - numba
         - attrs
         - somacore 1.0.*
+        - scanpy 1.9.*
     imports:
       - tiledbsoma
     test:
