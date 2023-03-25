@@ -6,6 +6,8 @@ channel_sources:
   - conda-forge,tiledb
 channel_targets:
   - tiledb main
+# channel_priority:
+#   - strict
 numpy:
   - 1.20   # [not (osx and arm64)]
   - 1.20

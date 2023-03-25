@@ -48,13 +48,13 @@ outputs:
       host:
         - python
         - libtiledbsoma {{ version }}
-        - pyarrow 9.0.*
+        # - pyarrow 9.0.*
         - pybind11
         - setuptools
         - setuptools_scm
         - wheel
       run:
-        - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
+        - {{ pin_compatible('numpy', lower_bound='1.20', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - anndata
         - pandas
