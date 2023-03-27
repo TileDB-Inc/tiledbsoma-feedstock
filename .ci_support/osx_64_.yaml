@@ -18,6 +18,10 @@ fmt:
 - '9'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+numpy:
+- '1.21'
+- '1.20'
+- '1.20'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -33,3 +37,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - python
+  - numpy
