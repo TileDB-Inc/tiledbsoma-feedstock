@@ -5,7 +5,7 @@ channels:
     - ["tiledb", "main"]
 github:
   user_or_org: TileDB-Inc
-  branch_name: master
+  branch_name: main
   tooling_branch_name: main
 build_platform:
   osx_arm64: osx_64
