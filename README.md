@@ -145,6 +145,7 @@ Feedstock Maintainers
 =====================
 
 * [@gspowley](https://github.com/gspowley/)
+* [@jdblischak](https://github.com/jdblischak/)
 * [@johnkerl](https://github.com/johnkerl/)
 * [@mlin](https://github.com/mlin/)
 * [@shelnutt2](https://github.com/shelnutt2/)
