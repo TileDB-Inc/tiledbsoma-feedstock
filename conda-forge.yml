@@ -12,3 +12,4 @@ build_platform:
 conda_forge_output_validation: true
 test_on_native_only: true
 # build_with_mambabuild: false
+upload_on_branch: main
