@@ -72,9 +72,9 @@ outputs:
         - attrs
         - somacore 1.0.*
         - scanpy 1.9.*
-    imports:
-      - tiledbsoma
     test:
+      imports:
+        - tiledbsoma
       commands:
         - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"
 
