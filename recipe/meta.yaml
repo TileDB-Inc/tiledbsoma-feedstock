@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or linux32 or py2k]
 
 outputs:
@@ -64,7 +64,8 @@ outputs:
         - pyarrow 9.0.*
         - python
         - scipy
-        - anndata
+        - anndata       # [py>37]
+        - anndata <0.9  # [py<=37]
         - tiledb-py 0.21.*
         - typing-extensions
         - numba
