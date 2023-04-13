@@ -5,4 +5,5 @@ set -ex
 cd apis/python
 
 echo "$PKG_VERSION" >> RELEASE-VERSION
-$PYTHON setup.py install --single-version-externally-managed --record record.txt --libtiledbsoma="${PREFIX}"
+export TILEDBSOMA_PATH="${PREFIX}"
+$PYTHON setup.py install --single-version-externally-managed --record record.txt
