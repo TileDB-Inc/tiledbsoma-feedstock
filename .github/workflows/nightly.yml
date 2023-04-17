@@ -14,15 +14,21 @@ on:
 jobs:
   nightly:
     runs-on: ubuntu-latest
+    env:
+      TZ: "America/New_York"
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v3
       - name: Update recipe source to use Git repo
         run: |
-          # append "-nightly" to version string
+          # append the date (.devYYYYMMDD) to version string
+          # has to follow conda recipe rules (no dashes) and PEP 440 (enforced by setuptools)
+          # https://peps.python.org/pep-0440/
+          # https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html?highlight=recipe%20meta.yaml#package-version
+          the_date="$(date +%Y%m%d)"
           sed -i \
-            s/"{% set version = \"\(.*\)\" %}"/"{% set version = \"\\1-nightly\" %}"/ \
+            s/"{% set version = \"\(.*\)\" %}"/"{% set version = \"\\1.dev${the_date}\" %}"/ \
             recipe/meta.yaml
 
           # Use Git URL as source
