@@ -79,7 +79,8 @@ outputs:
         - anndata <0.9  # [py<=37]
         - tiledb-py 0.21.*
         - typing-extensions
-        - numba
+        - numba == 0.56.4        # [py>310]
+        - numba == 0.57.0rc1     # [py<=310]
         - attrs
         - somacore 1.0.*
         - scanpy 1.9.*
