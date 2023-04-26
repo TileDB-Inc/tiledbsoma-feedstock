@@ -5,6 +5,8 @@
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
 #   https://github.com/single-cell-data/TileDB-SOMA/releases/tag/i.j.k
+#
+# See also build number below
 
 package:
   name: {{ name }}
@@ -21,8 +23,9 @@ source:
 
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win or linux32 or py2k]
+# Important: set this back to 0 on a new release
 
 outputs:
   - name: libtiledbsoma
