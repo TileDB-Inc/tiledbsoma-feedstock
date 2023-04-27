@@ -23,9 +23,10 @@ source:
 
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
+# Important: increment if there is not a new release
 
 outputs:
   - name: libtiledbsoma
@@ -39,11 +40,11 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >= 2.15.1
+        - tiledb >=2.15.2,<2.16
         - spdlog
         - fmt
       run:
-        - tiledb >= 2.15.1
+        - tiledb >=2.15.2,<2.16
         - spdlog
         - fmt
   - name: tiledbsoma-py
@@ -77,7 +78,7 @@ outputs:
         - scipy
         - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
-        - tiledb-py >= 0.21.2
+        - tiledb-py >=0.21.3,<0.22.0
         - typing-extensions
         - numba
         - attrs
