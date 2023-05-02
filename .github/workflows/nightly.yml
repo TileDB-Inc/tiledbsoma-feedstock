@@ -38,5 +38,5 @@ jobs:
         shell: bash -l {0}
         run: conda smithy rerender --commit auto
       - name: Push update to GitHub
-        # if: ${{ github.ref == 'refs/heads/main' && github.repository == 'TileDB-Inc/tiledbsoma-feedstock' && github.event_name != 'pull_request' }}
+        if: ${{ github.ref == 'refs/heads/main' && github.repository == 'TileDB-Inc/tiledbsoma-feedstock' && github.event_name != 'pull_request' }}
         run: git push --force origin HEAD:nightly-build
