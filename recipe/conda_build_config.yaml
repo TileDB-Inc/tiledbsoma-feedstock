@@ -11,9 +11,12 @@ channel_priority:
 numpy:
   - 1.20   # [not osx]
   - 1.20
+  - 1.20
 python:
   - 3.7.* *_cpython   # [not osx]
   - 3.8.* *_cpython
+  - 3.9.* *_cpython
 python_impl:
   - cpython   # [not osx]
+  - cpython
   - cpython
