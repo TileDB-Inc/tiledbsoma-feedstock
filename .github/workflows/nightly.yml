@@ -1,8 +1,8 @@
 # This pipeline runs nightly. It updates the recipe to build the latest commit
 # from "main" in the TileDB-SOMA repo, and force pushes to the branch
-# "nightly-build", which triggers the feedstock builds on Azure. Because
-# `upload_on_branch: main` is set in `conda-forge.yml`, any binaries produced by
-# this nightly test build are never uploaded to anaconda.org
+# "nightly-build", which triggers the feedstock builds on Azure. It also sets
+# `upload_on_branch` in `conda-forge.yml` to "nightly-build" and rerenders, so the
+# binaries are uploaded to anaconda.org
 name: Trigger nightly build
 on:
   push:
