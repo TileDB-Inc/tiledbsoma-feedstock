@@ -12,15 +12,14 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
-# Pre-release canary "will Conda be green if we release":
 # source:
-#   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#   git_rev: 00commithashyouwanttotest00commithashyouwanttotest00
-#   git_depth: 1
-
+#   url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+#   sha256: {{ sha256 }}
+# Pre-release canary "will Conda be green if we release":
+source:
+  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  git_rev: main
+  git_depth: 1
 
 build:
   number: 0
@@ -49,7 +48,6 @@ outputs:
   - name: tiledbsoma-py
     version: {{ version }}
     script: build-tiledbsoma-py.sh
-    build:
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -88,6 +86,53 @@ outputs:
         - tiledbsoma
       commands:
         - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"
+  - name: r-tiledbsoma
+    version: 0.0.0.9022
+    # Is there a plan to unify the versioning scheme with the library and Python client?
+    #version: {{ version }}
+    script: build-r-tiledbsoma.sh
+    requirements:
+      build:
+        - {{ compiler('cxx') }}
+        - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+        - r-rcpp                     # [build_platform != target_platform]
+        - r-rcppspdlog               # [build_platform != target_platform]
+      host:
+        - libtiledbsoma {{ version }}
+        - r-base
+        - r-r6
+        - r-matrix
+        - r-bit64
+        - r-tiledb >=0.19.1
+        - r-arrow
+        - r-fs
+        - r-glue
+        - r-urltools
+        - r-rcpp
+        - r-dplyr
+        - r-data.table
+        - r-spdl
+        - r-rlang
+      run:
+        - {{ pin_subpackage('libtiledbsoma', exact=True) }}
+        - r-base
+        - r-r6
+        - r-matrix
+        - r-bit64
+        - r-tiledb >=0.19.1
+        - r-arrow
+        - r-fs
+        - r-glue
+        - r-urltools
+        - r-rcpp
+        - r-dplyr
+        - r-data.table
+        - r-spdl
+        - r-rlang
+    test:
+      commands:
+        - $R -e "library('tiledbsoma')"
+        - $R -e "tiledbsoma::show_package_versions()"
 
 about:
   home: http://tiledb.com
