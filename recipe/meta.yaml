@@ -101,6 +101,7 @@ outputs:
         - cross-r-base {{ r_base }}  # [build_platform != target_platform]
         - r-rcpp                     # [build_platform != target_platform]
         - r-rcppspdlog               # [build_platform != target_platform]
+        - r-lattice                  # [build_platform != target_platform]
       host:
         - libtiledbsoma {{ version }}
         - r-base
@@ -117,6 +118,7 @@ outputs:
         - r-data.table
         - r-spdl
         - r-rlang
+        - r-lattice
       run:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
@@ -133,6 +135,7 @@ outputs:
         - r-data.table
         - r-spdl
         - r-rlang
+        - r-lattice
     test:
       commands:
         - $R -e "library('tiledbsoma')"
