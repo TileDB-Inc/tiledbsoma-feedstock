@@ -91,6 +91,10 @@ outputs:
     # Is there a plan to unify the versioning scheme with the library and Python client?
     #version: {{ version }}
     script: build-r-tiledbsoma.sh
+    build:
+      rpaths:
+        - lib/R/lib/
+        - lib/
     requirements:
       build:
         - {{ compiler('cxx') }}
