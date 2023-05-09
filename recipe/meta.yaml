@@ -101,18 +101,16 @@ outputs:
         # required for cross-compilation
         - cross-r-base {{ r_base }}  # [build_platform != target_platform]
         - r-rcppspdlog               # [build_platform != target_platform]
-        #- r-r6                       # [build_platform != target_platform]
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64                    # [build_platform != target_platform]
-        #- r-tiledb >=0.19.1          # [build_platform != target_platform]
+        - r-tiledb >=0.19.1          # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
-        #- r-fs                       # [build_platform != target_platform]
+        - r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
-#        - r-urltools                 # [build_platform != target_platform]
+        - r-urltools                 # [build_platform != target_platform]
         - r-rcpp                     # [build_platform != target_platform]
-#        - r-dplyr                    # [build_platform != target_platform]
-#        - r-data.table               # [build_platform != target_platform]
-#        - r-spdl                     # [build_platform != target_platform]
+        - r-dplyr                    # [build_platform != target_platform]
+        - r-data.table               # [build_platform != target_platform]
         - r-rlang                    # [build_platform != target_platform]
       host:
         - libtiledbsoma {{ version }}
