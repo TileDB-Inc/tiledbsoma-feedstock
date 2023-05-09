@@ -106,7 +106,7 @@ outputs:
         - r-bit64                    # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
         - r-rlang                    # [build_platform != target_platform]
-        host:
+      host:
         - libtiledbsoma {{ version }}
         - r-base
         - r-r6
