@@ -105,7 +105,7 @@ outputs:
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64                    # [build_platform != target_platform]
         #- r-tiledb >=0.19.1          # [build_platform != target_platform]
-        #- r-arrow                    # [build_platform != target_platform]
+        - r-arrow                    # [build_platform != target_platform]
         #- r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
 #        - r-urltools                 # [build_platform != target_platform]
