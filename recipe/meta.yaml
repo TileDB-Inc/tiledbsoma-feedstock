@@ -104,6 +104,7 @@ outputs:
         - r-lattice                  # [build_platform != target_platform]
         - r-matrix                   # [build_platform != target_platform]
         - r-bit                      # [build_platform != target_platform]
+        - r-bit64                    # [build_platform != target_platform]
       host:
         - libtiledbsoma {{ version }}
         - r-base
