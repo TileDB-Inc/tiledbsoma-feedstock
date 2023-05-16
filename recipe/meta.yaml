@@ -98,6 +98,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - pkg-config
         # required for cross-compilation
         - cross-r-base {{ r_base }}  # [build_platform != target_platform]
         - r-rcppspdlog               # [build_platform != target_platform]
