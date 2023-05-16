@@ -20,4 +20,4 @@ fi
 
 export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
 
-${R} CMD INSTALL --build --no-help . ${R_ARGS}
+${R} CMD INSTALL --build . ${R_ARGS}
