@@ -25,7 +25,7 @@ package:
 source:
   git_url: https://github.com/jdblischak/TileDB-SOMA.git
   git_rev: jdb/r-conda
-  git_depth: 1
+  git_depth: -1
 
 build:
   number: 0
