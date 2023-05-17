@@ -2,6 +2,8 @@
 
 set -ex
 
+find $CONDA_PREFIX -type f -name '*soma*'
+
 cd apis/r
 
 export DISABLE_AUTOBREW=1
