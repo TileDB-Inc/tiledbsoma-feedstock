@@ -76,6 +76,7 @@ if [[ "${BUILD_WITH_CONDA_DEBUG:-0}" == 1 ]]; then
     /bin/bash
 else
     conda mambabuild ./recipe -m ./.ci_support/${CONFIG}.yaml \
+        --prefix-length 120 \
         --suppress-variables ${EXTRA_CB_OPTIONS:-} \
         --clobber-file ./.ci_support/clobber_${CONFIG}.yaml
     ( startgroup "Validating outputs" ) 2> /dev/null
