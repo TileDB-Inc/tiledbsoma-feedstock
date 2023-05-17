@@ -2,7 +2,8 @@
 
 set -ex
 
-find $CONDA_PREFIX -type f -name '*soma*'
+find $PREFIX -type f -name '*soma*'
+find $PREFIX -type f -name '*arrow*'
 
 cd apis/r
 
