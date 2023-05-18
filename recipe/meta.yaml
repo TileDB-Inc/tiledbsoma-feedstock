@@ -153,8 +153,6 @@ outputs:
         - r-rlang
     test:
       commands:
-        - which $R
-        - $R --version
         - $R -e "library('tiledbsoma')"
         - $R -e "tiledbsoma::show_package_versions()"
 

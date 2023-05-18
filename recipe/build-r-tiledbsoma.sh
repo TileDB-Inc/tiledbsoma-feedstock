@@ -23,7 +23,10 @@ fi
 
 export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
 
-which ${R}
-${R} --version
+if [[ -d "$PREFIX/lib/R/library/tiledbsoma" ]]
+then
+  echo deleting previous build of r-tiledbsoma
+  rm -rf  $PREFIX/lib/R/library/tiledbsoma
+fi
 
 ${R} CMD INSTALL --build . ${R_ARGS}
