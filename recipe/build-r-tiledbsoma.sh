@@ -2,9 +2,6 @@
 
 set -ex
 
-find $PREFIX -type f -name '*soma*'
-find $PREFIX -type f -name '*arrow*'
-
 cd apis/r
 
 export DISABLE_AUTOBREW=1
@@ -23,6 +20,7 @@ fi
 
 export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
 
+find "$PREFIX" -name '*tile*'
 if [[ -d "$PREFIX/lib/R/library/tiledbsoma" ]]
 then
   echo deleting previous build of r-tiledbsoma
@@ -30,3 +28,4 @@ then
 fi
 
 ${R} CMD INSTALL --build . ${R_ARGS}
+find "$PREFIX" -name '*tile*'
