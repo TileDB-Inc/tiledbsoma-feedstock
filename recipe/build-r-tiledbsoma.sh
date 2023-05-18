@@ -20,12 +20,4 @@ fi
 
 export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
 
-find "$PREFIX" -name '*tile*'
-if [[ -d "$PREFIX/lib/R/library/tiledbsoma" ]]
-then
-  echo deleting previous build of r-tiledbsoma
-  rm -rf  $PREFIX/lib/R/library/tiledbsoma
-fi
-
-${R} CMD INSTALL --build . ${R_ARGS}
-find "$PREFIX" -name '*tile*'
+${R} CMD INSTALL --preclean --clean --build . ${R_ARGS}
