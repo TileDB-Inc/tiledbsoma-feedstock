@@ -149,8 +149,8 @@ outputs:
       commands:
         - $R -e "library('tiledbsoma')"
         - $R -e "tiledbsoma::show_package_versions()"
-        - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.dylib | grep libR"  # [osx]
-        - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so | grep libR"  # [linux]
+        - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.dylib | grep -e libR -e libtiledb"  # [osx]
+        - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so | grep -e libR -e libtiledb"  # [linux]
 
 about:
   home: http://tiledb.com
