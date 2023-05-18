@@ -38,6 +38,9 @@ jobs:
         else
           export IS_PR_BUILD="False"
         fi
+        # inspect system R
+        which R
+        Rscript --version
         .scripts/run_docker_build.sh
     displayName: Run docker build
     env:
