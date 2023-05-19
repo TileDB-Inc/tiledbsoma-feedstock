@@ -20,4 +20,16 @@ fi
 
 export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
 
-${R} CMD INSTALL --preclean --clean --build . ${R_ARGS}
+# Unlike most R recipes which are built for one R version per job, this recipe
+# with multiple outputs builds for each of the R versions in the same job. Thus
+# the compiled files in the source directory need to be cleaned between builds,
+# otherwise, the files are only compiled during the first build
+R_ARGS_EXTRA="--clean"
+# The .Rd files use the `\Sexpr{}` macro to evaluate R code, so the man pages
+# can't be installed when cross-compiling for osx-arm64 from osx-amd64
+# https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Dynamic-pages
+if [[ $target_platform  == osx-arm64 ]]; then
+  R_ARGS_EXTRA="$R_ARGS_EXTRA --no-help"
+fi
+
+${R} CMD INSTALL ${R_ARGS_EXTRA} --build . ${R_ARGS}
