@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.2.2" %}
-{% set sha256 = "defba105e3dff2d49499a555f68c798aa860e4582f1b1c197bad592b0418a7f8" %}
+{% set version = "1.2.3" %}
+{% set sha256 = "0fabb345068b343443004160220df6817f384430c4d941641eaeef4f29c803e2" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -12,14 +12,14 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-# source:
-#   url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-#   sha256: {{ sha256 }}
-# Pre-release canary "will Conda be green if we release":
 source:
-  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-  git_rev: main
-  git_depth: 1
+  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+# Pre-release canary "will Conda be green if we release":
+# source:
+#   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+#   git_rev: main
+#   git_depth: 1
 
 build:
   number: 0
@@ -38,11 +38,11 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb 2.15.*
+        - tiledb >=2.15.2,<2.16
         - spdlog
         - fmt
       run:
-        - tiledb 2.15.*
+        - tiledb >=2.15.2,<2.16
         - spdlog
         - fmt
   - name: tiledbsoma-py
@@ -75,7 +75,7 @@ outputs:
         - scipy
         - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
-        - tiledb-py 0.21.*
+        - tiledb-py >=0.21.3,<0.22.0
         - typing-extensions
         - numba
         - attrs
@@ -87,7 +87,7 @@ outputs:
       commands:
         - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"
   - name: r-tiledbsoma
-    version: 0.0.0.9024
+    version: 0.0.0.9022
     # Is there a plan to unify the versioning scheme with the library and Python client?
     #version: {{ version }}
     script: build-r-tiledbsoma.sh
