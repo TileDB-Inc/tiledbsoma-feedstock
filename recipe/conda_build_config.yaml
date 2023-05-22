@@ -9,17 +9,17 @@ channel_targets:
 channel_priority:
   - strict
 numpy:
-  - 1.20   # [not osx]
+  #- 1.20   # [not osx]
+  #- 1.20
   - 1.20
-  - 1.20
-  - 1.21
+  #- 1.21
 python:
-  - 3.7.* *_cpython   # [not osx]
-  - 3.8.* *_cpython
+  #- 3.7.* *_cpython   # [not osx]
+  #- 3.8.* *_cpython
   - 3.9.* *_cpython
-  - 3.10.* *_cpython
+  #- 3.10.* *_cpython
 python_impl:
-  - cpython   # [not osx]
+  #- cpython   # [not osx]
+  #- cpython
   - cpython
-  - cpython
-  - cpython
+  #- cpython
