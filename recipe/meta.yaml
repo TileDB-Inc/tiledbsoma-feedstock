@@ -16,10 +16,11 @@ source:
   url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
 # Pre-release canary "will Conda be green if we release":
-# source:
-#   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#   git_rev: 00commithashyouwanttotest00commithashyouwanttotest00
-#   git_depth: 1
+source:
+  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  git_rev: db2782bad8b11f7eb0899d0a8b78118c6b5a49a2
+  git_depth: 1
+  # hoping to be 1.2.4
 
 
 build:
