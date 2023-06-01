@@ -23,7 +23,7 @@ source:
 
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -78,7 +78,7 @@ outputs:
         - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
         - tiledb-py 0.21.*
-        - typing-extensions
+        - typing-extensions >= 4.1
         - numba
         - attrs
         - somacore 1.0.*
