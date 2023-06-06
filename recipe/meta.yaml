@@ -1,5 +1,6 @@
 {% set name = "tiledbsoma" %}
 {% set version = "1.2.4" %}
+{% set version_r = "0.0.0.9024" %}
 {% set sha256 = "3b1cdfb5b1a9572c191c30cbab8c11d2344d3d6015dbc45cb4e66eca8ab2eb54" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
@@ -90,9 +91,7 @@ outputs:
       commands:
         - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"
   - name: r-tiledbsoma
-    version: 0.0.0.9024
-    # Is there a plan to unify the versioning scheme with the library and Python client?
-    #version: {{ version }}
+    version: {{ version_r }}
     script: build-r-tiledbsoma.sh
     build:
       rpaths:
