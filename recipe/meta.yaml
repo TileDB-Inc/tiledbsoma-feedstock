@@ -100,7 +100,7 @@ outputs:
         - typing-extensions >=4.1
         - numba
         - attrs
-        - somacore 1.0.*
+        - somacore >=1.0.3
         - scanpy 1.9.*
     test:
       imports:
