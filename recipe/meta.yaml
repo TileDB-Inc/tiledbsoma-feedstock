@@ -48,6 +48,20 @@ outputs:
         - tiledb >=2.15.2,<2.16
         - spdlog
         - fmt
+    about:
+      home: http://tiledb.com
+      license: MIT
+      license_family: MIT
+      license_file: LICENSE
+      summary: 'TileDB-SOMA C++ library'
+      description: >-
+        SOMA - for "Stack Of Matrices, Annotated" - is a flexible, extensible,
+        and open-source API enabling access to data in a variety of formats. The
+        driving use case of SOMA is for single-cell data in the form of
+        annotated matrices where observations are frequently cells and features
+        are genes, proteins, or genomic regions.
+      doc_url: https://docs.tiledb.com/
+      dev_url: https://github.com/single-cell-data/TileDB-SOMA
   - name: tiledbsoma-py
     version: {{ version }}
     script: build-tiledbsoma-py.sh
@@ -93,6 +107,15 @@ outputs:
         - tiledbsoma
       commands:
         - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"
+    about:
+      home: http://tiledb.com
+      license: MIT
+      license_family: MIT
+      license_file: LICENSE
+      summary: 'TileDB-SOMA Python API'
+      description: 'Python API for efficient storage and retrieval of single-cell data using TileDB'
+      doc_url: https://docs.tiledb.com/
+      dev_url: https://github.com/single-cell-data/TileDB-SOMA/tree/main/apis/python
   - name: r-tiledbsoma
     version: {{ version_r }}
     script: build-r-tiledbsoma.sh
@@ -156,16 +179,17 @@ outputs:
         - $R -e "tiledbsoma::show_package_versions()"
         - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.dylib | grep -e libR -e libtiledb"  # [osx]
         - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so | grep -e libR -e libtiledb"  # [linux]
-
-about:
-  home: http://tiledb.com
-  license: MIT
-  license_family: MIT
-  license_file: LICENSE
-  summary: 'TileDB-SOMA API'
-  description: 'Python API for efficient storage and retrieval of single-cell data using TileDB'
-  doc_url: https://docs.tiledb.com/
-  dev_url: https://github.com/single-cell-data/TileDB-SOMA
+    about:
+      home: http://tiledb.com
+      license: MIT
+      license_family: MIT
+      license_file:
+        - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+        - apis/r/LICENSE
+      summary: 'TileDB-SOMA R API'
+      description: 'R API for efficient storage and retrieval of single-cell data using TileDB'
+      doc_url: https://docs.tiledb.com/
+      dev_url: https://github.com/single-cell-data/TileDB-SOMA/tree/main/apis/r
 
 extra:
   recipe-maintainers:
