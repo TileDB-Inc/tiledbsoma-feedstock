@@ -63,7 +63,10 @@ outputs:
       host:
         - python
         - pip
-        - libtiledbsoma {{ version }}
+        # conda docs say to use pin_subpackage in `run`, but there is no other
+        # way to guarantee the locally built package is installed. The pyarrow
+        # recipe also does this
+        - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - pybind11
         - setuptools
         - setuptools_scm
@@ -116,7 +119,7 @@ outputs:
         - r-data.table               # [build_platform != target_platform]
         - r-rlang                    # [build_platform != target_platform]
       host:
-        - libtiledbsoma {{ version }}
+        - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
         - r-r6
         - r-matrix
