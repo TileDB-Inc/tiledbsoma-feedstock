@@ -67,6 +67,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libtiledbsoma-green.svg)](https://anaconda.org/tiledb/libtiledbsoma) | [![Conda Downloads](https://img.shields.io/conda/dn/tiledb/libtiledbsoma.svg)](https://anaconda.org/tiledb/libtiledbsoma) | [![Conda Version](https://img.shields.io/conda/vn/tiledb/libtiledbsoma.svg)](https://anaconda.org/tiledb/libtiledbsoma) | [![Conda Platforms](https://img.shields.io/conda/pn/tiledb/libtiledbsoma.svg)](https://anaconda.org/tiledb/libtiledbsoma) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--tiledbsoma-green.svg)](https://anaconda.org/tiledb/r-tiledbsoma) | [![Conda Downloads](https://img.shields.io/conda/dn/tiledb/r-tiledbsoma.svg)](https://anaconda.org/tiledb/r-tiledbsoma) | [![Conda Version](https://img.shields.io/conda/vn/tiledb/r-tiledbsoma.svg)](https://anaconda.org/tiledb/r-tiledbsoma) | [![Conda Platforms](https://img.shields.io/conda/pn/tiledb/r-tiledbsoma.svg)](https://anaconda.org/tiledb/r-tiledbsoma) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-tiledbsoma--py-green.svg)](https://anaconda.org/tiledb/tiledbsoma-py) | [![Conda Downloads](https://img.shields.io/conda/dn/tiledb/tiledbsoma-py.svg)](https://anaconda.org/tiledb/tiledbsoma-py) | [![Conda Version](https://img.shields.io/conda/vn/tiledb/tiledbsoma-py.svg)](https://anaconda.org/tiledb/tiledbsoma-py) | [![Conda Platforms](https://img.shields.io/conda/pn/tiledb/tiledbsoma-py.svg)](https://anaconda.org/tiledb/tiledbsoma-py) |
 
 Installing tiledbsoma
@@ -79,16 +80,16 @@ conda config --add channels tiledb
 conda config --set channel_priority strict
 ```
 
-Once the `tiledb` channel has been enabled, `libtiledbsoma, tiledbsoma-py` can be installed with `conda`:
+Once the `tiledb` channel has been enabled, `libtiledbsoma, r-tiledbsoma, tiledbsoma-py` can be installed with `conda`:
 
 ```
-conda install libtiledbsoma tiledbsoma-py
+conda install libtiledbsoma r-tiledbsoma tiledbsoma-py
 ```
 
 or with `mamba`:
 
 ```
-mamba install libtiledbsoma tiledbsoma-py
+mamba install libtiledbsoma r-tiledbsoma tiledbsoma-py
 ```
 
 It is possible to list all of the versions of `libtiledbsoma` available on your platform with `conda`:

@@ -1,6 +1,7 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.2.2" %}
-{% set sha256 = "defba105e3dff2d49499a555f68c798aa860e4582f1b1c197bad592b0418a7f8" %}
+{% set version = "1.2.4" %}
+{% set version_r = "0.0.0.9024" %}
+{% set sha256 = "3b1cdfb5b1a9572c191c30cbab8c11d2344d3d6015dbc45cb4e66eca8ab2eb54" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -16,14 +17,15 @@ source:
   url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
 # Pre-release canary "will Conda be green if we release":
-# source:
-#   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#   git_rev: 00commithashyouwanttotest00commithashyouwanttotest00
-#   git_depth: 1
+#source:
+#  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+#  git_rev: db2782bad8b11f7eb0899d0a8b78118c6b5a49a2
+#  git_depth: 1
+#  # hoping to be 1.2.4
 
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -39,13 +41,27 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb 2.15.*
+        - tiledb >=2.15.2,<2.16
         - spdlog
         - fmt
       run:
-        - tiledb 2.15.*
+        - tiledb >=2.15.2,<2.16
         - spdlog
         - fmt
+    about:
+      home: http://tiledb.com
+      license: MIT
+      license_family: MIT
+      license_file: LICENSE
+      summary: 'TileDB-SOMA C++ library'
+      description: >-
+        SOMA - for "Stack Of Matrices, Annotated" - is a flexible, extensible,
+        and open-source API enabling access to data in a variety of formats. The
+        driving use case of SOMA is for single-cell data in the form of
+        annotated matrices where observations are frequently cells and features
+        are genes, proteins, or genomic regions.
+      doc_url: https://docs.tiledb.com/
+      dev_url: https://github.com/single-cell-data/TileDB-SOMA
   - name: tiledbsoma-py
     version: {{ version }}
     script: build-tiledbsoma-py.sh
@@ -61,7 +77,10 @@ outputs:
       host:
         - python
         - pip
-        - libtiledbsoma {{ version }}
+        # conda docs say to use pin_subpackage in `run`, but there is no other
+        # way to guarantee the locally built package is installed. The pyarrow
+        # recipe also does this
+        - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - pybind11
         - setuptools
         - setuptools_scm
@@ -77,7 +96,7 @@ outputs:
         - scipy
         - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
-        - tiledb-py 0.21.*
+        - tiledb-py >=0.21.3,<0.22.0
         - typing-extensions >=4.1
         - numba
         - attrs
@@ -88,16 +107,89 @@ outputs:
         - tiledbsoma
       commands:
         - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"
-
-about:
-  home: http://tiledb.com
-  license: MIT
-  license_family: MIT
-  license_file: LICENSE
-  summary: 'TileDB-SOMA API'
-  description: 'Python API for efficient storage and retrieval of single-cell data using TileDB'
-  doc_url: https://docs.tiledb.com/
-  dev_url: https://github.com/single-cell-data/TileDB-SOMA
+    about:
+      home: http://tiledb.com
+      license: MIT
+      license_family: MIT
+      license_file: LICENSE
+      summary: 'TileDB-SOMA Python API'
+      description: 'Python API for efficient storage and retrieval of single-cell data using TileDB'
+      doc_url: https://docs.tiledb.com/
+      dev_url: https://github.com/single-cell-data/TileDB-SOMA/tree/main/apis/python
+  - name: r-tiledbsoma
+    version: {{ version_r }}
+    script: build-r-tiledbsoma.sh
+    build:
+      rpaths:
+        - lib/R/lib/
+        - lib/
+    requirements:
+      build:
+        - {{ compiler('cxx') }}
+        - pkg-config
+        # required for cross-compilation
+        - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+        - r-rcppspdlog               # [build_platform != target_platform]
+        - r-matrix                   # [build_platform != target_platform]
+        - r-bit64                    # [build_platform != target_platform]
+        - r-tiledb >=0.19.1          # [build_platform != target_platform]
+        - r-arrow                    # [build_platform != target_platform]
+        - r-fs                       # [build_platform != target_platform]
+        - r-glue                     # [build_platform != target_platform]
+        - r-urltools                 # [build_platform != target_platform]
+        - r-rcpp                     # [build_platform != target_platform]
+        - r-dplyr                    # [build_platform != target_platform]
+        - r-data.table               # [build_platform != target_platform]
+        - r-rlang                    # [build_platform != target_platform]
+      host:
+        - {{ pin_subpackage('libtiledbsoma', exact=True) }}
+        - r-base
+        - r-r6
+        - r-matrix
+        - r-bit64
+        - r-tiledb >=0.19.1
+        - r-arrow
+        - r-fs
+        - r-glue
+        - r-urltools
+        - r-rcpp
+        - r-dplyr
+        - r-data.table
+        - r-spdl
+        - r-rlang
+      run:
+        - {{ pin_subpackage('libtiledbsoma', exact=True) }}
+        - r-base
+        - r-r6
+        - r-matrix
+        - r-bit64
+        - r-tiledb >=0.19.1
+        - r-arrow
+        - r-fs
+        - r-glue
+        - r-urltools
+        - r-rcpp
+        - r-dplyr
+        - r-data.table
+        - r-spdl
+        - r-rlang
+    test:
+      commands:
+        - $R -e "library('tiledbsoma')"
+        - $R -e "tiledbsoma::show_package_versions()"
+        - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.dylib | grep -e libR -e libtiledb"  # [osx]
+        - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so | grep -e libR -e libtiledb"  # [linux]
+    about:
+      home: http://tiledb.com
+      license: MIT
+      license_family: MIT
+      license_file:
+        - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+        - apis/r/LICENSE
+      summary: 'TileDB-SOMA R API'
+      description: 'R API for efficient storage and retrieval of single-cell data using TileDB'
+      doc_url: https://docs.tiledb.com/
+      dev_url: https://github.com/single-cell-data/TileDB-SOMA/tree/main/apis/r
 
 extra:
   recipe-maintainers:
