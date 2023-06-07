@@ -1,7 +1,7 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.2.4" %}
+{% set version = "1.2.5" %}
 {% set version_r = "0.0.0.9024" %}
-{% set sha256 = "3b1cdfb5b1a9572c191c30cbab8c11d2344d3d6015dbc45cb4e66eca8ab2eb54" %}
+{% set sha256 = "0eb5b44f0a786d3089fb4ce7ee5d5c4ee6df1c7cacaa8a77f11bde95c1b244ce" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -100,7 +100,7 @@ outputs:
         - typing-extensions >=4.1
         - numba
         - attrs
-        - somacore 1.0.*
+        - somacore >=1.0.3
         - scanpy 1.9.*
     test:
       imports:
