@@ -53,7 +53,7 @@ outputs:
       license: MIT
       license_family: MIT
       license_file: LICENSE
-      summary: 'TileDB-SOMA C++ library'
+      summary: TileDB-SOMA C++ library
       description: >-
         SOMA - for "Stack Of Matrices, Annotated" - is a flexible, extensible,
         and open-source API enabling access to data in a variety of formats. The
@@ -112,8 +112,8 @@ outputs:
       license: MIT
       license_family: MIT
       license_file: LICENSE
-      summary: 'TileDB-SOMA Python API'
-      description: 'Python API for efficient storage and retrieval of single-cell data using TileDB'
+      summary: TileDB-SOMA Python API
+      description: Python API for efficient storage and retrieval of single-cell data using TileDB
       doc_url: https://docs.tiledb.com/
       dev_url: https://github.com/single-cell-data/TileDB-SOMA/tree/main/apis/python
   - name: r-tiledbsoma
@@ -186,10 +186,20 @@ outputs:
       license_file:
         - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
         - apis/r/LICENSE
-      summary: 'TileDB-SOMA R API'
-      description: 'R API for efficient storage and retrieval of single-cell data using TileDB'
+      summary: TileDB-SOMA R API
+      description: R API for efficient storage and retrieval of single-cell data using TileDB
       doc_url: https://docs.tiledb.com/
       dev_url: https://github.com/single-cell-data/TileDB-SOMA/tree/main/apis/r
+
+about:
+  home: http://tiledb.com
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: TileDB-SOMA API
+  description: Efficient storage and retrieval of single-cell data using TileDB
+  doc_url: https://docs.tiledb.com/
+  dev_url: https://github.com/single-cell-data/TileDB-SOMA
 
 extra:
   recipe-maintainers:
