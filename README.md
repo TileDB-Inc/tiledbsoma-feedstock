@@ -3,6 +3,9 @@ About tiledbsoma-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/TileDB-Inc/tiledbsoma-feedstock/blob/main/LICENSE.txt)
 
+About tiledbsoma
+----------------
+
 Home: http://tiledb.com
 
 Package license: MIT
@@ -10,6 +13,48 @@ Package license: MIT
 Summary: TileDB-SOMA API
 
 Development: https://github.com/single-cell-data/TileDB-SOMA
+
+Documentation: https://docs.tiledb.com/
+
+Efficient storage and retrieval of single-cell data using TileDB
+About libtiledbsoma
+-------------------
+
+Home: http://tiledb.com
+
+Package license: MIT
+
+Summary: TileDB-SOMA C++ library
+
+Development: https://github.com/single-cell-data/TileDB-SOMA
+
+Documentation: https://docs.tiledb.com/
+
+SOMA - for "Stack Of Matrices, Annotated" - is a flexible, extensible, and open-source API enabling access to data in a variety of formats. The driving use case of SOMA is for single-cell data in the form of annotated matrices where observations are frequently cells and features are genes, proteins, or genomic regions.
+About r-tiledbsoma
+------------------
+
+Home: http://tiledb.com
+
+Package license: MIT
+
+Summary: TileDB-SOMA R API
+
+Development: https://github.com/single-cell-data/TileDB-SOMA/tree/main/apis/r
+
+Documentation: https://docs.tiledb.com/
+
+R API for efficient storage and retrieval of single-cell data using TileDB
+About tiledbsoma-py
+-------------------
+
+Home: http://tiledb.com
+
+Package license: MIT
+
+Summary: TileDB-SOMA Python API
+
+Development: https://github.com/single-cell-data/TileDB-SOMA/tree/main/apis/python
 
 Documentation: https://docs.tiledb.com/
 
