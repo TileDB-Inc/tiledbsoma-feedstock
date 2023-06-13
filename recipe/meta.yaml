@@ -25,7 +25,7 @@ source:
 
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -99,7 +99,7 @@ outputs:
         - tiledb-py >=0.21.3,<0.22.0
         - typing-extensions >=4.1
         - numba
-        - attrs
+        - attrs >=22.2
         - somacore >=1.0.3
         - scanpy 1.9.*
     test:
