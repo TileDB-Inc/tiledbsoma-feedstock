@@ -27,13 +27,11 @@ jobs:
       - name: Add and commit
         run: bash .github/scripts/nightly/add-and-commit.sh
       - name: Install conda-smithy to rerender
-        uses: mamba-org/provision-with-micromamba@main
+        uses: mamba-org/setup-micromamba@v1
         with:
-          environment-file: false
           environment-name: env
-          extra-specs: conda-smithy
-          channels: conda-forge
-          cache-env: true
+          create-args: conda-smithy
+          cache-environment: true
       - name: Rerender feedstock
         shell: bash -l {0}
         run: conda smithy rerender --commit auto
