@@ -15,3 +15,5 @@ cmake \
 make -j ${CPU_COUNT}
 
 make install-libtiledbsoma
+
+cd .. && rm -rf libtiledbsoma-build
