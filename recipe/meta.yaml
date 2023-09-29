@@ -165,7 +165,6 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64
-        - r-rcppint64
         - r-tiledb >=0.21.1,<0.22
         - r-arrow
         - r-fs
