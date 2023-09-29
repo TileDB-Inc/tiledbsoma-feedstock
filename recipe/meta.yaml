@@ -132,6 +132,7 @@ outputs:
         - r-rcppspdlog               # [build_platform != target_platform]
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64                    # [build_platform != target_platform]
+        - r-rcppint64                # [build_platform != target_platform]
         - r-tiledb >=0.21.0,<0.22    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
         - r-fs                       # [build_platform != target_platform]
@@ -147,6 +148,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64
+        - r-rcppint64
         - r-tiledb >=0.21.0,<0.22
         - r-arrow
         - r-fs
@@ -163,6 +165,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64
+        - r-rcppint64
         - r-tiledb >=0.21.0,<0.22
         - r-arrow
         - r-fs
