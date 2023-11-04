@@ -5,7 +5,7 @@ MACOSX_SDK_VERSION:
 c_compiler:
 - clang
 c_compiler_version:
-- '15'
+- '16'
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '15'
+- '16'
 fmt:
 - '9'
 macos_machine:
@@ -35,6 +35,7 @@ python:
 - 3.9.* *_cpython
 r_base:
 - '4.2'
+- '4.3'
 spdlog:
 - '1.11'
 target_platform:
