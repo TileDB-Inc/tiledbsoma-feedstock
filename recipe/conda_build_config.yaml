@@ -5,7 +5,7 @@ MACOSX_DEPLOYMENT_TARGET:  # [osx and x86_64]
 channel_sources:
   - conda-forge,tiledb
 channel_targets:
-  - tiledb rc
+  - tiledb main
 channel_priority:
   - strict
 numpy:
