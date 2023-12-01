@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.5.1" %}
-{% set sha256 = "c3ab7b0ebeec8c9acf99a29a33c269f22db19e5dab6bcf508b2e615f206231e9" %}
+{% set version = "1.6.0" %}
+{% set sha256 = "tee-bee-dee" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -12,16 +12,16 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+#source:
+#  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+#  sha256: {{ sha256 }}
 
 # Pre-release canary "will Conda be green if we release":
-#source:
-#  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  git_rev: 41754de2d65960b12378947b8cfe108cd0e6baaa
-#  git_depth: -1
-#  # hoping to be 1.5.1 <-- FILL IN HERE
+source:
+  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  git_rev: 8616aa0b0848e356efd343e4cfd28df5e8b94a3f
+  git_depth: -1
+  # hoping to be 1.6.0 <-- FILL IN HERE
 
 
 build:
@@ -41,11 +41,11 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.17.4,<2.18
+        - tiledb >=2.18.2,<2.19
         - spdlog
         - fmt
       run:
-        - tiledb >=2.17.4,<2.18
+        - tiledb >=2.18.2,<2.19
         - spdlog
         - fmt
     about:
@@ -86,17 +86,21 @@ outputs:
         - setuptools_scm
         - wheel
         - numpy
-        - pyarrow
+        # https://github.com/single-cell-data/TileDB-SOMA/issues/1926
+        - pyarrow <13.0 # [osx]
+        - pyarrow       # [not osx]
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - pandas
-        - pyarrow
+        # https://github.com/single-cell-data/TileDB-SOMA/issues/1926
+        - pyarrow <13.0 # [osx]
+        - pyarrow       # [not osx]
         - python
         - scipy
         - anndata <0.10 # [py>37]
         - anndata <0.9  # [py<=37]
-        - tiledb-py >=0.23.4,<0.24.0
+        - tiledb-py >=0.24.0,<0.25.0
         - typing-extensions >=4.1
         - numba
         - attrs >=22.2
@@ -133,7 +137,7 @@ outputs:
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64                    # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
-        - r-tiledb >=0.21.3,<0.22    # [build_platform != target_platform]
+        - r-tiledb >=0.22.0,<0.23    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
         - r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
@@ -149,7 +153,7 @@ outputs:
         - r-matrix
         - r-bit64
         - r-rcppint64
-        - r-tiledb >=0.21.3,<0.22
+        - r-tiledb >=0.22.0,<0.23
         - r-arrow
         - r-fs
         - r-glue
@@ -165,7 +169,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64
-        - r-tiledb >=0.21.3,<0.22
+        - r-tiledb >=0.22.0,<0.23
         - r-arrow
         - r-fs
         - r-glue
