@@ -72,7 +72,9 @@ outputs:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - pybind11                               # [build_platform != target_platform]
-        - pyarrow                                # [build_platform != target_platform]
+        # https://github.com/single-cell-data/TileDB-SOMA/issues/1926
+        - pyarrow <13.0                          # [build_platform != target_platform and osx]
+        - pyarrow                                # [build_platform != target_platform and not osx]
         - pyarrow-hotfix                         # [build_platform != target_platform]
         - numpy                                  # [build_platform != target_platform]
       host:
