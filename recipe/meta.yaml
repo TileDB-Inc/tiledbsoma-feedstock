@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.6.1" %}
-{% set sha256 = "0ef61bc6e5922cb68e62f443c353181f29f7ff7def79dbbf8a030897e2de8a38" %}
+{% set version = "1.6.2" %}
+{% set sha256 = "d9033f801c2d7f1cc9cf32e9d02ee8eaca88fe06b64b8073a3175f1f8d8f7c8d" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -20,9 +20,9 @@ source:
 # Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  git_rev: 50f6eae4ae3d92cdd6d0856e66b8b2afc128f967
+#  git_rev: 94bbc6f3043f8683595d6f89afef6afb3743c12f
 #  git_depth: -1
-#  # hoping to be 1.6.1 <-- FILL IN HERE
+#  # hoping to be 1.6.2 <-- FILL IN HERE
 
 
 build:
@@ -42,11 +42,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.18.2,<2.19
-        - spdlog
-        - fmt
-      run:
-        - tiledb >=2.18.2,<2.19
+        - tiledb =2.18.2
         - spdlog
         - fmt
     about:
