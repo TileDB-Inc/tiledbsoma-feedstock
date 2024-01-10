@@ -45,10 +45,6 @@ outputs:
         - tiledb =2.18.2
         - spdlog
         - fmt
-      run:
-        - tiledb =2.18.2
-        - spdlog
-        - fmt
     about:
       home: http://tiledb.com
       license: MIT
