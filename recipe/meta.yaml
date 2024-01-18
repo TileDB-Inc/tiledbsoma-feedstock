@@ -26,7 +26,7 @@ source:
 
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -42,7 +42,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb =2.18.2
+        - tiledb 2.18.*
         - spdlog
         - fmt
     about:
