@@ -45,7 +45,7 @@ outputs:
         # Please see
         # https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/76#discussion_r1457880263
         # before changing this:
-        - tiledb =2.19.0
+        - tiledb >=2.19.0,<2.20
         - spdlog
         - fmt
     about:
