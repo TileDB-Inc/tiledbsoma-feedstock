@@ -110,7 +110,7 @@ outputs:
         - numba >=0.58.1 # [py>37]
         - numba          # [py<=37]
         - attrs >=22.2
-        - somacore >=1.0.6
+        - somacore >=1.0.7
         - scanpy 1.9.*
     test:
       imports:
