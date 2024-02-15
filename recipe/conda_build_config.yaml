@@ -23,3 +23,8 @@ python_impl:
   - cpython
   - cpython
   - cpython
+# We need a linux-64 version built against fmt 9 for TileDB Cloud
+# The osx and win builds just rely on the default conda-forge value
+fmt:    # [linux]
+  - 9   # [linux]
+  - 10  # [linux]
