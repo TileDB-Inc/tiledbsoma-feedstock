@@ -8,18 +8,14 @@ channel_targets:
   - tiledb main
 channel_priority:
   - strict
-numpy:
-  - 1.21   # [not osx]
-  - 1.22
-  - 1.22
-  - 1.22
-python:
-  - 3.7.* *_cpython   # [not osx]
-  - 3.8.* *_cpython
-  - 3.9.* *_cpython
-  - 3.10.* *_cpython
-python_impl:
-  - cpython   # [not osx]
-  - cpython
-  - cpython
-  - cpython
+# We need a linux-64 version built against fmt 9 for TileDB Cloud
+# The osx and win builds just rely on the default conda-forge value
+fmt:        # [linux]
+  - 9       # [linux]
+  - 10      # [linux]
+spdlog:     # [linux]
+  - 1.11    # [linux]
+  - 1.12    # [linux]
+zip_keys:   # [linux]
+  - fmt     # [linux]
+  - spdlog  # [linux]
