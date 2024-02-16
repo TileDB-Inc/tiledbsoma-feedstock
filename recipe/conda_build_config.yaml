@@ -8,14 +8,13 @@ channel_targets:
   - tiledb main
 channel_priority:
   - strict
-# We need a linux-64 version built against fmt 9 for TileDB Cloud
-# The osx and win builds just rely on the default conda-forge value
-fmt:        # [linux]
-  - 9       # [linux]
-  - 10      # [linux]
-spdlog:     # [linux]
-  - 1.11    # [linux]
-  - 1.12    # [linux]
-zip_keys:   # [linux]
-  - fmt     # [linux]
-  - spdlog  # [linux]
+# conda-forge has migrated to fmt 10 and spdlog 1.12. We need fmt 9 to install
+# into our existing TileDB Cloud conda environments, so we are going to delay
+# the migration of this feedstock.
+fmt:
+  - 9
+spdlog:
+  - 1.11
+zip_keys:
+  - fmt
+  - spdlog
