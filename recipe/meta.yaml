@@ -8,6 +8,8 @@
 #
 # See also build number below
 
+# TRIVIAL MOD TO TRIGGER CI
+
 package:
   name: {{ name }}
   version: {{ version }}
