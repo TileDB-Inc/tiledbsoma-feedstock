@@ -45,6 +45,7 @@ outputs:
         - tiledb >=2.20.0,<2.21
         - spdlog
         - fmt
+        - libgoogle-cloud 2.12.*
     about:
       home: http://tiledb.com
       license: MIT
@@ -90,6 +91,7 @@ outputs:
         - pyarrow <13.0 # [osx]
         - pyarrow       # [not osx]
         - pyarrow-hotfix
+        - libgoogle-cloud 2.12.*
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
@@ -100,7 +102,7 @@ outputs:
         - pyarrow-hotfix
         - python
         - scipy
-        - anndata <0.10 # [py>37]
+        - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
         - tiledb-py >=0.26.0,<0.27.0
         - typing-extensions >=4.1
@@ -108,7 +110,7 @@ outputs:
         - numba          # [py<=37]
         - attrs >=22.2
         - somacore >=1.0.8
-        - scanpy 1.9.*
+        - scanpy >=1.9.2
     test:
       imports:
         - tiledbsoma
