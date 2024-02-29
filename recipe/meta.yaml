@@ -45,6 +45,7 @@ outputs:
         - tiledb >=2.19.1,<2.20
         - spdlog
         - fmt
+        - libgoogle-cloud 2.12.*
     about:
       home: http://tiledb.com
       license: MIT
@@ -90,6 +91,7 @@ outputs:
         - pyarrow <13.0 # [osx]
         - pyarrow       # [not osx]
         - pyarrow-hotfix
+        - libgoogle-cloud 2.12.*
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
