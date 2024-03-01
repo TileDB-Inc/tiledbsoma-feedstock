@@ -26,7 +26,7 @@ source:
 
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -109,7 +109,7 @@ outputs:
         - numba >=0.58.1 # [py>37]
         - numba          # [py<=37]
         - attrs >=22.2
-        - somacore >=1.0.7
+        - somacore ==1.0.7
         - scanpy >=1.9.2
     test:
       imports:
