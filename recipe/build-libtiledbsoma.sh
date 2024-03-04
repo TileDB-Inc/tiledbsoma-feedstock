@@ -2,6 +2,11 @@
 
 set -exo pipefail
 
+# https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
+if [[ $target_platform == osx-*  ]]; then
+  CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+fi
+
 mkdir libtiledbsoma-build && cd libtiledbsoma-build
 
 cmake \
