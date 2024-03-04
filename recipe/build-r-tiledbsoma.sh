@@ -16,6 +16,7 @@ if [[ $target_platform  == osx-64 ]]; then
   echo CC=$RECIPE_DIR/cc_wrap.sh > ~/.R/Makevars
   echo CXX=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
   echo CXX17=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
+  echo CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY" >> ~/.R/Makevars
 fi
 
 export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
