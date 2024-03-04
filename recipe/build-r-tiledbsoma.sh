@@ -16,15 +16,9 @@ if [[ $target_platform  == osx-64 ]]; then
   echo CC=$RECIPE_DIR/cc_wrap.sh > ~/.R/Makevars
   echo CXX=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
   echo CXX17=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
-  echo CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY" >> ~/.R/Makevars
 fi
 
 export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
-
-# https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
-if [[ $target_platform == osx-*  ]]; then
-  export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
-fi
 
 # Unlike most R recipes which are built for one R version per job, this recipe
 # with multiple outputs builds for each of the R versions in the same job. Thus
