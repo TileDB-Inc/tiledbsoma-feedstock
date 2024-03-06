@@ -20,7 +20,7 @@ package:
 # Pre-tag canary "will Conda be green if we release":
 source:
   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-  git_rev: 80afb32db2dcce760e894593b5f157967716a685
+  git_rev: 044d4ca5297dc4a1b7d34b9c4c8136f7ef35eb82
   git_depth: -1
   # hoping to be 1.7.3 <-- FILL IN HERE
 
