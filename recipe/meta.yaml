@@ -39,7 +39,6 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - git
-        - cmake
         - make  # [not win]
       host:
         - tiledb >=2.19.1,<2.20
