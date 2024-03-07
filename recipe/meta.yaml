@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.7.2" %}
-{% set sha256 = "b0ccf8e0498531a36eef88e4896f02306b18491b34843054093f8c8c6f63796e" %}
+{% set version = "1.8.0" %}
+{% set sha256 = "9b945b0547675640c33fbf523ca3aaeb202eb85327bb18afaff5e8c73bcb0483" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -20,13 +20,13 @@ source:
 # Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  git_rev: b95a752a335b50a7e08b9dd729748e3c6ccd9b57
+#  git_rev: b54ba225623ec2e9dab04bd2a1061298377d8677
 #  git_depth: -1
-#  # hoping to be 1.7.2 <-- FILL IN HERE
+#  # hoping to be 1.8.0 <-- FILL IN HERE
 
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -42,10 +42,13 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.19.1,<2.20
+        - tiledb >=2.20.0,<2.21
         - spdlog
         - fmt
-        - libgoogle-cloud 2.12.*
+        #### TEMP - libgoogle-cloud 2.17.*
+      run:
+        # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
+        - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
     about:
       home: http://tiledb.com
       license: MIT
@@ -91,7 +94,7 @@ outputs:
         - pyarrow <13.0 # [osx]
         - pyarrow       # [not osx]
         - pyarrow-hotfix
-        - libgoogle-cloud 2.12.*
+        #### TEMP - libgoogle-cloud 2.17.*
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
@@ -104,13 +107,15 @@ outputs:
         - scipy
         - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
-        - tiledb-py >=0.25.0,<0.26.0
+        - tiledb-py >=0.26.0,<0.27.0
         - typing-extensions >=4.1
         - numba >=0.58.1 # [py>37]
         - numba          # [py<=37]
         - attrs >=22.2
-        - somacore ==1.0.7
+        - somacore >=1.0.8
         - scanpy >=1.9.2
+        # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
+        - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
     test:
       imports:
         - tiledbsoma
@@ -142,7 +147,7 @@ outputs:
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64                    # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
-        - r-tiledb >=0.23.0,<0.24    # [build_platform != target_platform]
+        - r-tiledb >=0.24.0,<0.25    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
         - r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
@@ -151,6 +156,8 @@ outputs:
         - r-dplyr                    # [build_platform != target_platform]
         - r-data.table               # [build_platform != target_platform]
         - r-rlang                    # [build_platform != target_platform]
+        # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
+        - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
       host:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
@@ -158,7 +165,7 @@ outputs:
         - r-matrix
         - r-bit64
         - r-rcppint64
-        - r-tiledb >=0.23.0,<0.24
+        - r-tiledb >=0.24.0,<0.25
         - r-arrow
         - r-fs
         - r-glue
@@ -174,7 +181,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64
-        - r-tiledb >=0.23.0,<0.24
+        - r-tiledb >=0.24.0,<0.25
         - r-arrow
         - r-fs
         - r-glue
