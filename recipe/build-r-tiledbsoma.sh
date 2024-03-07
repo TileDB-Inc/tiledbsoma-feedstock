@@ -20,6 +20,11 @@ fi
 
 export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
 
+# https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
+if [[ $target_platform == osx-*  ]]; then
+  CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+fi
+
 # Unlike most R recipes which are built for one R version per job, this recipe
 # with multiple outputs builds for each of the R versions in the same job. Thus
 # the compiled files in the source directory need to be cleaned between builds,
