@@ -6,7 +6,10 @@
 # from
 #   https://github.com/single-cell-data/TileDB-SOMA/releases/tag/i.j.k
 #
-# See also build number below
+# See also build number below.
+#
+# Also double-check somacore version against TileDB-SOMA's setup.py: this bumps very infrequently
+# but it can.
 
 package:
   name: {{ name }}
