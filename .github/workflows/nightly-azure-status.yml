@@ -1,0 +1,39 @@
+# Need to query the Azure Status API endpoint to determine if nightly
+# feedstock builds passed or failed
+# https://learn.microsoft.com/en-us/rest/api/azure/devops/build/status/get
+name: nightly-azure-status
+on:
+  schedule:
+     # https://crontab.guru/#0_11_*_*_*
+     - cron: "0 11 * * *" # Every day at 11 AM UTC (6 AM EST; 7 AM EDT)
+  workflow_dispatch:
+jobs:
+  nightly-azure-status:
+    # https://dev.azure.com/TileDB-Inc/CI/_build?definitionId=43&_a=summary&repositoryFilter=39&branchFilter=8732%2C8732%2C8732%2C8732%2C8732%2C8732%2C8732%2C8732
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Azure Status API
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run:  bash .github/scripts/nightly/check-azure-status.sh 43 tiledbsoma-feedstock
+  # This Issue is opened only if there was a technical problem with this GitHub
+  # workflow. The jobs above open an Issue if they detect a failed Azure build
+  issue:
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    needs: nightly-azure-status
+    if: ( failure() || cancelled() ) && github.repository_owner == 'TileDB-Inc' && github.event_name == 'schedule'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open Issue
+        uses: TileDB-Inc/github-actions/open-issue@main
+        with:
+          name: azure status check
+          label: nightly-azure-status-failure
+          assignee: johnkerl,jdblischak
+        env:
+          TZ: "America/New_York"
