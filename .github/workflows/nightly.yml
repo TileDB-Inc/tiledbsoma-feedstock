@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Update recipe source to use Git repo
         run: bash .github/scripts/nightly/update-recipe.sh
       - name: Update feedstock
@@ -40,3 +40,19 @@ jobs:
       - name: Push update to GitHub
         if: ${{ github.ref == 'refs/heads/main' && github.repository == 'TileDB-Inc/tiledbsoma-feedstock' && github.event_name != 'pull_request' }}
         run: git push --force origin HEAD:nightly-build
+  issue:
+    permissions:
+      issues: write
+    runs-on: ubuntu-latest
+    needs: nightly
+    if: ( failure() || cancelled() ) && github.repository_owner == 'TileDB-Inc' && github.event_name == 'schedule'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open Issue
+        uses: TileDB-Inc/github-actions/open-issue@main
+        with:
+          name: nightly setup
+          label: nightly-setup-failure
+          assignee: johnkerl,jdblischak
+        env:
+          TZ: "America/New_York"
