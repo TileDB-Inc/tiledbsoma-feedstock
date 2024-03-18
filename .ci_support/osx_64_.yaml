@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '16'
 fmt:
-- '9'
+- '10'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
@@ -39,13 +39,11 @@ r_base:
 - '4.2'
 - '4.3'
 spdlog:
-- '1.11'
+- '1.12'
 target_platform:
 - osx-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - fmt
-  - spdlog
 - - python
   - numpy

@@ -9,13 +9,3 @@ channel_targets:
   - tiledb main
 channel_priority:
   - strict
-# conda-forge has migrated to fmt 10 and spdlog 1.12. We need fmt 9 to install
-# into our existing TileDB Cloud conda environments, so we are going to delay
-# the migration of this feedstock.
-fmt:
-  - 9
-spdlog:
-  - 1.11
-zip_keys:
-  - fmt
-  - spdlog
