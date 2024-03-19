@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.8.0" %}
-{% set sha256 = "9b945b0547675640c33fbf523ca3aaeb202eb85327bb18afaff5e8c73bcb0483" %}
+{% set version = "1.8.1" %}
+{% set sha256 = "e584fa49bc90bf07264c228da39685301c91c5e1ddb6e099753ce9572ac9acf7" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -23,13 +23,12 @@ source:
 # Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  git_rev: b54ba225623ec2e9dab04bd2a1061298377d8677
+#  git_rev: 81a0f604860dafd147ced42d10134310332bb979
 #  git_depth: -1
-#  # hoping to be 1.8.0 <-- FILL IN HERE
-
+#  # hoping to be 1.8.1 <-- FILL IN HERE
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -116,7 +115,7 @@ outputs:
         - numba          # [py<=37]
         - attrs >=22.2
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
-        - somacore ==1.0.8
+        - somacore ==1.0.9
         - scanpy >=1.9.2
         # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
         - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
