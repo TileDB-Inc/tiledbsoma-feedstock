@@ -4,18 +4,24 @@ MACOSX_SDK_VERSION:  # [osx and x86_64]
 MACOSX_DEPLOYMENT_TARGET:  # [osx and x86_64]
   - "11.0"                # [osx and x86_64]
 channel_sources:
+  - tiledb/label/for-cloud,conda-forge,tiledb  # [linux]
   - conda-forge,tiledb
 channel_targets:
   - tiledb main
 channel_priority:
   - strict
 # conda-forge has migrated to fmt 10 and spdlog 1.12. We need fmt 9 to install
-# into our existing TileDB Cloud conda environments, so we are going to delay
-# the migration of this feedstock.
-fmt:
-  - 9
-spdlog:
-  - 1.11
-zip_keys:
-  - fmt
-  - spdlog
+# into our existing TileDB Cloud conda environments, so we build a special
+# variant of fmt 9 and spdlog 1.11. And because this can no longer solve with
+# conda-forge depedencies, we install the "for-cloud" tiledb binary from
+# tiledb/label/for-cloud
+fmt:                 # [linux]
+  - 9                # [linux]
+  - 10               # [linux]
+spdlog:              # [linux]
+  - 1.11             # [linux]
+  - 1.12             # [linux]
+zip_keys:            # [linux]
+  - channel_sources  # [linux]
+  - fmt              # [linux]
+  - spdlog           # [linux]

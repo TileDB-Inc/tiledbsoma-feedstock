@@ -1,21 +1,21 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
 c_compiler:
-- clang
+- gcc
 c_compiler_version:
-- '16'
+- '12'
+cdt_name:
+- cos6
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
 - tiledb main
 cxx_compiler:
-- clangxx
+- gxx
 cxx_compiler_version:
-- '16'
+- '12'
+docker_image:
+- quay.io/condaforge/linux-anvil-cos7-x86_64
 fmt:
 - '10'
-macos_machine:
-- arm64-apple-darwin20.0.0
 numpy:
 - '1.22'
 - '1.23'
@@ -39,9 +39,12 @@ r_base:
 spdlog:
 - '1.12'
 target_platform:
-- osx-arm64
+- linux-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+- - channel_sources
+  - fmt
+  - spdlog
 - - python
   - numpy
