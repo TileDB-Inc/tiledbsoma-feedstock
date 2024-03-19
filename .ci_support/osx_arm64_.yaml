@@ -1,13 +1,11 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
-MACOSX_SDK_VERSION:
-- '11.0'
 c_compiler:
 - clang
 c_compiler_version:
 - '16'
 channel_sources:
-- tiledb/label/for-cloud,conda-forge,tiledb
+- conda-forge,tiledb
 channel_targets:
 - tiledb main
 cxx_compiler:
@@ -15,9 +13,9 @@ cxx_compiler:
 cxx_compiler_version:
 - '16'
 fmt:
-- '9'
+- '10'
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 numpy:
 - '1.22'
 - '1.23'
@@ -39,14 +37,11 @@ r_base:
 - '4.2'
 - '4.3'
 spdlog:
-- '1.11'
+- '1.12'
 target_platform:
-- osx-64
+- osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - channel_sources
-  - fmt
-  - spdlog
 - - python
   - numpy

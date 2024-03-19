@@ -1,5 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
+MACOSX_SDK_VERSION:
+- '11.0'
 c_compiler:
 - clang
 c_compiler_version:
@@ -15,7 +17,7 @@ cxx_compiler_version:
 fmt:
 - '10'
 macos_machine:
-- arm64-apple-darwin20.0.0
+- x86_64-apple-darwin13.4.0
 numpy:
 - '1.22'
 - '1.23'
@@ -39,12 +41,9 @@ r_base:
 spdlog:
 - '1.12'
 target_platform:
-- osx-arm64
+- osx-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - channel_sources
-  - fmt
-  - spdlog
 - - python
   - numpy
