@@ -30,12 +30,12 @@ jobs:
         uses: mamba-org/setup-micromamba@v1
         with:
           environment-name: env
-          create-args: conda-smithy=3.31.1
+          create-args: conda-smithy
           cache-environment: true
       - name: Rerender feedstock
         shell: bash -el {0}
         run: |
-          #micromamba update --yes conda-smithy
+          micromamba update --yes conda-smithy
           conda smithy rerender --no-check-uptodate --commit auto
       - name: Push update to GitHub
         if: ${{ github.ref == 'refs/heads/main' && github.repository == 'TileDB-Inc/tiledbsoma-feedstock' && github.event_name != 'pull_request' }}
