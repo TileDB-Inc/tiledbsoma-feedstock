@@ -44,7 +44,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.20.0,<2.21
+        - tiledb >=2.21.0,<2.22
         - spdlog
         - fmt
         #### TEMP - libgoogle-cloud 2.17.*
@@ -109,7 +109,7 @@ outputs:
         - scipy
         - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
-        - tiledb-py >=0.26.0,<0.27.0
+        - tiledb-py >=0.27.0,<0.28.0
         - typing-extensions >=4.1
         - numba >=0.58.1 # [py>37]
         - numba          # [py<=37]
@@ -150,7 +150,7 @@ outputs:
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64                    # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
-        - r-tiledb >=0.24.0,<0.25    # [build_platform != target_platform]
+        - r-tiledb >=0.25.0,<0.26    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
         - r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
@@ -168,7 +168,7 @@ outputs:
         - r-matrix
         - r-bit64
         - r-rcppint64
-        - r-tiledb >=0.24.0,<0.25
+        - r-tiledb >=0.25.0,<0.26
         - r-arrow
         - r-fs
         - r-glue
@@ -184,7 +184,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64
-        - r-tiledb >=0.24.0,<0.25
+        - r-tiledb >=0.25.0,<0.26
         - r-arrow
         - r-fs
         - r-glue
