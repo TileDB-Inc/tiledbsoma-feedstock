@@ -7,7 +7,7 @@ channel_sources:
   - tiledb/label/for-cloud,conda-forge,tiledb  # [linux]
   - conda-forge,tiledb
 channel_targets:
-  - tiledb main
+  - tiledb nightlies
 channel_priority:
   - strict
 # conda-forge has migrated to fmt 10 and spdlog 1.12. We need fmt 9 to install
