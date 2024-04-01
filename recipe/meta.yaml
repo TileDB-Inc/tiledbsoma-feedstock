@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.9.2" %}
-{% set sha256 = "831668b511281597e76c4c612df0f1e109a4750be093cda4a72f9419d5253d77" %}
+{% set version = "1.9.3" %}
+{% set sha256 = "3e81e265475bb404f029545632deb147f4ee9598668f0621ad2a7bf9db03030d" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -25,7 +25,7 @@ source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
 #  git_rev: f42522217d56879e6fd821e23e11f2e226e5e354
 #  git_depth: -1
-#  # hoping to be 1.9.2 <-- FILL IN HERE
+#  # hoping to be 1.9.3 <-- FILL IN HERE
 
 build:
   number: 0
