@@ -1,11 +1,15 @@
+BUILD:
+- aarch64-conda_cos7-linux-gnu
 c_compiler:
 - gcc
 c_compiler_version:
 - '12'
+cdt_arch:
+- aarch64
 cdt_name:
-- cos6
+- cos7
 channel_sources:
-- tiledb/label/for-cloud,conda-forge,tiledb
+- conda-forge,tiledb
 channel_targets:
 - tiledb main
 cxx_compiler:
@@ -15,7 +19,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 fmt:
-- '9'
+- '10'
 numpy:
 - '1.22'
 - '1.23'
@@ -37,9 +41,9 @@ r_base:
 - '4.2'
 - '4.3'
 spdlog:
-- '1.11'
+- '1.12'
 target_platform:
-- linux-64
+- linux-aarch64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
