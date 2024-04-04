@@ -3,6 +3,7 @@ github:
   branch_name: main
   tooling_branch_name: main
 build_platform:
+  linux_aarch64: linux_64
   osx_arm64: osx_64
 conda_forge_output_validation: true
 test_on_native_only: true
@@ -15,3 +16,5 @@ azure:
 # Temporarily required to install tiledb-py with Python 3.7,
 # which is only being built on the "tiledb" channel
 channel_priority: flexible
+provider:
+  linux_aarch64: default
