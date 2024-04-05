@@ -12,6 +12,3 @@ azure:
   build_id: 43
   user_or_org: TileDB-Inc
   project_name: CI
-# Temporarily required to install tiledb-py with Python 3.7,
-# which is only being built on the "tiledb" channel
-channel_priority: flexible
