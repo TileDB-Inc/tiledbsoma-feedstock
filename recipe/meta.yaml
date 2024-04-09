@@ -162,7 +162,7 @@ outputs:
         # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
         - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
         # Temporary https://github.com/TileDB-Inc/tiledbsoma-feedstock/issues/126
-        - r-snappy ==1.1
+        - snappy ==1.1
       host:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
