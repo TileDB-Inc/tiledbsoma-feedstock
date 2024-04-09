@@ -178,6 +178,8 @@ outputs:
         - r-data.table
         - r-spdl
         - r-rlang
+        # Temporary https://github.com/TileDB-Inc/tiledbsoma-feedstock/issues/126
+        - r-snappy ==1.1
       run:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
