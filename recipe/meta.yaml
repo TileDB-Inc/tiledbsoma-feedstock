@@ -161,8 +161,6 @@ outputs:
         - r-rlang                    # [build_platform != target_platform]
         # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
         - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
-        # Temporary https://github.com/TileDB-Inc/tiledbsoma-feedstock/issues/126
-        - snappy ==1.1
       host:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
@@ -180,6 +178,8 @@ outputs:
         - r-data.table
         - r-spdl
         - r-rlang
+        # Temporary https://github.com/TileDB-Inc/tiledbsoma-feedstock/issues/126
+        - snappy ==1.1
       run:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
