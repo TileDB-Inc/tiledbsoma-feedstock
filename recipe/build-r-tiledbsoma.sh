@@ -37,4 +37,15 @@ if [[ $target_platform  == osx-arm64 ]]; then
   R_ARGS_EXTRA="$R_ARGS_EXTRA --no-help"
 fi
 
+# Ensure the arrow package loads 'standalone' as a proxy for possible issues
+# arising when it is loaded to check the R package build
+# We call the helper function arrow_info() returning a (classed) list (for
+# which it has a default pretty-printer dispatching for the class) and
+# assert that the underlying list the expected length)
+res=$(Rscript -e 'cat(length(unclass(arrow::arrow_info())) == 6)')
+if [ ${res} != "TRUE" ]; then
+  echo "*** Aborting build as 'arrow' package may have issues"
+  exit 1
+fi
+
 ${R} CMD INSTALL ${R_ARGS_EXTRA} --build . ${R_ARGS}
