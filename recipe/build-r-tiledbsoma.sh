@@ -93,3 +93,10 @@ echo
 echo "----------------------------------------------------------------"
 echo "AFTER R CMD INSTALL"
 echo
+
+echo
+echo "----------------------------------------------------------------"
+echo "LOOK FOR .SO FILES"
+echo
+
+ls -l $(find . -name '*.so' -print)
