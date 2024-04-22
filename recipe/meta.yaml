@@ -200,10 +200,19 @@ outputs:
         - r-nanoarrow
     test:
       commands:
+        - echo "RTEST 1"
         - $R -e "library('tiledbsoma')"
+        - echo "RTEST 2"
         - $R -e "tiledbsoma::show_package_versions()"
+        - echo "RTEST 3a"
+        - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.dylib"  # [osx]
+        - echo "RTEST 3"
         - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.dylib | grep -e libR -e libtiledb"  # [osx]
+        - echo "RTEST 4a"
+        - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so"  # [linux]
+        - echo "RTEST 4"
         - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so | grep -e libR -e libtiledb"  # [linux]
+        - echo "RTESTS END"
     about:
       home: http://tiledb.com
       license: MIT
