@@ -47,7 +47,11 @@ echo
 echo
 echo "----------------------------------------------------------------"
 echo "CAT ./TOOLS/BUILD_LIBTILEDBSOMA.SH"
-cat ./tools/build_libtiledbsoma.sh
+if [ -f ./tools/build_libtiledbsoma.sh ]; then
+  cat ./tools/build_libtiledbsoma.sh
+else
+  echo NOT FOUND ./tools/build_libtiledbsoma.sh
+fi
 echo
 
 # Unlike most R recipes which are built for one R version per job, this recipe
