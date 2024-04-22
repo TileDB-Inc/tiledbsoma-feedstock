@@ -28,7 +28,7 @@ source:
 #  # hoping to be i.j.k <-- FILL IN HERE
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -106,7 +106,7 @@ outputs:
         - pyarrow       # [not osx]
         - pyarrow-hotfix
         - python
-        - scipy
+        - scipy >=1.11.1
         - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
         - tiledb-py >=0.28.0,<0.29.0
