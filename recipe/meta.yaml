@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
 {% set version = "1.10.1" %}
-{% set sha256 = "a3bff197b3961c4d19a4196ad5361d66a14b61d71cb8916f326e4d2a8738bf3b" %}
+{% set sha256 = "tbd" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -24,7 +24,7 @@ package:
 source:
   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
   # kerl/linux-arm64-conda-debug branch of single-cell-data/TileDB-SOMA
-  git_rev: 68b4ee092321d501b92a296903af3991e7cff52f
+  git_rev: 43529b0e7eb2d70ebaefb34d43ac0e235e1c1401
   git_depth: -1
   # hoping to be i.j.k <-- FILL IN HERE
 

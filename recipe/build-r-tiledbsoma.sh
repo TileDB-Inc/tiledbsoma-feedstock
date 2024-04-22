@@ -38,6 +38,18 @@ echo "CXXFLAGS   <<${CXXFLAGS}>>"
 echo "CXX17FLAGS <<${CXX17FLAGS}>>"
 echo
 
+echo
+echo "----------------------------------------------------------------"
+echo "CAT ./TOOLS/BUILD_LIBTILEDBSOMA.SH.IN"
+cat ./tools/build_libtiledbsoma.sh.in
+echo
+
+echo
+echo "----------------------------------------------------------------"
+echo "CAT ./TOOLS/BUILD_LIBTILEDBSOMA.SH"
+cat ./tools/build_libtiledbsoma.sh
+echo
+
 # Unlike most R recipes which are built for one R version per job, this recipe
 # with multiple outputs builds for each of the R versions in the same job. Thus
 # the compiled files in the source directory need to be cleaned between builds,
