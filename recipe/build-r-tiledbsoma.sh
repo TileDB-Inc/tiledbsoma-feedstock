@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo
+echo
+echo "================================================================"
+echo "ENTER recipe/build-r-tiledbsoma.sh"
+echo
+echo
+
 set -ex
 
 cd apis/r
@@ -25,6 +32,12 @@ if [[ $target_platform == osx-*  ]]; then
   CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 fi
 
+echo
+echo "----------------------------------------------------------------"
+echo "CXXFLAGS   <<${CXXFLAGS}>>"
+echo "CXX17FLAGS <<${CXX17FLAGS}>>"
+echo
+
 # Unlike most R recipes which are built for one R version per job, this recipe
 # with multiple outputs builds for each of the R versions in the same job. Thus
 # the compiled files in the source directory need to be cleaned between builds,
@@ -48,4 +61,19 @@ if [ ${res} != "TRUE" ]; then
   exit 1
 fi
 
+echo
+echo "----------------------------------------------------------------"
+echo "RES <<${res}>>"
+echo
+
+echo
+echo "----------------------------------------------------------------"
+echo "BEFORE R CMD INSTALL"
+echo
+
 ${R} CMD INSTALL ${R_ARGS_EXTRA} --build . ${R_ARGS}
+
+echo
+echo "----------------------------------------------------------------"
+echo "AFTER R CMD INSTALL"
+echo
