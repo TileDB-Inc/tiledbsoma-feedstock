@@ -209,10 +209,17 @@ outputs:
         - echo "RTEST 3"
         - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.dylib | grep -e libR -e libtiledb"  # [osx]
         - echo "RTEST 4a"
-        - "file $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so"  # [linux]
+        - uname -a
         - echo "RTEST 4b"
+        # Current error to debug: ldd saying "not an executable file" which is presumably
+        # due to cross-compilation -- ? Need to verify how we run this check in a cross-compile env, _if so_
+        #
+        # And: /usr/bin/file somehow not present here in these Azure CI runs; bizarre
+        #- "file $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so"  # [linux]
+        - "if [ -x /usr/bin/file ];then /usr/bin/file $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so; fi"  # [linux]
+        - echo "RTEST 4c"
         - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so"  # [linux]
-        - echo "RTEST 4"
+        - echo "RTEST 4d"
         - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so | grep -e libR -e libtiledb"  # [linux]
         - echo "RTESTS END"
     about:
