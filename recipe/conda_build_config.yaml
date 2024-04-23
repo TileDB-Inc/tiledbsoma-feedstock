@@ -16,10 +16,10 @@ channel_priority:
 # conda-forge depedencies, we install the "for-cloud" tiledb binary from
 # tiledb/label/for-cloud
 fmt:                 # [linux]
-  - 9                # [linux]
+  - 9                # [linux and x86]
   - 10               # [linux]
 spdlog:              # [linux]
-  - 1.11             # [linux]
+  - 1.11             # [linux and x86]
   - 1.12             # [linux]
 zip_keys:            # [linux]
   - channel_sources  # [linux]
