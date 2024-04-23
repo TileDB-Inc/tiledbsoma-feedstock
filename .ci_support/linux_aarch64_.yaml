@@ -15,7 +15,7 @@ cdt_name:
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
-- tiledb main
+- tiledb experimental
 cxx_compiler:
 - gxx
 cxx_compiler_version:
