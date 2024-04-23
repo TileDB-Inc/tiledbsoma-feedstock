@@ -209,6 +209,8 @@ outputs:
         - echo "RTEST 3"
         - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.dylib | grep -e libR -e libtiledb"  # [osx]
         - echo "RTEST 4a"
+        - "file $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so"  # [linux]
+        - echo "RTEST 4b"
         - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so"  # [linux]
         - echo "RTEST 4"
         - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so | grep -e libR -e libtiledb"  # [linux]
