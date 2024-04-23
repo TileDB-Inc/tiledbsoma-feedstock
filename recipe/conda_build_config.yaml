@@ -4,7 +4,7 @@ MACOSX_SDK_VERSION:  # [osx and x86_64]
 MACOSX_DEPLOYMENT_TARGET:  # [osx and x86_64]
   - "11.0"                # [osx and x86_64]
 channel_sources:
-  - tiledb/label/for-cloud,conda-forge,tiledb  # [linux]
+  - tiledb/label/for-cloud,conda-forge,tiledb  # [linux and x86]
   - conda-forge,tiledb
 channel_targets:
   - tiledb main
