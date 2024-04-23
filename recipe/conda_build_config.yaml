@@ -7,7 +7,9 @@ channel_sources:
   - tiledb/label/for-cloud,conda-forge,tiledb  # [linux and x86]
   - conda-forge,tiledb
 channel_targets:
-  - tiledb main
+  # FOR THIS PR
+  # - tiledb main
+  - tiledb experimental
 channel_priority:
   - strict
 # What follows is the "non-default stuff" block.
