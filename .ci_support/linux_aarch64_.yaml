@@ -13,7 +13,7 @@ cdt_arch:
 cdt_name:
 - cos7
 channel_sources:
-- tiledb/label/for-cloud,conda-forge,tiledb
+- conda-forge,tiledb
 channel_targets:
 - tiledb main
 cxx_compiler:
@@ -23,7 +23,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 fmt:
-- '9'
+- '10'
 numpy:
 - '1.22'
 - '1.23'
@@ -45,7 +45,7 @@ r_base:
 - '4.2'
 - '4.3'
 spdlog:
-- '1.11'
+- '1.12'
 target_platform:
 - linux-aarch64
 zip_keys:
@@ -53,8 +53,5 @@ zip_keys:
   - cxx_compiler_version
 - - c_stdlib_version
   - cdt_name
-- - channel_sources
-  - fmt
-  - spdlog
 - - python
   - numpy

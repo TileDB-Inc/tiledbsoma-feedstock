@@ -11,6 +11,13 @@ channel_targets:
 channel_priority:
   - strict
 # What follows is the "non-default stuff" block.
+#
+# We are telling conda-smithy that we want two different builds of linux-64:
+# * standard: fmt 10, spdlog 1.12, tiledb channel
+# * special for-cloud: fmt 9, spdlog 1.11, tiledb/label/for-cloud channel
+# * For all the other builds: osx-64, osx-arm64, linux-aarch64, we just want conda-smithy to create
+#   a single build with the current default pinnings
+#
 # conda-forge has migrated to fmt 10 and spdlog 1.12. We need fmt 9 to install
 # into our existing TileDB Cloud conda environments, so we build a special
 # variant of fmt 9 and spdlog 1.11. And because this can no longer solve with

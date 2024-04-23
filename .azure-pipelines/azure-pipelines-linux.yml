@@ -16,12 +16,8 @@ jobs:
         CONFIG: linux_64_fmt9spdlog1.11
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_aarch64_fmt10spdlog1.12:
-        CONFIG: linux_aarch64_fmt10spdlog1.12
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_aarch64_fmt9spdlog1.11:
-        CONFIG: linux_aarch64_fmt9spdlog1.11
+      linux_aarch64_:
+        CONFIG: linux_aarch64_
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
   timeoutInMinutes: 360
