@@ -1,14 +1,23 @@
 github:
   user_or_org: TileDB-Inc
-  branch_name: main
+  # FOR THIS PR ONLY
+  # branch_name: main
+  branch_name: ss/test-linux-arm64
+  store_build_artifacts: true
   tooling_branch_name: main
 build_platform:
+  linux_aarch64: linux_64
   osx_arm64: osx_64
 conda_forge_output_validation: true
 test: native_and_emulated
 # build_with_mambabuild: false
-upload_on_branch: main
+# FOR THIS PR
+# upload_on_branch: main
+upload_on_branch: ss/test-linux-arm64
 azure:
   build_id: 43
   user_or_org: TileDB-Inc
   project_name: CI
+channel_priority: flexible
+provider:
+  linux_aarch64: default
