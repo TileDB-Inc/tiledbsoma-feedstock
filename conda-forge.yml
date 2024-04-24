@@ -1,7 +1,10 @@
 github:
   user_or_org: TileDB-Inc
-  branch_name: main
-  tooling_branch_name: main
+  # FOR THIS PR ONLY
+  # branch_name: main
+  # tooling_branch_name: main
+  branch_name: ss/test-linux-arm64
+  tooling_branch_name: ss/test-linux-arm64
 build_platform:
   linux_aarch64: linux_64
   osx_arm64: osx_64
