@@ -2,7 +2,7 @@ github:
   user_or_org: TileDB-Inc
   # FOR THIS PR ONLY
   # branch_name: main
-  branch_name: ss/test-linux-arm64
+  branch_name: dev
   store_build_artifacts: true
   tooling_branch_name: main
 build_platform:
@@ -13,7 +13,7 @@ test: native_and_emulated
 # build_with_mambabuild: false
 # FOR THIS PR
 # upload_on_branch: main
-upload_on_branch: ss/test-linux-arm64
+upload_on_branch: dev
 azure:
   build_id: 43
   user_or_org: TileDB-Inc
