@@ -1,7 +1,7 @@
 About tiledbsoma-feedstock
 ==========================
 
-Feedstock license: [BSD-3-Clause](https://github.com/TileDB-Inc/tiledbsoma-feedstock/blob/ss/test-linux-arm64/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/TileDB-Inc/tiledbsoma-feedstock/blob/dev/LICENSE.txt)
 
 
 About tiledbsoma
@@ -75,8 +75,8 @@ Current build status
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=ss/test-linux-arm64">
-            <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=ss/test-linux-arm64">
+          <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=dev">
+            <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=dev">
           </a>
         </summary>
         <table>
@@ -84,36 +84,36 @@ Current build status
           <tbody><tr>
               <td>linux_64_fmt10spdlog1.12</td>
               <td>
-                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=ss/test-linux-arm64">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=ss/test-linux-arm64&jobName=linux&configuration=linux%20linux_64_fmt10spdlog1.12" alt="variant">
+                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=dev">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=dev&jobName=linux&configuration=linux%20linux_64_fmt10spdlog1.12" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_64_fmt9spdlog1.11</td>
               <td>
-                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=ss/test-linux-arm64">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=ss/test-linux-arm64&jobName=linux&configuration=linux%20linux_64_fmt9spdlog1.11" alt="variant">
+                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=dev">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=dev&jobName=linux&configuration=linux%20linux_64_fmt9spdlog1.11" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_aarch64</td>
               <td>
-                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=ss/test-linux-arm64">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=ss/test-linux-arm64&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
+                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=dev">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=dev&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64</td>
               <td>
-                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=ss/test-linux-arm64">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=ss/test-linux-arm64&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=dev">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=dev&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_arm64</td>
               <td>
-                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=ss/test-linux-arm64">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=ss/test-linux-arm64&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
+                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=dev">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=dev&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr>

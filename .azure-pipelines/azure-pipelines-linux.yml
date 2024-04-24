@@ -39,7 +39,7 @@ jobs:
         export sha=$(Build.SourceVersion)
         export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
         export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
-        export UPLOAD_ON_BRANCH="ss/test-linux-arm64"
+        export UPLOAD_ON_BRANCH="dev"
         if [[ "${BUILD_REASON:-}" == "PullRequest" ]]; then
           export IS_PR_BUILD="True"
         else
