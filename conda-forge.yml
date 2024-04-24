@@ -3,6 +3,7 @@ github:
   # FOR THIS PR ONLY
   # branch_name: main
   branch_name: ss/test-linux-arm64
+  store_build_artifacts: true
   tooling_branch_name: main
 build_platform:
   linux_aarch64: linux_64
