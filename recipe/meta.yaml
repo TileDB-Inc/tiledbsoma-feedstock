@@ -28,7 +28,7 @@ source:
 #  # hoping to be i.j.k <-- FILL IN HERE
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -47,7 +47,6 @@ outputs:
         - tiledb >=2.22.0,<2.23
         - spdlog
         - fmt
-        #### TEMP - libgoogle-cloud 2.17.*
       run:
         # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
         - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
@@ -96,7 +95,6 @@ outputs:
         - pyarrow <13.0 # [osx]
         - pyarrow       # [not osx]
         - pyarrow-hotfix
-        #### TEMP - libgoogle-cloud 2.17.*
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}

@@ -20,8 +20,14 @@ fmt:                 # [linux]
   - 10               # [linux]
 spdlog:              # [linux]
   - 1.11             # [linux]
-  - 1.12             # [linux]
+  - 1.13             # [linux]
 zip_keys:            # [linux]
   - channel_sources  # [linux]
   - fmt              # [linux]
   - spdlog           # [linux]
+# Because of the awkwardness required for the cloud variant above
+# (fmt9+spdlog1.11), we have to migrate the osx-* manually here. Once the
+# conda-forge-pinning-feedstock is updated to spdlog 1.13, we can remove the
+# manual pin below
+spdlog:              # [not linux]
+  - 1.13             # [not linux]
