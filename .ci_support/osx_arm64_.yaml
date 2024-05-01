@@ -4,10 +4,6 @@ c_compiler:
 - clang
 c_compiler_version:
 - '16'
-c_stdlib:
-- macosx_deployment_target
-c_stdlib_version:
-- '11.0'
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
@@ -41,7 +37,7 @@ r_base:
 - '4.2'
 - '4.3'
 spdlog:
-- '1.12'
+- '1.13'
 target_platform:
 - osx-arm64
 zip_keys:
