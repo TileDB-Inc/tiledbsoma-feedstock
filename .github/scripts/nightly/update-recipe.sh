@@ -17,7 +17,7 @@ sed -i \
 
 # Build the latest commit on "main" branch
 sed -i \
-  s/"sha256: .\+"/"git_rev: main\n  git_depth: 1"/ \
+  s/"sha256: .\+"/"git_rev: main\n  git_depth: -1"/ \
   recipe/meta.yaml
 
 git --no-pager diff recipe/meta.yaml

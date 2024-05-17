@@ -96,7 +96,7 @@ outputs:
         - pyarrow       # [not osx]
         - pyarrow-hotfix
       run:
-        - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.24') }}
+        - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.27') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - pandas
         # https://github.com/single-cell-data/TileDB-SOMA/issues/1926
