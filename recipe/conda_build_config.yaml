@@ -31,3 +31,22 @@ zip_keys:            # [linux]
 # manual pin below
 spdlog:              # [not linux]
   - 1.13             # [not linux]
+# The below prevents a Python 3.12 variant for the osx-* builds. We can't build
+# tiledbsoma-py for Python 3.12 on osx-* until the AWS/S3 problem introduced in
+# pyarrow 13 is resolved
+# https://github.com/single-cell-data/TileDB-SOMA/issues/1926#issuecomment-1834695149
+python:               # [osx]
+  - 3.8.* *_cpython   # [osx]
+  - 3.9.* *_cpython   # [osx]
+  - 3.10.* *_cpython  # [osx]
+  - 3.11.* *_cpython  # [osx]
+python_impl:          # [osx]
+  - cpython           # [osx]
+  - cpython           # [osx]
+  - cpython           # [osx]
+  - cpython           # [osx]
+numpy:                # [osx]
+  - 1.22              # [osx]
+  - 1.22              # [osx]
+  - 1.22              # [osx]
+  - 1.23              # [osx]
