@@ -4,6 +4,9 @@ set -ex
 
 cd apis/python
 
+echo
+echo "PKG_VERSION IS <<$PKG_VERSION>>"
+echo
 echo "$PKG_VERSION" >> RELEASE-VERSION
 
 export TILEDB_PATH=$PREFIX
