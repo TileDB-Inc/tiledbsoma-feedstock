@@ -19,6 +19,8 @@ package:
 source:
   url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:   # [osx and not arm64]
+    - 0001-version-py-workaround-1-11-2.patch
 
 # Pre-tag canary "will Conda be green if we release":
 #source:
