@@ -44,7 +44,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.23.0,<2.24
+        - tiledb >=2.24.0,<2.25
         - spdlog
         - fmt
       run:
@@ -107,7 +107,7 @@ outputs:
         - scipy
         - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
-        - tiledb-py >=0.29.0,<0.30.0
+        - tiledb-py >=0.30.0,<0.31.0
         - typing-extensions >=4.1
         - numba >=0.58.1 # [py>37]
         - numba          # [py<=37]
@@ -148,7 +148,7 @@ outputs:
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64                    # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
-        - r-tiledb >=0.27.0,<0.28    # [build_platform != target_platform]
+        - r-tiledb >=0.28.0,<0.29    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
         - r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
@@ -167,7 +167,7 @@ outputs:
         - r-matrix
         - r-bit64
         - r-rcppint64
-        - r-tiledb >=0.27.0,<0.28
+        - r-tiledb >=0.28.0,<0.29
         - r-arrow
         - r-fs
         - r-glue
@@ -184,7 +184,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64
-        - r-tiledb >=0.27.0,<0.28
+        - r-tiledb >=0.28.0,<0.29
         - r-arrow
         - r-fs
         - r-glue
