@@ -75,9 +75,7 @@ outputs:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - pybind11                               # [build_platform != target_platform]
-        # https://github.com/single-cell-data/TileDB-SOMA/issues/1926
         - pyarrow                                # [build_platform != target_platform]
-        - pyarrow-hotfix                         # [build_platform != target_platform]
         - numpy                                  # [build_platform != target_platform]
       host:
         - python
@@ -91,16 +89,12 @@ outputs:
         - setuptools_scm
         - wheel
         - numpy
-        # https://github.com/single-cell-data/TileDB-SOMA/issues/1926
         - pyarrow
-        - pyarrow-hotfix
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.27') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - pandas
-        # https://github.com/single-cell-data/TileDB-SOMA/issues/1926
         - pyarrow
-        - pyarrow-hotfix
         - python
         - scipy
         - anndata       # [py>37]
