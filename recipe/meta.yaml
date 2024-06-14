@@ -23,8 +23,7 @@ package:
 # Pre-tag canary "will Conda be green if we release":
 source:
   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-  #git_rev: abdfda236ec5550cb6be984a83a94f0578461465
-  git_rev: 5e182d607aa956eae5c9d3729e536bbf61982188 # https://github.com/single-cell-data/TileDB-SOMA/pull/2734
+  git_rev: f8a2c9d919fb5d5f4a6b12930378a18b3a36665b
   git_depth: -1
   # hoping to be 1.12.0 <-- FILL IN HERE
 
@@ -76,6 +75,9 @@ outputs:
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - pybind11                               # [build_platform != target_platform]
         - pyarrow >=14.0                         # [build_platform != target_platform]
+        # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
+        # when the repo's own setup.py won't depend on pyarrow_hotfix anymore
+        - pyarrow_hotfix
         - numpy                                  # [build_platform != target_platform]
       host:
         - python
@@ -90,11 +92,17 @@ outputs:
         - wheel
         - numpy
         - pyarrow >=14.0
+        # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
+        # when the repo's own setup.py won't depend on pyarrow_hotfix anymore
+        - pyarrow_hotfix
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.27') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - pandas
         - pyarrow >=14.0
+        # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
+        # when the repo's own setup.py won't depend on pyarrow_hotfix anymore
+        - pyarrow_hotfix
         - python
         - scipy
         - anndata       # [py>37]
