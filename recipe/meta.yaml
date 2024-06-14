@@ -113,7 +113,13 @@ outputs:
       imports:
         - tiledbsoma
       commands:
-        - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"
+        - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
+        # See also:
+        # https://github.com/single-cell-data/TileDB-SOMA/pull/2734
+        # https://github.com/single-cell-data/TileDB-SOMA/pull/2692
+        # https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/171
+        # https://github.com/apache/arrow/issues/42154
+        - python -c 'import tiledbsoma; assert not tiledbsoma.DataFrame.exists("s3://abc/def")'
     about:
       home: http://tiledb.com
       license: MIT
