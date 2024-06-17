@@ -78,7 +78,7 @@ outputs:
         # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
         # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
         - pyarrow-hotfix
-        - numpy <2.0                             # [build_platform != target_platform]
+        - numpy                                  # [build_platform != target_platform]
       host:
         - python
         - pip
@@ -90,7 +90,7 @@ outputs:
         - setuptools
         - setuptools_scm
         - wheel
-        - numpy <2.0
+        - numpy
         - pyarrow >=14.0
         # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
         # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
