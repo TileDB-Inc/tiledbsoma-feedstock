@@ -16,12 +16,6 @@ docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 fmt:
 - '9'
-numpy:
-- '1.22'
-- '1.23'
-- '1.26'
-- '1.22'
-- '1.22'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -48,5 +42,3 @@ zip_keys:
 - - channel_sources
   - fmt
   - spdlog
-- - python
-  - numpy
