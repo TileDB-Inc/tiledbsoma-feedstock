@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.11.4" %}
-{% set sha256 = "5fa61e37e646c52b6799f6b6e88843ac4a3d0f606801def1be3a8f1c5d2609e6" %}
+{% set version = "1.12.0" %}
+{% set sha256 = "cbf67a4159a0a817348b159b5109605639200adedf53d644690b92aedddd3012" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -23,9 +23,9 @@ source:
 # Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  git_rev: 72cd2c79cdcec4809fbe347f8bb842f37299646f
+#  git_rev: c8194db185cfd320b49f301bf369431449c22693
 #  git_depth: -1
-#  # hoping to be i.j.k <-- FILL IN HERE
+#  # hoping to be 1.12.0 <-- FILL IN HERE
 
 build:
   number: 0
@@ -44,7 +44,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.23.0,<2.24
+        - tiledb >=2.24.0,<2.25
         - spdlog
         - fmt
       run:
@@ -74,10 +74,10 @@ outputs:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - pybind11                               # [build_platform != target_platform]
-        # https://github.com/single-cell-data/TileDB-SOMA/issues/1926
-        - pyarrow <13.0                          # [build_platform != target_platform and osx]
-        - pyarrow                                # [build_platform != target_platform and not osx]
-        - pyarrow-hotfix                         # [build_platform != target_platform]
+        - pyarrow >=14.0                         # [build_platform != target_platform]
+        # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
+        # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
+        - pyarrow-hotfix
         - numpy                                  # [build_platform != target_platform]
       host:
         - python
@@ -91,23 +91,23 @@ outputs:
         - setuptools_scm
         - wheel
         - numpy
-        # https://github.com/single-cell-data/TileDB-SOMA/issues/1926
-        - pyarrow <13.0 # [osx]
-        - pyarrow       # [not osx]
+        - pyarrow >=14.0
+        # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
+        # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
         - pyarrow-hotfix
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.27') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - pandas
-        # https://github.com/single-cell-data/TileDB-SOMA/issues/1926
-        - pyarrow <13.0 # [osx]
-        - pyarrow       # [not osx]
+        - pyarrow >=14.0
+        # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
+        # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
         - pyarrow-hotfix
         - python
         - scipy
         - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
-        - tiledb-py >=0.29.0,<0.30.0
+        - tiledb-py >=0.30.0,<0.31.0
         - typing-extensions >=4.1
         - numba >=0.58.1 # [py>37]
         - numba          # [py<=37]
@@ -121,7 +121,13 @@ outputs:
       imports:
         - tiledbsoma
       commands:
-        - python -c "import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())"
+        - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
+        # See also:
+        # https://github.com/single-cell-data/TileDB-SOMA/pull/2734
+        # https://github.com/single-cell-data/TileDB-SOMA/pull/2692
+        # https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/171
+        # https://github.com/apache/arrow/issues/42154
+        - python -c 'import tiledbsoma; assert not tiledbsoma.DataFrame.exists("s3://abc/def")'
     about:
       home: http://tiledb.com
       license: MIT
@@ -148,7 +154,7 @@ outputs:
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64                    # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
-        - r-tiledb >=0.27.0,<0.28    # [build_platform != target_platform]
+        - r-tiledb >=0.28.0,<0.29    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
         - r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
@@ -167,7 +173,7 @@ outputs:
         - r-matrix
         - r-bit64
         - r-rcppint64
-        - r-tiledb >=0.27.0,<0.28
+        - r-tiledb >=0.28.0,<0.29
         - r-arrow
         - r-fs
         - r-glue
@@ -184,7 +190,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64
-        - r-tiledb >=0.27.0,<0.28
+        - r-tiledb >=0.28.0,<0.29
         - r-arrow
         - r-fs
         - r-glue
