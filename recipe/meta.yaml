@@ -76,8 +76,8 @@ outputs:
         - pybind11                               # [build_platform != target_platform]
         - pyarrow >=14.0                         # [build_platform != target_platform]
         # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
-        # when the repo's own setup.py won't depend on pyarrow_hotfix anymore
-        - pyarrow_hotfix
+        # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
+        - pyarrow-hotfix
         - numpy <2.0                             # [build_platform != target_platform]
       host:
         - python
@@ -93,16 +93,16 @@ outputs:
         - numpy <2.0
         - pyarrow >=14.0
         # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
-        # when the repo's own setup.py won't depend on pyarrow_hotfix anymore
-        - pyarrow_hotfix
+        # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
+        - pyarrow-hotfix
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.27') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - pandas
         - pyarrow >=14.0
         # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
-        # when the repo's own setup.py won't depend on pyarrow_hotfix anymore
-        - pyarrow_hotfix
+        # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
+        - pyarrow-hotfix
         - python
         - scipy
         - anndata       # [py>37]
