@@ -21,10 +21,14 @@ fmt:                 # [linux]
 spdlog:              # [linux]
   - 1.11             # [linux]
   - 1.13             # [linux]
+pyarrow:             # [linux]
+  - 11               # [linux]
+  - 16               # [linux]
 zip_keys:            # [linux]
   - channel_sources  # [linux]
   - fmt              # [linux]
   - spdlog           # [linux]
+  - pyarrow          # [linux]
 # Because of the awkwardness required for the cloud variant above
 # (fmt9+spdlog1.11), we have to migrate the osx-* manually here. Once the
 # conda-forge-pinning-feedstock is updated to spdlog 1.13, we can remove the
