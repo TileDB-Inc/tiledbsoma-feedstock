@@ -75,10 +75,10 @@ outputs:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - pybind11                               # [build_platform != target_platform]
-        - pyarrow                         # [build_platform != target_platform]
+        - pyarrow                                # [build_platform != target_platform]
         # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
         # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
-        - pyarrow-hotfix
+        - pyarrow-hotfix                         # [build_platform != target_platform]
         - numpy                                  # [build_platform != target_platform]
       host:
         - python
