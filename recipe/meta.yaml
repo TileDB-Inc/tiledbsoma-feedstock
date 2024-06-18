@@ -40,6 +40,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - git
         - cmake
         - make  # [not win]
@@ -72,6 +73,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - pybind11                               # [build_platform != target_platform]
@@ -116,8 +118,6 @@ outputs:
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
         - somacore ==1.0.11
         - scanpy >=1.9.2
-        # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
-        - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
     test:
       imports:
         - tiledbsoma
@@ -148,6 +148,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
         - pkg-config
         # required for cross-compilation
         - cross-r-base {{ r_base }}  # [build_platform != target_platform]
