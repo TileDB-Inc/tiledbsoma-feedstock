@@ -1,8 +1,9 @@
 # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
+# https://conda-forge.org/news/2024/03/24/stdlib-migration/
 MACOSX_SDK_VERSION:  # [osx and x86_64]
   - 11.0            # [osx and x86_64]
-MACOSX_DEPLOYMENT_TARGET:  # [osx and x86_64]
-  - "11.0"                # [osx and x86_64]
+c_stdlib_version:              # [osx and x86_64]
+  - 11.0                       # [osx and x86_64]
 channel_sources:
   - tiledb/label/for-cloud,conda-forge,tiledb  # [linux]
   - conda-forge,tiledb
@@ -21,32 +22,17 @@ fmt:                 # [linux]
 spdlog:              # [linux]
   - 1.11             # [linux]
   - 1.13             # [linux]
+pyarrow:             # [linux]
+  - 11               # [linux]
+  - 16               # [linux]
 zip_keys:            # [linux]
   - channel_sources  # [linux]
   - fmt              # [linux]
   - spdlog           # [linux]
+  - pyarrow          # [linux]
 # Because of the awkwardness required for the cloud variant above
 # (fmt9+spdlog1.11), we have to migrate the osx-* manually here. Once the
 # conda-forge-pinning-feedstock is updated to spdlog 1.13, we can remove the
 # manual pin below
 spdlog:              # [not linux]
   - 1.13             # [not linux]
-# The below prevents a Python 3.12 variant for the osx-* builds. We can't build
-# tiledbsoma-py for Python 3.12 on osx-* until the AWS/S3 problem introduced in
-# pyarrow 13 is resolved
-# https://github.com/single-cell-data/TileDB-SOMA/issues/1926#issuecomment-1834695149
-python:               # [osx]
-  - 3.8.* *_cpython   # [osx]
-  - 3.9.* *_cpython   # [osx]
-  - 3.10.* *_cpython  # [osx]
-  - 3.11.* *_cpython  # [osx]
-python_impl:          # [osx]
-  - cpython           # [osx]
-  - cpython           # [osx]
-  - cpython           # [osx]
-  - cpython           # [osx]
-numpy:                # [osx]
-  - 1.22              # [osx]
-  - 1.22              # [osx]
-  - 1.22              # [osx]
-  - 1.23              # [osx]
