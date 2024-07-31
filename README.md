@@ -82,10 +82,10 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_fmt10spdlog1.13</td>
+              <td>linux_64_fmt11spdlog1.14</td>
               <td>
                 <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_fmt10spdlog1.13" alt="variant">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_fmt11spdlog1.14" alt="variant">
                 </a>
               </td>
             </tr><tr>

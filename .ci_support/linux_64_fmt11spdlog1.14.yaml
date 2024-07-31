@@ -19,7 +19,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 fmt:
-- '10'
+- '11'
 numpy:
 - '1.22'
 - '1.23'
@@ -44,7 +44,7 @@ python:
 r_base:
 - '4.3'
 spdlog:
-- '1.13'
+- '1.14'
 target_platform:
 - linux-64
 zip_keys:
