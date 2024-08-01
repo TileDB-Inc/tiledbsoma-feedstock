@@ -22,6 +22,7 @@ fmt:                 # [linux]
   - 11               # [linux]
 spdlog:              # [linux]
   - 1.11             # [linux]
+  - 1.13             # [not linux]
   - 1.14             # [linux]
 pyarrow:             # [linux]
   - 11               # [linux]
@@ -36,4 +37,5 @@ zip_keys:            # [linux]
 # conda-forge-pinning-feedstock is updated to spdlog 1.13, we can remove the
 # manual pin below
 spdlog:              # [not linux]
+  - 1.13             # [not linux]
   - 1.14             # [not linux]
