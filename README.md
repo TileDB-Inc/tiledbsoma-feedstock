@@ -96,17 +96,31 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64</td>
+              <td>osx_64_spdlog1.13</td>
               <td>
                 <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_spdlog1.13" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64</td>
+              <td>osx_64_spdlog1.14</td>
               <td>
                 <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_spdlog1.14" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_spdlog1.13</td>
+              <td>
+                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_spdlog1.13" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_spdlog1.14</td>
+              <td>
+                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_spdlog1.14" alt="variant">
                 </a>
               </td>
             </tr>
