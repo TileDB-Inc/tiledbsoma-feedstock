@@ -18,7 +18,7 @@ channel_priority:
 # tiledb/label/for-cloud.
 fmt:                 # [linux]
   - 9                # [linux]
-  - 10               # [osx]
+  - 10               # [not linux]
   - 11               # [linux]
 spdlog:              # [linux]
   - 1.11             # [linux]
