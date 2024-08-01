@@ -9,7 +9,7 @@ c_stdlib_version:
 cdt_name:
 - cos7
 channel_sources:
-- tiledb/label/for-cloud,conda-forge,tiledb
+- conda-forge,tiledb
 channel_targets:
 - tiledb main
 cxx_compiler:
@@ -18,8 +18,6 @@ cxx_compiler_version:
 - '12'
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
-fmt:
-- '9'
 numpy:
 - '1.22'
 - '1.23'
@@ -34,7 +32,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 pyarrow:
-- '11'
+- '16'
 python:
 - 3.10.* *_cpython
 - 3.11.* *_cpython
@@ -44,7 +42,7 @@ python:
 r_base:
 - '4.3'
 spdlog:
-- '1.11'
+- '1.14'
 target_platform:
 - linux-64
 zip_keys:
@@ -53,7 +51,6 @@ zip_keys:
 - - c_stdlib_version
   - cdt_name
 - - channel_sources
-  - fmt
   - spdlog
   - pyarrow
 - - python
