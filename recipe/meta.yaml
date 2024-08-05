@@ -47,7 +47,7 @@ outputs:
       host:
         - tiledb >=2.25.0,<2.26
         - spdlog
-        - fmt =11
+        - fmt
     about:
       home: http://tiledb.com
       license: MIT
