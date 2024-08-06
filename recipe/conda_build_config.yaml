@@ -11,17 +11,18 @@ channel_targets:
   - tiledb main
 channel_priority:
   - strict
-# conda-forge has migrated to fmt 10 and spdlog 1.12. We need fmt 9 to install
+# conda-forge has migrated to fmt 11 and spdlog 1.14. We need fmt 9 to install
 # into our existing TileDB Cloud conda environments, so we build a special
 # variant of fmt 9 and spdlog 1.11. And because this can no longer solve with
 # conda-forge depedencies, we install the "for-cloud" tiledb binary from
-# tiledb/label/for-cloud
+# tiledb/label/for-cloud.
 fmt:                 # [linux]
   - 9                # [linux]
-  - 10               # [linux]
+  - 11               # [linux]
 spdlog:              # [linux]
   - 1.11             # [linux]
-  - 1.13             # [linux]
+  - 1.13             # [not linux]
+  - 1.14             # [linux]
 pyarrow:             # [linux]
   - 11               # [linux]
   - 16               # [linux]
@@ -36,3 +37,4 @@ zip_keys:            # [linux]
 # manual pin below
 spdlog:              # [not linux]
   - 1.13             # [not linux]
+  - 1.14             # [not linux]
