@@ -10,6 +10,11 @@ sed -i \
 sed -i \
   s/"tiledb main"/"tiledb nightlies"/ \
   recipe/conda_build_config.yaml
+# Cover edge case when the label "rc" is temporarily used to upload release
+# candidates
+sed -i \
+  s/"tiledb rc"/"tiledb nightlies"/ \
+  recipe/conda_build_config.yaml
 
 # Print differences
 git --no-pager diff conda-forge.yml recipe/conda_build_config.yaml
