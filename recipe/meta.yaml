@@ -17,8 +17,9 @@ package:
 
 # Post-tag real thing:
 source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  #url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+  url: https://github.com/single-cell-data/TileDB-SOMA/archive/spatial.tar.gz
+#  sha256: {{ sha256 }}
 
 # Pre-tag canary "will Conda be green if we release":
 #source:
