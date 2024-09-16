@@ -45,7 +45,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.25.0,<2.26
+        - tiledb >=2.26.0,<2.27
         - spdlog
         - fmt
     about:
