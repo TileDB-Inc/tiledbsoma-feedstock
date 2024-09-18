@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.13.1" %}
-{% set sha256 = "1b7c20364c50cdf3b9b4c5c82642ef8941b1a8dcc720d32cc887c70b987d013f" %}
+{% set version = "1.14.1" %}
+{% set sha256 = "fe47017c95a00edafdec77e7cd292c1a63bbc58901160ccd81f56c1f0764a67b" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -23,9 +23,9 @@ source:
 # Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  git_rev: 05013fb7523efd00570773641d1990a699cd43f2
+#  git_rev: 0efe51af4a57f6244e27d9da6acabf166e1293a2
 #  git_depth: -1
-#  # hoping to be 1.13.1 <-- FILL IN HERE
+#  # hoping to be 1.14.0 <-- FILL IN HERE
 
 build:
   number: 0
@@ -45,7 +45,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.25.0,<2.26
+        - tiledb >=2.26.0,<2.27
         - spdlog
         - fmt
     about:
@@ -75,9 +75,6 @@ outputs:
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - pybind11                               # [build_platform != target_platform]
         - pyarrow                                # [build_platform != target_platform]
-        # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
-        # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
-        - pyarrow-hotfix                         # [build_platform != target_platform]
         - numpy                                  # [build_platform != target_platform]
       host:
         - python
@@ -92,28 +89,22 @@ outputs:
         - wheel
         - numpy
         - pyarrow
-        # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
-        # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
-        - pyarrow-hotfix
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.27') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - pandas
         - pyarrow
-        # Needed until https://github.com/single-cell-data/TileDB-SOMA/issues/1926 is resolved,
-        # when the repo's own setup.py won't depend on pyarrow-hotfix anymore
-        - pyarrow-hotfix
         - python
         - scipy
         - anndata       # [py>37]
         - anndata <0.9  # [py<=37]
-        - tiledb-py >=0.31.1,<0.32.0
+        - tiledb-py >=0.32.0,<0.33.0
         - typing-extensions >=4.1
         - numba >=0.58.1 # [py>37]
         - numba          # [py<=37]
         - attrs >=22.2
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
-        - somacore ==1.0.13
+        - somacore ==1.0.15
         - scanpy >=1.9.2
     test:
       imports:
@@ -153,7 +144,7 @@ outputs:
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64                    # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
-        - r-tiledb >=0.29.0,<0.30    # [build_platform != target_platform]
+        - r-tiledb >=0.30.0,<0.31    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
         - r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
@@ -170,7 +161,7 @@ outputs:
         - r-matrix
         - r-bit64
         - r-rcppint64
-        - r-tiledb >=0.29.0,<0.30
+        - r-tiledb >=0.30.0,<0.31
         - r-arrow
         - r-fs
         - r-glue
@@ -187,7 +178,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64
-        - r-tiledb >=0.29.0,<0.30
+        - r-tiledb >=0.30.0,<0.31
         - r-arrow
         - r-fs
         - r-glue
