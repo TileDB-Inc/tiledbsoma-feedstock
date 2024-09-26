@@ -104,7 +104,7 @@ outputs:
         - numba          # [py<=37]
         - attrs >=22.2
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
-        - somacore ==1.0.15
+        - somacore ==1.0.17
         - scanpy >=1.9.2
     test:
       imports:
