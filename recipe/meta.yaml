@@ -109,6 +109,8 @@ outputs:
     test:
       imports:
         - tiledbsoma
+      requires:
+        - pip
       commands:
         - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
         # See also:
@@ -117,6 +119,7 @@ outputs:
         # https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/171
         # https://github.com/apache/arrow/issues/42154
         - python -c 'import tiledbsoma; assert not tiledbsoma.DataFrame.exists("s3://abc/def")'
+        - pip check
     about:
       home: http://tiledb.com
       license: MIT
