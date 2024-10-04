@@ -8,6 +8,14 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
+      linux_64_fmt10spdlog1.11:
+        CONFIG: linux_64_fmt10spdlog1.11
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_fmt10spdlog1.14:
+        CONFIG: linux_64_fmt10spdlog1.14
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
       linux_64_fmt11spdlog1.14:
         CONFIG: linux_64_fmt11spdlog1.14
         UPLOAD_PACKAGES: 'True'
