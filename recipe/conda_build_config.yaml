@@ -5,8 +5,10 @@ MACOSX_SDK_VERSION:  # [osx and x86_64]
 c_stdlib_version:              # [osx and x86_64]
   - 11.0                       # [osx and x86_64]
 channel_sources:
-  - tiledb/label/for-cloud,conda-forge,tiledb  # [linux]
-  - conda-forge,tiledb
+  - tiledb/label/spatial,tiledb/label/for-cloud,conda-forge,tiledb  # [linux]
+  - tiledb/label/spatial,tiledb/label/for-cloud,conda-forge,tiledb  # [linux]
+  - tiledb/label/spatial,tiledb/label/for-cloud,conda-forge,tiledb  # [linux]
+  - tiledb/label/spatial,conda-forge,tiledb
 channel_targets:
   - tiledb main
 channel_priority:
@@ -18,12 +20,18 @@ channel_priority:
 # tiledb/label/for-cloud
 fmt:                 # [linux]
   - 9                # [linux]
+  - 10                # [linux]
+  - 10                # [linux]
   - 11               # [linux]
 spdlog:              # [linux]
   - 1.11             # [linux]
+  - 1.11             # [linux]
+  - 1.14             # [linux]
   - 1.14             # [linux]
 pyarrow:             # [linux]
   - 11               # [linux]
+  - 11               # [linux]
+  - 16               # [linux]
   - 16               # [linux]
 zip_keys:            # [linux]
   - channel_sources  # [linux]

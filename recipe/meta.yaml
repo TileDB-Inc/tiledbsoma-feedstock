@@ -1,5 +1,5 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.13.1" %}
+{% set version = "2.0.0a4" %}
 {% set sha256 = "1b7c20364c50cdf3b9b4c5c82642ef8941b1a8dcc720d32cc887c70b987d013f" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
@@ -18,7 +18,7 @@ package:
 # Post-tag real thing:
 source:
   #url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/spatial.tar.gz
+  url: https://github.com/single-cell-data/TileDB-SOMA/archive/f4dc7fbc76443bf8cd36765c0f4a500101c274b9.tar.gz
 #  sha256: {{ sha256 }}
 
 # Pre-tag canary "will Conda be green if we release":
@@ -29,7 +29,7 @@ source:
 #  # hoping to be 1.13.1 <-- FILL IN HERE
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -114,7 +114,7 @@ outputs:
         - numba          # [py<=37]
         - attrs >=22.2
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
-        - somacore ==1.0.13
+        - somacore==1.0.20
         - scanpy >=1.9.2
     test:
       imports:
