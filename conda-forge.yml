@@ -7,7 +7,7 @@ build_platform:
 conda_forge_output_validation: true
 test: native_and_emulated
 # build_with_mambabuild: false
-upload_on_branch: 1.15.0rc1
+upload_on_branch: 1.15.0rcs
 azure:
   build_id: 43
   user_or_org: TileDB-Inc
