@@ -22,7 +22,7 @@ sed -i \
 
 # (Temporary) Bump somacore
 sed -i \
-  s/"somacore ==.\+"/"somacore ==1.0.19"/ \
+  s/"somacore ==.\+"/"somacore ==1.0.20"/ \
   recipe/meta.yaml
 
 git --no-pager diff recipe/meta.yaml
