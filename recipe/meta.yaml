@@ -45,7 +45,10 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.26.0,<2.27
+        # Workaround for conda solver problems for osx-64. Remove when migrating
+        # to 2.27
+        - tiledb 2.26.1  # [osx and x86]
+        - tiledb >=2.26.0,<2.27  # [not (osx and x86)]
         - spdlog
         - fmt
     about:
@@ -109,6 +112,11 @@ outputs:
     test:
       imports:
         - tiledbsoma
+      requires:
+        - pip
+        # Confirm 2.26.2 can be installed at runtime. Remove when migrating to
+        # 2.27
+        - tiledb >=2.26.2,<2.27
       commands:
         - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
         # See also:
@@ -117,6 +125,7 @@ outputs:
         # https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/171
         # https://github.com/apache/arrow/issues/42154
         - python -c 'import tiledbsoma; assert not tiledbsoma.DataFrame.exists("s3://abc/def")'
+        - pip check
     about:
       home: http://tiledb.com
       license: MIT
@@ -190,6 +199,10 @@ outputs:
         - r-rlang
         - r-nanoarrow
     test:
+      requires:
+        # Confirm 2.26.2 can be installed at runtime. Remove when migrating to
+        # 2.27
+        - tiledb >=2.26.2,<2.27
       commands:
         - $R -e "library('tiledbsoma')"
         - $R -e "tiledbsoma::show_package_versions()"
