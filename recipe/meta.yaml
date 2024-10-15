@@ -203,6 +203,7 @@ outputs:
         # Confirm 2.26.2 can be installed at runtime. Remove when migrating to
         # 2.27
         - tiledb >=2.26.2,<2.27
+        - cctools  # [osx]
       commands:
         - $R -e "library('tiledbsoma')"
         - $R -e "tiledbsoma::show_package_versions()"
