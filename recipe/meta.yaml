@@ -99,7 +99,7 @@ outputs:
         - pyarrow
         - python
         - scipy
-        - anndata
+        - anndata >=0.10.1
         - tiledb-py >=0.32.0,<0.33.0
         - typing-extensions >=4.1
         - numba >=0.58.1
