@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.14.5" %}
-{% set sha256 = "88f5444d85154e047b9d704413e5f37bb08f3f90a2d01cac53ab191358d0dfdf" %}
+{% set version = "1.15.0rc3" %}
+{% set sha256 = "66c1b3ea9ea3251e7b51714f7087ad7b43096b42dff49032e0df96b601262da1" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -23,9 +23,9 @@ source:
 # Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  git_rev: afca166d73cf97a0daf5e73ba6ce976064de0018
+#  git_rev: 20485c793829a15e27d01bb320bea290c561f46d
 #  git_depth: -1
-#  # hoping to be 1.14.5 <-- FILL IN HERE
+#  # hoping to be 1.15.0rc3 <-- FILL IN HERE
 
 build:
   number: 0
@@ -99,15 +99,13 @@ outputs:
         - pyarrow
         - python
         - scipy
-        - anndata       # [py>37]
-        - anndata <0.9  # [py<=37]
+        - anndata >=0.10.1
         - tiledb-py >=0.32.0,<0.33.0
         - typing-extensions >=4.1
-        - numba >=0.58.1 # [py>37]
-        - numba          # [py<=37]
+        - numba >=0.58.1
         - attrs >=22.2
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
-        - somacore ==1.0.17
+        - somacore ==1.0.22
         - scanpy >=1.9.2
     test:
       imports:
