@@ -19,7 +19,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '18'
 fmt:
-- '11'
+- '10'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
@@ -42,7 +42,7 @@ python:
 r_base:
 - '4.3'
 spdlog:
-- '1.14'
+- '1.12'
 target_platform:
 - osx-64
 tiledb:
