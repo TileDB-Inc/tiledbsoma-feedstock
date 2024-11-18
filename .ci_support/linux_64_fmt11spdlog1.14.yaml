@@ -7,7 +7,7 @@ c_stdlib:
 c_stdlib_version:
 - '2.17'
 cdt_name:
-- cos7
+- conda
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
@@ -45,13 +45,9 @@ spdlog:
 - '1.14'
 target_platform:
 - linux-64
-tiledb:
-- '2.26'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - c_stdlib_version
-  - cdt_name
 - - channel_sources
   - fmt
   - spdlog
