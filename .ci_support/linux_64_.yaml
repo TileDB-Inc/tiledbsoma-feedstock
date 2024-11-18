@@ -7,7 +7,7 @@ c_stdlib:
 c_stdlib_version:
 - '2.17'
 cdt_name:
-- cos7
+- conda
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
@@ -21,10 +21,10 @@ docker_image:
 fmt:
 - '11'
 numpy:
-- '1.22'
-- '1.23'
-- '1.26'
-- '1.22'
+- '2.0'
+- '2.0'
+- '2.0'
+- '2.0'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -32,8 +32,6 @@ pin_run_as_build:
   r-base:
     min_pin: x.x
     max_pin: x.x
-pyarrow:
-- '17'
 python:
 - 3.10.* *_cpython
 - 3.11.* *_cpython
@@ -50,11 +48,5 @@ tiledb:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - c_stdlib_version
-  - cdt_name
-- - channel_sources
-  - fmt
-  - spdlog
-  - pyarrow
 - - python
   - numpy
