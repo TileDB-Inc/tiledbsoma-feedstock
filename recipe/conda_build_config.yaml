@@ -1,39 +1,18 @@
-# https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
-# https://conda-forge.org/news/2024/03/24/stdlib-migration/
-MACOSX_SDK_VERSION:  # [osx and x86_64]
-  - 11.0            # [osx and x86_64]
-c_stdlib_version:              # [osx and x86_64]
-  - 11.0                       # [osx and x86_64]
 channel_sources:
-  - tiledb/label/for-cloud,conda-forge,tiledb  # [linux]
-  - conda-forge,tiledb
+  - tiledb/label/for-cloud,conda-forge,tiledb
 channel_targets:
-  - tiledb main
+  - tiledb for-cloud
 channel_priority:
   - strict
-# conda-forge has migrated to newer versions of fmt and spdlog. We need fmt 9 to
-# install into our existing TileDB Cloud conda environments, so we build a
-# special variant of fmt 9 and spdlog 1.11. And because this can no longer solve
-# with conda-forge depedencies, we install the "for-cloud" tiledb binary from
-# tiledb/label/for-cloud
-fmt:                 # [linux]
-  - 9                # [linux]
-  - 11               # [linux]
-spdlog:              # [linux]
-  - 1.11             # [linux]
-  - 1.14             # [linux]
-pyarrow:             # [linux]
-  - 11               # [linux]
-  - 17               # [linux]
-zip_keys:            # [linux]
-  - channel_sources  # [linux]
-  - fmt              # [linux]
-  - spdlog           # [linux]
-  - pyarrow          # [linux]
-# Because of the awkwardness required for the cloud variant above
-# (fmt9+spdlog1.11), we also have to manually pin fmt/spdlog for the osx-*
-# builds
-fmt:                 # [not linux]
-  - 11               # [not linux]
-spdlog:              # [not linux]
-  - 1.14             # [not linux]
+fmt:
+  - 9
+spdlog:
+  - 1.11
+pyarrow:
+  - 11
+python:
+  - 3.9.* *_cpython
+numpy:
+  - 1.22
+python_impl:
+  - cpython

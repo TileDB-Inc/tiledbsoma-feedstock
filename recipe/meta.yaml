@@ -29,7 +29,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [win or linux32 or py2k]
+  skip: true  # [not linux]
 # Important: set this back to 0 on a new release
 
 outputs:
@@ -45,10 +45,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        # Workaround for conda solver problems for osx-64. Remove when migrating
-        # to 2.27
-        - tiledb 2.26.1  # [osx and x86]
-        - tiledb >=2.26.0,<2.27  # [not (osx and x86)]
+        - tiledb >=2.26.0,<2.27
         - spdlog
         - fmt
     about:
@@ -68,8 +65,6 @@ outputs:
   - name: tiledbsoma-py
     version: {{ version }}
     script: build-tiledbsoma-py.sh
-    build:
-      skip: true  # [py == 312]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -112,9 +107,6 @@ outputs:
         - tiledbsoma
       requires:
         - pip
-        # Confirm 2.26.2 can be installed at runtime. Remove when migrating to
-        # 2.27
-        - tiledb >=2.26.2,<2.27
       commands:
         - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
         # See also:
@@ -198,9 +190,6 @@ outputs:
         - r-nanoarrow
     test:
       requires:
-        # Confirm 2.26.2 can be installed at runtime. Remove when migrating to
-        # 2.27
-        - tiledb >=2.26.2,<2.27
         - cctools  # [osx]
       commands:
         - $R -e "library('tiledbsoma')"
