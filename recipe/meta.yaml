@@ -28,7 +28,7 @@ source:
 #  # hoping to be 1.15.0rc3 <-- FILL IN HERE
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -68,8 +68,6 @@ outputs:
   - name: tiledbsoma-py
     version: {{ version }}
     script: build-tiledbsoma-py.sh
-    build:
-      skip: true  # [py == 312]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -93,7 +91,6 @@ outputs:
         - numpy
         - pyarrow
       run:
-        - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.27') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - pandas
         - pyarrow
