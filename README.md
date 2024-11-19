@@ -82,31 +82,10 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_fmt11spdlog1.14</td>
+              <td>linux_64</td>
               <td>
                 <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_fmt11spdlog1.14" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_fmt9spdlog1.11</td>
-              <td>
-                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_fmt9spdlog1.11" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64</td>
-              <td>
-                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64</td>
-              <td>
-                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -129,14 +108,14 @@ Current release info
 Installing tiledbsoma
 =====================
 
-Installing `tiledbsoma` from the `tiledb` channel can be achieved by adding `tiledb` to your channels with:
+Installing `tiledbsoma` from the `tiledb/label/for-cloud` channel can be achieved by adding `tiledb/label/for-cloud` to your channels with:
 
 ```
-conda config --add channels tiledb
+conda config --add channels tiledb/label/for-cloud
 conda config --set channel_priority strict
 ```
 
-Once the `tiledb` channel has been enabled, `libtiledbsoma, r-tiledbsoma, tiledbsoma-py` can be installed with `conda`:
+Once the `tiledb/label/for-cloud` channel has been enabled, `libtiledbsoma, r-tiledbsoma, tiledbsoma-py` can be installed with `conda`:
 
 ```
 conda install libtiledbsoma r-tiledbsoma tiledbsoma-py
@@ -151,26 +130,26 @@ mamba install libtiledbsoma r-tiledbsoma tiledbsoma-py
 It is possible to list all of the versions of `libtiledbsoma` available on your platform with `conda`:
 
 ```
-conda search libtiledbsoma --channel tiledb
+conda search libtiledbsoma --channel tiledb/label/for-cloud
 ```
 
 or with `mamba`:
 
 ```
-mamba search libtiledbsoma --channel tiledb
+mamba search libtiledbsoma --channel tiledb/label/for-cloud
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search libtiledbsoma --channel tiledb
+mamba repoquery search libtiledbsoma --channel tiledb/label/for-cloud
 
 # List packages depending on `libtiledbsoma`:
-mamba repoquery whoneeds libtiledbsoma --channel tiledb
+mamba repoquery whoneeds libtiledbsoma --channel tiledb/label/for-cloud
 
 # List dependencies of `libtiledbsoma`:
-mamba repoquery depends libtiledbsoma --channel tiledb
+mamba repoquery depends libtiledbsoma --channel tiledb/label/for-cloud
 ```
 
 
