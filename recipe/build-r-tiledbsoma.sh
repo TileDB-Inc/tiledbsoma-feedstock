@@ -15,10 +15,10 @@ if [[ $target_platform  == osx-64 ]]; then
   mkdir -p ~/.R
   echo CC=$RECIPE_DIR/cc_wrap.sh > ~/.R/Makevars
   echo CXX=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
-  echo CXX17=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
+  echo CXX20=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
 fi
 
-export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
+export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
 
 # https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
 if [[ $target_platform == osx-*  ]]; then
