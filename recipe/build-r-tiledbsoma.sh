@@ -20,6 +20,7 @@ fi
 
 export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
 export CXX_STD="CXX20"
+export CXX20=$RECIPE_DIR/cxx_wrap.sh
 
 # https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
 if [[ $target_platform == osx-*  ]]; then
