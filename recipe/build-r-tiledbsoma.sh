@@ -6,21 +6,67 @@ cd apis/r
 
 export DISABLE_AUTOBREW=1
 
+# The $CC and $CXX are set by Conda to things we could not and should not guess.
+# All we can do is annotate them:
+#
+# * add flags;
+# * for osx-64, set $CC and $CXX to be wrapper scripts which nonetheless
+#   reference (and invoke) the original environment variables;
+# * add a couple more that are necessary for C++ 20.
+
+set +x
+echo
+echo ----------------------------------------------------------------
+echo $(basename $0) ORIGINAL VARIABLES:
+echo "CC      [$CC]"
+echo "CXX     [$CXX]"
+echo "CXX20   [$CXX20]"
+echo "CXX_STD [$CXX_STD]"
+echo ----------------------------------------------------------------
+echo
+set -x
+
+export         CC="$CC -std=c++20 -fPIC"
+export        CXX="$CXX -std=c++20 -fPIC"
+export      CXX20="$CXX"
+export    CXX_STD="CXX20"
+export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
+
+set +x
+echo
+echo ----------------------------------------------------------------
+echo $(basename $0) UPDATED VARIABLES:
+echo "CC      [$CC]"
+echo "CXX     [$CXX]"
+echo "CXX20   [$CXX20]"
+echo "CXX_STD [$CXX_STD]"
+echo ----------------------------------------------------------------
+echo
+set -x
+
 # https://github.com/conda-forge/r-tiledb-feedstock/commit/29cb6816636e7b5b58545e1407a8f0c29ff9dc39
+mkdir -p ~/.R
 if [[ $target_platform  == osx-64 ]]; then
+  export  NN_CC_ORIG=$CC
   export NN_CXX_ORIG=$CXX
-  export NN_CC_ORIG=$CC
-  export CXX=$RECIPE_DIR/cxx_wrap.sh
-  export CC=$RECIPE_DIR/cc_wrap.sh
-  mkdir -p ~/.R
-  echo CC=$RECIPE_DIR/cc_wrap.sh > ~/.R/Makevars
-  echo CXX=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
-  echo CXX20=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
+  export    CC=$RECIPE_DIR/cc_wrap.sh
+  export   CXX=$RECIPE_DIR/cxx_wrap.sh
+  export CXX20=$RECIPE_DIR/cxx_wrap.sh
 fi
 
-export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
-export CXX_STD="CXX20"
-export CXX20=$RECIPE_DIR/cxx_wrap.sh
+echo      CC="$CC"      >  ~/.R/Makevars
+echo     CXX="$CXX"     >> ~/.R/Makevars
+echo   CXX20="$CXX20"   >> ~/.R/Makevars
+echo CXX_STD="$CXX_STD" >> ~/.R/Makevars
+
+set +x
+echo
+echo ----------------------------------------------------------------
+echo $(basename $0) MAKEVARS:
+cat ~/.R/Makevars
+echo ----------------------------------------------------------------
+echo
+set -x
 
 # https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
 if [[ $target_platform == osx-*  ]]; then
