@@ -19,6 +19,7 @@ if [[ $target_platform  == osx-64 ]]; then
 fi
 
 export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
+export CXX_STD="CXX20"
 
 # https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
 if [[ $target_platform == osx-*  ]]; then
