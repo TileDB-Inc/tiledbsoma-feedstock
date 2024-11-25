@@ -35,7 +35,7 @@ export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
 set +x
 echo
 echo ----------------------------------------------------------------
-echo $(basename $0) UPDATED VARIABLES:
+echo $(basename $0) UPDATED VARIABLES -- BUMP002:
 echo "CC      [$CC]"
 echo "CXX     [$CXX]"
 echo "CXX20   [$CXX20]"
