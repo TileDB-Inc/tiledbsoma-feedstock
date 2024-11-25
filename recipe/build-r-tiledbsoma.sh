@@ -26,8 +26,8 @@ echo ----------------------------------------------------------------
 echo
 set -x
 
-export         CC="$CC -std=c++20 -fPIC"
-export        CXX="$CXX -std=c++20 -fPIC"
+export         CC="$CC -std=c++20"
+export        CXX="$CXX -std=c++20 -fpic -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections"
 export      CXX20="$CXX"
 export    CXX_STD="CXX20"
 export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
@@ -85,6 +85,14 @@ if [[ $target_platform  == osx-arm64 ]]; then
   R_ARGS_EXTRA="$R_ARGS_EXTRA --no-help"
 fi
 
+set +x
+echo
+echo ----------------------------------------------------------------
+echo TRYING ARROW LOAD
+echo ----------------------------------------------------------------
+echo
+set -x
+
 # Ensure the arrow package loads 'standalone' as a proxy for possible issues
 # arising when it is loaded to check the R package build
 # We call the helper function arrow_info() returning a (classed) list (for
@@ -96,4 +104,20 @@ if [ ${res} != "TRUE" ]; then
   exit 1
 fi
 
+set +x
+echo
+echo ----------------------------------------------------------------
+echo BEFORE R CMD INSTALL
+echo ----------------------------------------------------------------
+echo
+set -x
+
 ${R} CMD INSTALL ${R_ARGS_EXTRA} --build . ${R_ARGS}
+
+set +x
+echo
+echo ----------------------------------------------------------------
+echo AFTER R CMD INSTALL
+echo ----------------------------------------------------------------
+echo
+set -x
