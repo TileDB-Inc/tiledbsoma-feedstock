@@ -21,7 +21,7 @@ source:
   # sha256: {{ sha256 }}
   # Troubleshoot C++20 by pulling latest from main (just like the nightly builds)
   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-  git_rev: main
+  git_rev: release-1.15
   git_depth: -1
 
 # Pre-tag canary "will Conda be green if we release":

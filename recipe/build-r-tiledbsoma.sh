@@ -26,47 +26,51 @@ echo ----------------------------------------------------------------
 echo
 set -x
 
-export         CC="$CC -std=c++20"
-export        CXX="$CXX -std=c++20 -fpic -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections"
-export      CXX20="$CXX"
-export    CXX_STD="CXX20"
-export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
+# Trying release-1.15 branch which has a reversion to C++17
+# https://github.com/single-cell-data/TileDB-SOMA/pull/3389
 
-set +x
-echo
-echo ----------------------------------------------------------------
-echo $(basename $0) UPDATED VARIABLES -- BUMP002:
-echo "CC      [$CC]"
-echo "CXX     [$CXX]"
-echo "CXX20   [$CXX20]"
-echo "CXX_STD [$CXX_STD]"
-echo ----------------------------------------------------------------
-echo
-set -x
+# export         CC="$CC -std=c++20"
+# export        CXX="$CXX -std=c++20 -fpic -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections"
+# export      CXX20="$CXX"
+# export    CXX_STD="CXX20"
+# export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
+
+# set +x
+# echo
+# echo ----------------------------------------------------------------
+# echo $(basename $0) UPDATED VARIABLES -- BUMP002:
+# echo "CC      [$CC]"
+# echo "CXX     [$CXX]"
+# echo "CXX20   [$CXX20]"
+# echo "CXX_STD [$CXX_STD]"
+# echo ----------------------------------------------------------------
+# echo
+# set -x
 
 # https://github.com/conda-forge/r-tiledb-feedstock/commit/29cb6816636e7b5b58545e1407a8f0c29ff9dc39
-mkdir -p ~/.R
 if [[ $target_platform  == osx-64 ]]; then
+  mkdir -p ~/.R
+
   export  NN_CC_ORIG=$CC
   export NN_CXX_ORIG=$CXX
   export    CC=$RECIPE_DIR/cc_wrap.sh
   export   CXX=$RECIPE_DIR/cxx_wrap.sh
   export CXX20=$RECIPE_DIR/cxx_wrap.sh
+
+  echo      CC="$CC"      >  ~/.R/Makevars
+  echo     CXX="$CXX"     >> ~/.R/Makevars
+  echo   CXX20="$CXX20"   >> ~/.R/Makevars
+  echo CXX_STD="$CXX_STD" >> ~/.R/Makevars
+
+  set +x
+  echo
+  echo ----------------------------------------------------------------
+  echo $(basename $0) MAKEVARS:
+  cat ~/.R/Makevars
+  echo ----------------------------------------------------------------
+  echo
+  set -x
 fi
-
-echo      CC="$CC"      >  ~/.R/Makevars
-echo     CXX="$CXX"     >> ~/.R/Makevars
-echo   CXX20="$CXX20"   >> ~/.R/Makevars
-echo CXX_STD="$CXX_STD" >> ~/.R/Makevars
-
-set +x
-echo
-echo ----------------------------------------------------------------
-echo $(basename $0) MAKEVARS:
-cat ~/.R/Makevars
-echo ----------------------------------------------------------------
-echo
-set -x
 
 # https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
 if [[ $target_platform == osx-*  ]]; then
