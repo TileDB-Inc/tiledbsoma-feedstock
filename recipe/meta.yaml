@@ -17,18 +17,18 @@ package:
 
 # Post-tag real thing:
 source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  # url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+  # sha256: {{ sha256 }}
 
 # Pre-tag canary "will Conda be green if we release":
 #source:
-#  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  git_rev: 20485c793829a15e27d01bb320bea290c561f46d
-#  git_depth: -1
+ git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+ git_rev: release-1.15
+ git_depth: -1
 #  # hoping to be 1.15.0rc3 <-- FILL IN HERE
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -102,7 +102,7 @@ outputs:
         - numba >=0.58.1
         - attrs >=22.2
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
-        - somacore ==1.0.22
+        - somacore ==1.0.24
         - scanpy >=1.9.2
     test:
       imports:
@@ -144,7 +144,7 @@ outputs:
         - pkg-config
         # required for cross-compilation
         - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-        - r-rcppspdlog               # [build_platform != target_platform]
+        - r-rcppspdlog >=0.0.19      # [build_platform != target_platform]
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64                    # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
