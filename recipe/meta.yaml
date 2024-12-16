@@ -46,7 +46,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.27.0,<2.28  # [not (osx and x86)]
+        - tiledb >=2.27.0,<2.28
         - spdlog
         - fmt
     about:
@@ -95,7 +95,7 @@ outputs:
         - python
         - scipy
         - anndata >=0.10.1
-        - tiledb-py >=0.32.0,<0.34.0
+        - tiledb-py >=0.33.0,<0.34.0
         - typing-extensions >=4.1
         - numba >=0.58.1
         - attrs >=22.2
