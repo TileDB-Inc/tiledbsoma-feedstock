@@ -24,7 +24,7 @@ package:
 source:
   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
   # release-1.15 branch 2024-12-16
-  git_rev: 40c5b0ab6bad10926c579b305a426478a165bd5c
+  git_rev: e5d19d05b659cd04f43e5b4a227ace8b5e676815
   git_depth: -1
   # hoping to be 1.15.0 <-- FILL IN HERE
 
@@ -93,20 +93,21 @@ outputs:
         - pandas
         - pyarrow
         - python
-        - scipy
+        # https://github.com/single-cell-data/TileDB-SOMA/issues/3444
+        - scipy <0.15
         - anndata >=0.10.1
-        - tiledb-py >=0.33.0,<0.34.0
         - typing-extensions >=4.1
         - numba >=0.58.1
         - attrs >=22.2
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
-        - somacore ==1.0.25
+        - somacore ==1.0.26
         - scanpy >=1.9.2
     test:
       imports:
         - tiledbsoma
       requires:
         - pip
+        - tiledb-py >=0.33.0,<0.34.0
       commands:
         - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
         # See also:
