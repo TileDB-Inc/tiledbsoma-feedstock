@@ -94,7 +94,7 @@ outputs:
         - pyarrow
         - python
         # https://github.com/single-cell-data/TileDB-SOMA/issues/3444
-        - scipy <0.15.0
+        - scipy
         - anndata >=0.10.1
         - typing-extensions >=4.1
         - numba >=0.58.1
