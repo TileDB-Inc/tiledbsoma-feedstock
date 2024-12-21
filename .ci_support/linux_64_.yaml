@@ -11,7 +11,7 @@ cdt_name:
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
-- tiledb main
+- tiledb nightlies
 cxx_compiler:
 - gxx
 cxx_compiler_version:
@@ -43,6 +43,8 @@ spdlog:
 - '1.14'
 target_platform:
 - linux-64
+tiledb:
+- '2.27'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
