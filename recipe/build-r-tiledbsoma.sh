@@ -27,10 +27,11 @@ echo
 set -x
 
 export         CC="$CC -std=c++20"
-export        CXX="$CXX -std=c++20 -fpic -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections"
+export        CXX="$CXX -std=c++20 -fPIC"
 export      CXX20="$CXX"
 export    CXX_STD="CXX20"
 export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
+export CXXFLAGS=""
 
 set +x
 echo

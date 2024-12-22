@@ -2,6 +2,8 @@
 
 set -exo pipefail
 
+export CXXFLAGS=""
+
 mkdir libtiledbsoma-build && cd libtiledbsoma-build
 
 cmake \
