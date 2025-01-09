@@ -5,7 +5,7 @@ set -ex
 cd apis/r
 
 # Clear default compiler flags
-export CXXFLAGS=""
+export CXXFLAGS=${CXXFLAGS//"-fvisibility-inlines-hidden"/}
 
 export DISABLE_AUTOBREW=1
 
