@@ -4,6 +4,9 @@ set -ex
 
 cd apis/python
 
+# Clear default compiler flags
+export CXXFLAGS=""
+
 echo
 echo "PKG_VERSION IS <<$PKG_VERSION>>"
 echo
