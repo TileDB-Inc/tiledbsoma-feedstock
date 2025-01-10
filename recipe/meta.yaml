@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.15.2" %}
-{% set sha256 = "833b8d8dcd73d8f392778f4b21fd8aa331b9af34bf2d613476f04b5bfb4b85e6" %}
+{% set version = "1.15.3" %}
+{% set sha256 = "86b33c526b8b99cb452c2a417214931af07338680fc9b6f6e76c5112a09a5104" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -23,10 +23,10 @@ source:
 # Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release-1.15 branch 2024-12-16
-#  git_rev: e5d19d05b659cd04f43e5b4a227ace8b5e676815
+#  # release-1.15 branch 2025-01-10
+#  git_rev: 80ceaaaeb03c06727130feb03bd4bd5c12c43edc
 #  git_depth: -1
-#  # hoping to be 1.15.0 <-- FILL IN HERE
+#  # hoping to be 1.15.3 <-- FILL IN HERE
 
 build:
   number: 0
@@ -94,8 +94,7 @@ outputs:
         - pandas
         - pyarrow
         - python
-        # https://github.com/single-cell-data/TileDB-SOMA/issues/3444
-        - scipy <1.15.0
+        - scipy
         - anndata >=0.10.1
         - typing-extensions >=4.1
         - numba >=0.58.1
