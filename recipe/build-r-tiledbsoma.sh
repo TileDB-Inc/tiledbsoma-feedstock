@@ -4,21 +4,29 @@ set -ex
 
 cd apis/r
 
+# Clear default compiler flags
+export CXXFLAGS=${CXXFLAGS//"-fvisibility-inlines-hidden"/}
+
 export DISABLE_AUTOBREW=1
 
 # https://github.com/conda-forge/r-tiledb-feedstock/commit/29cb6816636e7b5b58545e1407a8f0c29ff9dc39
-if [[ $target_platform  == osx-64 ]]; then
+if [[ $target_platform == osx-* ]]; then
   export NN_CXX_ORIG=$CXX
   export NN_CC_ORIG=$CC
   export CXX=$RECIPE_DIR/cxx_wrap.sh
   export CC=$RECIPE_DIR/cc_wrap.sh
-  mkdir -p ~/.R
-  echo CC=$RECIPE_DIR/cc_wrap.sh > ~/.R/Makevars
-  echo CXX=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
-  echo CXX17=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
+  export CXX20=$RECIPE_DIR/cxx_wrap.sh
 fi
 
-export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
+export CXX="$CXX -std=c++20 -fPIC"
+export CXX20="$CXX"
+
+mkdir -p ~/.R
+echo CC="$CC" > ~/.R/Makevars
+echo CXX="$CXX" >> ~/.R/Makevars
+echo CXX20="$CXX20" >> ~/.R/Makevars
+
+export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
 
 # https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
 if [[ $target_platform == osx-*  ]]; then
