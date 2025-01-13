@@ -13,7 +13,7 @@ c_stdlib_version:
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
-- tiledb main
+- tiledb nightlies
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
@@ -45,6 +45,8 @@ spdlog:
 - '1.14'
 target_platform:
 - osx-64
+tiledb:
+- '2.27'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
