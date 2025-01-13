@@ -5,4 +5,4 @@ __migrator:
   migration_number: 1
 migrator_ts: 1722204008.301365
 spdlog:
-- '1.15'
+- '1.14'
