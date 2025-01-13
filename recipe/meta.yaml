@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
 {% set version = "1.15.2.dev20250112" %}
-{% set sha256 = "833b8d8dcd73d8f392778f4b21fd8aa331b9af34bf2d613476f04b5bfb4b85e6" %}
+{% set sha256 = "not-used-here" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -94,14 +94,13 @@ outputs:
         - pandas
         - pyarrow
         - python
-        # https://github.com/single-cell-data/TileDB-SOMA/issues/3444
-        - scipy <1.15.0
+        - scipy
         - anndata >=0.10.1
         - typing-extensions >=4.1
         - numba >=0.58.1
         - attrs >=22.2
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
-        - somacore ==1.0.23
+        - somacore ==1.0.26
         - scanpy >=1.9.2
     test:
       imports:
