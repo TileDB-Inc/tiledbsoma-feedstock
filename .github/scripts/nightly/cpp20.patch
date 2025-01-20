@@ -1,0 +1,100 @@
+diff --git a/recipe/build-libtiledbsoma.sh b/recipe/build-libtiledbsoma.sh
+index 12d4f4f..5d50926 100644
+--- a/recipe/build-libtiledbsoma.sh
++++ b/recipe/build-libtiledbsoma.sh
+@@ -2,6 +2,9 @@
+ 
+ set -exo pipefail
+ 
++# Clear default compiler flags
++export CXXFLAGS=${CXXFLAGS//"-fvisibility-inlines-hidden"/}
++
+ mkdir libtiledbsoma-build && cd libtiledbsoma-build
+ 
+ cmake \
+diff --git a/recipe/build-r-tiledbsoma.sh b/recipe/build-r-tiledbsoma.sh
+index ffb435e..5a02821 100644
+--- a/recipe/build-r-tiledbsoma.sh
++++ b/recipe/build-r-tiledbsoma.sh
+@@ -4,21 +4,28 @@ set -ex
+ 
+ cd apis/r
+ 
++# Clear default compiler flags
++export CXXFLAGS=${CXXFLAGS//"-fvisibility-inlines-hidden"/}
++
+ export DISABLE_AUTOBREW=1
+ 
+ # https://github.com/conda-forge/r-tiledb-feedstock/commit/29cb6816636e7b5b58545e1407a8f0c29ff9dc39
+-if [[ $target_platform  == osx-64 ]]; then
++if [[ $target_platform == osx-* ]]; then
+   export NN_CXX_ORIG=$CXX
+   export NN_CC_ORIG=$CC
+   export CXX=$RECIPE_DIR/cxx_wrap.sh
+   export CC=$RECIPE_DIR/cc_wrap.sh
+-  mkdir -p ~/.R
+-  echo CC=$RECIPE_DIR/cc_wrap.sh > ~/.R/Makevars
+-  echo CXX=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
+-  echo CXX17=$RECIPE_DIR/cxx_wrap.sh >> ~/.R/Makevars
+ fi
+ 
+-export CXX17FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
++export CXX="$CXX -std=c++20 -fPIC"
++export CXX20="$CXX"
++
++mkdir -p ~/.R
++echo CC="$CC" > ~/.R/Makevars
++echo CXX="$CXX" >> ~/.R/Makevars
++echo CXX20="$CXX20" >> ~/.R/Makevars
++
++export CXX20FLAGS="-Wno-deprecated-declarations -Wno-deprecated"
+ 
+ # https://conda-forge.org/docs/maintainer/knowledge_base/#newer-c-features-with-old-sdk
+ if [[ $target_platform == osx-*  ]]; then
+diff --git a/recipe/build-tiledbsoma-py.sh b/recipe/build-tiledbsoma-py.sh
+index a55c068..1cb92ce 100644
+--- a/recipe/build-tiledbsoma-py.sh
++++ b/recipe/build-tiledbsoma-py.sh
+@@ -4,6 +4,9 @@ set -ex
+ 
+ cd apis/python
+ 
++# Clear default compiler flags
++export CXXFLAGS=${CXXFLAGS//"-fvisibility-inlines-hidden"/}
++
+ echo
+ echo "PKG_VERSION IS <<$PKG_VERSION>>"
+ echo
+diff --git a/recipe/cc_wrap.sh b/recipe/cc_wrap.sh
+index a2bfc0c..1589e33 100755
+--- a/recipe/cc_wrap.sh
++++ b/recipe/cc_wrap.sh
+@@ -1,4 +1,3 @@
+ #!/bin/sh
+ 
+-args="${@##-mmacosx-version-min=10.9*}"
+-$NN_CC_ORIG $args -mmacosx-version-min=11.0
++$NN_CC_ORIG "$@" -mmacosx-version-min=13.3
+diff --git a/recipe/conda_build_config.yaml b/recipe/conda_build_config.yaml
+index 0c0129b..c4a9d77 100644
+--- a/recipe/conda_build_config.yaml
++++ b/recipe/conda_build_config.yaml
+@@ -1,7 +1,7 @@
+ # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
+ # https://conda-forge.org/news/2024/03/24/stdlib-migration/
+ MACOSX_SDK_VERSION:  # [osx and x86_64]
+-  - 11.0            # [osx and x86_64]
++  - 13.3             # [osx and x86_64]
+ c_stdlib_version:              # [osx and x86_64]
+   - 11.0                       # [osx and x86_64]
+ channel_sources:
+diff --git a/recipe/cxx_wrap.sh b/recipe/cxx_wrap.sh
+index 5d9def4..c8428cb 100755
+--- a/recipe/cxx_wrap.sh
++++ b/recipe/cxx_wrap.sh
+@@ -1,4 +1,3 @@
+ #!/bin/sh
+ 
+-args="${@##-mmacosx-version-min=10.9*}"
+-$NN_CXX_ORIG $args -mmacosx-version-min=11.0
++$NN_CXX_ORIG "$@" -mmacosx-version-min=13.3
