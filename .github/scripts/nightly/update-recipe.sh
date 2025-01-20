@@ -20,9 +20,4 @@ sed -i \
   s/"sha256: .\+"/"git_rev: main\n  git_depth: -1"/ \
   recipe/meta.yaml
 
-# (Temporary) Bump somacore
-sed -i \
-  s/"somacore ==.\+"/"somacore ==1.0.23"/ \
-  recipe/meta.yaml
-
 git --no-pager diff recipe/meta.yaml
