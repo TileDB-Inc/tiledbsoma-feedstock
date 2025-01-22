@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.15.3" %}
-{% set sha256 = "86b33c526b8b99cb452c2a417214931af07338680fc9b6f6e76c5112a09a5104" %}
+{% set version = "1.15.4" %}
+{% set sha256 = "d97ab024e0b5ab16a43b6261c36feec80869e9c4eb73b8a9374ae2ce9d4f43a1" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
