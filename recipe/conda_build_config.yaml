@@ -16,3 +16,5 @@ numpy:
   - 1.22
 python_impl:
   - cpython
+is_python_min:
+  - true
