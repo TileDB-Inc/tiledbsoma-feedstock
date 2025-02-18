@@ -10,3 +10,6 @@ channel_targets:
   - tiledb main
 channel_priority:
   - strict
+# Limit to R 4.3 until TileDB-SOMA-R is tested with R 4.4 on macOS
+r_base:
+  - 4.3
