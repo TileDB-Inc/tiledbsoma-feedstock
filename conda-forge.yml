@@ -4,6 +4,7 @@ github:
   tooling_branch_name: main
 build_platform:
   osx_arm64: osx_64
+  linux_aarch64: linux_64
 conda_forge_output_validation: false
 test: native_and_emulated
 upload_on_branch: main
