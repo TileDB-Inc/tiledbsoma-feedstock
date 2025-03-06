@@ -89,6 +89,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_aarch64</td>
+              <td>
+                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
+                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
