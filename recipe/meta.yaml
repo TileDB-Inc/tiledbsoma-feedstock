@@ -105,7 +105,7 @@ outputs:
         - geopandas
         - tifffile
         - pillow
-        - spatialdata-io >=0.2.5
+        - spatialdata >=0.2.5
         - xarray
     test:
       imports:
