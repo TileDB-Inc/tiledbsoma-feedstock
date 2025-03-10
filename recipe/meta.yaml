@@ -108,11 +108,6 @@ outputs:
         # - pillow
         # - spatialdata-io >=0.2.5
         # - xarray
-        - geopandas
-        - tifffile
-        - pillow
-        - spatialdata >=0.2.5
-        - xarray
     test:
       imports:
         - tiledbsoma
