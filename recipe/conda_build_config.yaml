@@ -11,6 +11,6 @@ channel_targets:
 channel_priority:
   - strict
 # Limit to R 4.3 until TileDB-SOMA-R is tested with R 4.4 on macOS
+# Please see https://github.com/TileDB-Inc/tiledbsoma-feedstock/issues/279
 r_base:
   - 4.3
-  - 4.4
