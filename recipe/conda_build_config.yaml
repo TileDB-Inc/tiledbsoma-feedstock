@@ -1,7 +1,7 @@
 # https://conda-forge.org/docs/maintainer/knowledge_base/#requiring-newer-macos-sdks
 # https://conda-forge.org/news/2024/03/24/stdlib-migration/
 MACOSX_SDK_VERSION:  # [osx and x86_64]
-  - 11.0            # [osx and x86_64]
+  - 13.3             # [osx and x86_64]
 c_stdlib_version:              # [osx and x86_64]
   - 11.0                       # [osx and x86_64]
 channel_sources:
@@ -11,5 +11,6 @@ channel_targets:
 channel_priority:
   - strict
 # Limit to R 4.3 until TileDB-SOMA-R is tested with R 4.4 on macOS
+# Please see https://github.com/TileDB-Inc/tiledbsoma-feedstock/issues/279
 r_base:
   - 4.3
