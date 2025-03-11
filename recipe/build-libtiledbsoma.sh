@@ -2,6 +2,9 @@
 
 set -exo pipefail
 
+# Clear default compiler flags
+export CXXFLAGS=${CXXFLAGS//"-fvisibility-inlines-hidden"/}
+
 mkdir libtiledbsoma-build && cd libtiledbsoma-build
 
 cmake \
@@ -10,6 +13,7 @@ cmake \
   -DCMAKE_BUILD_TYPE=Release \
   -DTILEDBSOMA_BUILD_CLI=OFF \
   -DTILEDBSOMA_ENABLE_TESTING=OFF \
+  -DSPDLOG_LINK_SHARED=ON \
   ../libtiledbsoma
 
 make -j ${CPU_COUNT}

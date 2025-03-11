@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.15.7" %}
-{% set sha256 = "ecdcafc2cb83e392e1102fea11e910548bcacdb854b5bc365c96ef940fed0c3f" %}
+{% set version = "1.16.0" %}
+{% set sha256 = "614f6d369f4c2d24f7556133c5f0b796e0196ebfa9fd0a95cb78f1f7f1206d8d" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -20,13 +20,13 @@ source:
   url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
-# Pre-tag canary "will Conda be green if we release":
+## Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release-1.15 branch 2025-01-24
-#  git_rev: ceb4a3682663dfc74a346c91cc5bfa85a0b0674c
+#  # release-1.16 branch 2025-03-05
+#  git_rev: 1f12399f17297b75ed9205643e1719cabc9a961c
 #  git_depth: -1
-#  # hoping to be 1.15.5 <-- FILL IN HERE
+#  # hoping to be 1.16.0rc1 <-- FILL IN HERE
 
 build:
   number: 0
@@ -100,8 +100,15 @@ outputs:
         - numba >=0.58.1
         - attrs >=22.2
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
-        - somacore ==1.0.26
+        - somacore ==1.0.28
         - scanpy >=1.9.2
+        # WIP -- see TileDB-SOMA's apis/python/requirements_spatial.txt
+        # Pending https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/280
+        # - geopandas
+        # - tifffile
+        # - pillow
+        # - spatialdata-io >=0.2.5
+        # - xarray
     test:
       imports:
         - tiledbsoma
