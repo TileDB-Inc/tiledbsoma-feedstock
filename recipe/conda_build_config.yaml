@@ -7,7 +7,7 @@ c_stdlib_version:              # [osx and x86_64]
 channel_sources:
   - conda-forge,tiledb
 channel_targets:
-  - tiledb main
+  - tiledb nightlies
 channel_priority:
   - strict
 # Limit osx-arm64 to R 4.3 until build error is fixed
