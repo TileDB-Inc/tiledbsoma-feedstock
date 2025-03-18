@@ -165,7 +165,7 @@ outputs:
         - r-base
         - r-r6
         - r-matrix
-        - r-bit64
+        - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-rcppint64
         - r-tiledb >=0.31.0,<0.32
         - r-arrow
@@ -183,7 +183,7 @@ outputs:
         - r-base
         - r-r6
         - r-matrix
-        - r-bit64
+        - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-tiledb >=0.31.0,<0.32
         - r-arrow
         - r-fs
