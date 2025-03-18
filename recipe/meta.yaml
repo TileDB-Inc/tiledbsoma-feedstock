@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.16.0" %}
-{% set sha256 = "614f6d369f4c2d24f7556133c5f0b796e0196ebfa9fd0a95cb78f1f7f1206d8d" %}
+{% set version = "1.16.1" %}
+{% set sha256 = "3bf5b0899bf3910caec20fb197c875c01954d80cedb9725b7c44284abf0889b2" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -148,7 +148,7 @@ outputs:
         - cross-r-base {{ r_base }}  # [build_platform != target_platform]
         - r-rcppspdlog >=0.0.19      # [build_platform != target_platform]
         - r-matrix                   # [build_platform != target_platform]
-        - r-bit64                    # [build_platform != target_platform]
+        - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
         - r-tiledb >=0.31.0,<0.32    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
@@ -165,7 +165,7 @@ outputs:
         - r-base
         - r-r6
         - r-matrix
-        - r-bit64
+        - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-rcppint64
         - r-tiledb >=0.31.0,<0.32
         - r-arrow
@@ -183,7 +183,7 @@ outputs:
         - r-base
         - r-r6
         - r-matrix
-        - r-bit64
+        - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-tiledb >=0.31.0,<0.32
         - r-arrow
         - r-fs
