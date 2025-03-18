@@ -165,7 +165,7 @@ outputs:
         - r-base
         - r-r6
         - r-matrix
-        - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
+        - r-bit64 >=4.6.0.1
         - r-rcppint64
         - r-tiledb >=0.31.0,<0.32
         - r-arrow
@@ -183,7 +183,7 @@ outputs:
         - r-base
         - r-r6
         - r-matrix
-        - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
+        - r-bit64 >=4.6.0.1
         - r-tiledb >=0.31.0,<0.32
         - r-arrow
         - r-fs
@@ -198,6 +198,14 @@ outputs:
     test:
       requires:
         - cctools  # [osx]
+        - r-iterators
+        - r-itertools
+        - r-jsonlite
+        - r-seuratobject >= 4.1.0
+        - r-testthat >=3.0.0
+        - r-withr
+      source_files:
+        - apis/r/tests/
       commands:
         - $R -e "library('tiledbsoma')"
         - $R -e "tiledbsoma::show_package_versions()"
@@ -205,6 +213,8 @@ outputs:
         # r-base-feedstock updated SHLIB_EXT from .dylib to .so on macOS between R 4.3 and 4.4
         - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.dylib | grep -e libR -e libtiledb"  # [osx and r_base == "4.3"]
         - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so    | grep -e libR -e libtiledb"  # [osx and r_base != "4.3"]
+        # Run testthat tests
+        - $R -e "testthat::test_file('apis/r/tests/testthat.R', stop_on_failure = TRUE)"
     about:
       home: http://tiledb.com
       license: MIT
