@@ -148,7 +148,7 @@ outputs:
         - cross-r-base {{ r_base }}  # [build_platform != target_platform]
         - r-rcppspdlog >=0.0.19      # [build_platform != target_platform]
         - r-matrix                   # [build_platform != target_platform]
-        - r-bit64                    # [build_platform != target_platform]
+        - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
         - r-tiledb >=0.31.0,<0.32    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
