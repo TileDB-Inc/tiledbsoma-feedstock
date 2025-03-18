@@ -70,11 +70,6 @@ outputs:
       build:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
-        - python                                 # [build_platform != target_platform]
-        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-        - pybind11                               # [build_platform != target_platform]
-        - pyarrow                                # [build_platform != target_platform]
-        - numpy                                  # [build_platform != target_platform]
       host:
         - python
         - pip
@@ -145,22 +140,6 @@ outputs:
         - {{ compiler('cxx') }}
         - {{ stdlib("c") }}
         - pkg-config
-        # required for cross-compilation
-        - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-        - r-rcppspdlog >=0.0.19      # [build_platform != target_platform]
-        - r-matrix                   # [build_platform != target_platform]
-        - r-bit64                    # [build_platform != target_platform]
-        - r-rcppint64                # [build_platform != target_platform]
-        - r-tiledb >=0.31.0,<0.32    # [build_platform != target_platform]
-        - r-arrow                    # [build_platform != target_platform]
-        - r-fs                       # [build_platform != target_platform]
-        - r-glue                     # [build_platform != target_platform]
-        - r-urltools                 # [build_platform != target_platform]
-        - r-rcpp                     # [build_platform != target_platform]
-        - r-dplyr                    # [build_platform != target_platform]
-        - r-data.table               # [build_platform != target_platform]
-        - r-rlang                    # [build_platform != target_platform]
-        - r-nanoarrow                # [build_platform != target_platform]
       host:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
@@ -197,12 +176,9 @@ outputs:
         - r-rlang
         - r-nanoarrow
     test:
-      requires:
-        - cctools  # [osx]
       commands:
         - $R -e "library('tiledbsoma')"
         - $R -e "tiledbsoma::show_package_versions()"
-        - "otool -L $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.dylib | grep -e libR -e libtiledb"  # [osx]
         - "ldd $PREFIX/lib/R/library/tiledbsoma/libs/tiledbsoma.so | grep -e libR -e libtiledb"  # [linux]
     about:
       home: http://tiledb.com
