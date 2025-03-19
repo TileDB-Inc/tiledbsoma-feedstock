@@ -101,19 +101,22 @@ outputs:
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
         - somacore ==1.0.28
         - scanpy >=1.9.2
-        # WIP -- see TileDB-SOMA's apis/python/requirements_spatial.txt
-        # Pending https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/280
-        # - geopandas
-        # - tifffile
-        # - pillow
-        # - spatialdata-io >=0.2.5
-        # - xarray
     test:
       imports:
         - tiledbsoma
+        - tiledbsoma.io          # [py>=310]
+        - tiledbsoma.io.spatial  # [py>=310]
       requires:
         - pip
         - tiledb-py >=0.33.0,<0.34.0
+        # Spatial requirements
+        # https://github.com/single-cell-data/TileDB-SOMA/blob/main/apis/python/requirements_spatial.txt
+        - geopandas            # [py>=310]
+        - tifffile             # [py>=310]
+        - pillow               # [py>=310]
+        - spatialdata >=0.2.5  # [py>=310]
+        - xarray               # [py>=310]
+        - dask <=2024.11.2     # [py>=310]
       commands:
         - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
         # See also:
