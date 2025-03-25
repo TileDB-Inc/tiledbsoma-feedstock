@@ -41,7 +41,7 @@ r_base:
 - '4.3'
 - '4.4'
 spdlog:
-- '1.15'
+- '1.15.1'
 target_platform:
 - linux-64
 zip_keys:
