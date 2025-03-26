@@ -2,6 +2,12 @@
 
 set -ex
 
+git clone https://github.com/XanthosXanthopoulos/rcppspdlog.git
+cd rcppspdlog
+R CMD build --no-build-vignettes --no-manual .
+R CMD INSTALL $(ls -1tr *.tar.gz | tail -1)
+cd ../
+
 cd apis/r
 
 export DISABLE_AUTOBREW=1

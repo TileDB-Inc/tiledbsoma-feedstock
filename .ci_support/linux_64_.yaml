@@ -38,7 +38,7 @@ python:
 - 3.12.* *_cpython
 - 3.9.* *_cpython
 r_base:
-- '4.3'
+# - '4.3'
 - '4.4'
 spdlog:
 - '1.15.1'
