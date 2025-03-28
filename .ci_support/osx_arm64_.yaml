@@ -42,7 +42,7 @@ python:
 r_base:
 - '4.3'
 spdlog:
-- '1.15.1'
+- '1.15'
 target_platform:
 - osx-arm64
 zip_keys:

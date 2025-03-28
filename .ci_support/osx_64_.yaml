@@ -43,7 +43,7 @@ r_base:
 - '4.3'
 - '4.4'
 spdlog:
-- '1.15.1'
+- '1.15'
 target_platform:
 - osx-64
 zip_keys:
