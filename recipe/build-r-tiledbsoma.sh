@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -ex
-
 # git clone https://github.com/XanthosXanthopoulos/rcppspdlog.git
 # cd rcppspdlog
 # R CMD build --no-build-vignettes --no-manual .
