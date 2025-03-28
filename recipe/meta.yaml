@@ -63,75 +63,75 @@ outputs:
         are genes, proteins, or genomic regions.
       doc_url: https://docs.tiledb.com/
       dev_url: https://github.com/single-cell-data/TileDB-SOMA
-  # - name: tiledbsoma-py
-  #   version: {{ version }}
-  #   script: build-tiledbsoma-py.sh
-  #   requirements:
-  #     build:
-  #       - {{ compiler('cxx') }}
-  #       - {{ stdlib("c") }}
-  #       - python                                 # [build_platform != target_platform]
-  #       - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-  #       - pybind11                               # [build_platform != target_platform]
-  #       - pyarrow                                # [build_platform != target_platform]
-  #       - numpy                                  # [build_platform != target_platform]
-  #     host:
-  #       - python
-  #       - pip
-  #       # conda docs say to use pin_subpackage in `run`, but there is no other
-  #       # way to guarantee the locally built package is installed. The pyarrow
-  #       # recipe also does this
-  #       - {{ pin_subpackage('libtiledbsoma', exact=True) }}
-  #       - pybind11
-  #       - setuptools
-  #       - setuptools_scm
-  #       - wheel
-  #       - numpy
-  #       - pyarrow
-  #     run:
-  #       - {{ pin_subpackage('libtiledbsoma', exact=True) }}
-  #       - pandas
-  #       - pyarrow
-  #       - python
-  #       - scipy
-  #       - anndata >=0.10.1
-  #       - typing-extensions >=4.1
-  #       - numba >=0.58.1
-  #       - attrs >=22.2
-  #       # Keep this in sync with TileDB-SOMA's somacore version requirement.
-  #       - somacore ==1.0.28
-  #       - scanpy >=1.9.2
-  #       # WIP -- see TileDB-SOMA's apis/python/requirements_spatial.txt
-  #       # Pending https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/280
-  #       # - geopandas
-  #       # - tifffile
-  #       # - pillow
-  #       # - spatialdata-io >=0.2.5
-  #       # - xarray
-  #   test:
-  #     imports:
-  #       - tiledbsoma
-  #     requires:
-  #       - pip
-  #       - tiledb-py >=0.33.0,<0.34.0
-  #     commands:
-  #       - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
-  #       # See also:
-  #       # https://github.com/single-cell-data/TileDB-SOMA/pull/2734
-  #       # https://github.com/single-cell-data/TileDB-SOMA/pull/2692
-  #       # https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/171
-  #       # https://github.com/apache/arrow/issues/42154
-  #       - python -c 'import tiledbsoma; assert not tiledbsoma.DataFrame.exists("s3://abc/def")'
-  #       - pip check
-  #   about:
-  #     home: http://tiledb.com
-  #     license: MIT
-  #     license_family: MIT
-  #     license_file: LICENSE
-  #     summary: TileDB-SOMA Python API
-  #     description: Python API for efficient storage and retrieval of single-cell data using TileDB
-  #     doc_url: https://docs.tiledb.com/
-  #     dev_url: https://github.com/single-cell-data/TileDB-SOMA/tree/main/apis/python
+  - name: tiledbsoma-py
+    version: {{ version }}
+    script: build-tiledbsoma-py.sh
+    requirements:
+      build:
+        - {{ compiler('cxx') }}
+        - {{ stdlib("c") }}
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - pybind11                               # [build_platform != target_platform]
+        - pyarrow                                # [build_platform != target_platform]
+        - numpy                                  # [build_platform != target_platform]
+      host:
+        - python
+        - pip
+        # conda docs say to use pin_subpackage in `run`, but there is no other
+        # way to guarantee the locally built package is installed. The pyarrow
+        # recipe also does this
+        - {{ pin_subpackage('libtiledbsoma', exact=True) }}
+        - pybind11
+        - setuptools
+        - setuptools_scm
+        - wheel
+        - numpy
+        - pyarrow
+      run:
+        - {{ pin_subpackage('libtiledbsoma', exact=True) }}
+        - pandas
+        - pyarrow
+        - python
+        - scipy
+        - anndata >=0.10.1
+        - typing-extensions >=4.1
+        - numba >=0.58.1
+        - attrs >=22.2
+        # Keep this in sync with TileDB-SOMA's somacore version requirement.
+        - somacore ==1.0.28
+        - scanpy >=1.9.2
+        # WIP -- see TileDB-SOMA's apis/python/requirements_spatial.txt
+        # Pending https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/280
+        # - geopandas
+        # - tifffile
+        # - pillow
+        # - spatialdata-io >=0.2.5
+        # - xarray
+    test:
+      imports:
+        - tiledbsoma
+      requires:
+        - pip
+        - tiledb-py >=0.33.0,<0.34.0
+      commands:
+        - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
+        # See also:
+        # https://github.com/single-cell-data/TileDB-SOMA/pull/2734
+        # https://github.com/single-cell-data/TileDB-SOMA/pull/2692
+        # https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/171
+        # https://github.com/apache/arrow/issues/42154
+        - python -c 'import tiledbsoma; assert not tiledbsoma.DataFrame.exists("s3://abc/def")'
+        - pip check
+    about:
+      home: http://tiledb.com
+      license: MIT
+      license_family: MIT
+      license_file: LICENSE
+      summary: TileDB-SOMA Python API
+      description: Python API for efficient storage and retrieval of single-cell data using TileDB
+      doc_url: https://docs.tiledb.com/
+      dev_url: https://github.com/single-cell-data/TileDB-SOMA/tree/main/apis/python
   - name: r-tiledbsoma
     version: {{ version }}
     script: build-r-tiledbsoma.sh
