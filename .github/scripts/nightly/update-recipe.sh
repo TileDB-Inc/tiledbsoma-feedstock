@@ -20,4 +20,11 @@ sed -i \
   s/"sha256: .\+"/"git_rev: main\n  git_depth: -1"/ \
   recipe/meta.yaml
 
+# (Temporary) Add new requirement more-itertools
+# https://github.com/single-cell-data/TileDB-SOMA/pull/3865
+# https://anaconda.org/conda-forge/more-itertools
+sed -i \
+  s/"- pandas"/"- pandas\n        - more-itertools"/ \
+  recipe/meta.yaml
+
 git --no-pager diff recipe/meta.yaml
