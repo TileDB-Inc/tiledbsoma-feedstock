@@ -101,6 +101,7 @@ outputs:
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
         - somacore ==1.0.28
         - scanpy >=1.9.2
+        - more-itertools
     test:
       imports:
         - tiledbsoma
