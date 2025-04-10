@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.16.1" %}
-{% set sha256 = "3bf5b0899bf3910caec20fb197c875c01954d80cedb9725b7c44284abf0889b2" %}
+{% set version = "1.16.2" %}
+{% set sha256 = "tbd" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -26,10 +26,10 @@ source:
   # release-1.16 branch 2025-04-10
   git_rev: 25493a8652db2a91961192867573e2a96b392639
   git_depth: -1
-  # most of the changes needed for 1.16.2rc1 <-- FILL IN HERE
+  # most of the changes needed for 1.16.2rc0 <-- FILL IN HERE
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
