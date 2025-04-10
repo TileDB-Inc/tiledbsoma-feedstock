@@ -150,7 +150,7 @@ outputs:
         - pkg-config
         # required for cross-compilation
         - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-        - r-rcppspdlog >=0.0.19      # [build_platform != target_platform]
+        - r-rcppspdlog >=0.0.20      # [build_platform != target_platform]
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
