@@ -144,6 +144,7 @@ outputs:
       host:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
+        - r-rcppspdlog >=0.0.19
         - r-r6
         - r-matrix
         - r-bit64 >=4.6.0.1
