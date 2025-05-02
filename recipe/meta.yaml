@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.16.1" %}
-{% set sha256 = "3bf5b0899bf3910caec20fb197c875c01954d80cedb9725b7c44284abf0889b2" %}
+{% set version = "1.16.2" %}
+{% set sha256 = "73deebfb0904e04da52ffdba7fd789797a8369b9ca8de95b6dbc62e0428d6904" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -15,18 +15,18 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-# Post-tag real thing:
+## Post-tag real thing:
 source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+ url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+ sha256: {{ sha256 }}
 
-# Pre-tag canary "will Conda be green if we release":
+## Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release-1.16 branch 2025-03-05
-#  git_rev: 1f12399f17297b75ed9205643e1719cabc9a961c
+#  # release-1.16 branch 2025-04-25
+#  git_rev: 333d7b3c1c28761fde8eb913d90a6897c996831e
 #  git_depth: -1
-#  # hoping to be 1.16.0rc1 <-- FILL IN HERE
+#  # most of the changes needed for 1.16.2rc2 <-- FILL IN HERE
 
 build:
   number: 0
@@ -101,6 +101,7 @@ outputs:
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
         - somacore ==1.0.28
         - scanpy >=1.9.2
+        - more-itertools
     test:
       imports:
         - tiledbsoma
@@ -149,7 +150,7 @@ outputs:
         - pkg-config
         # required for cross-compilation
         - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-        - r-rcppspdlog >=0.0.19      # [build_platform != target_platform]
+        - r-rcppspdlog >=0.0.20      # [build_platform != target_platform]
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
