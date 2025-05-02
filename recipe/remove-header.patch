@@ -1,0 +1,24 @@
+From fc0dcf193983c1991b0a652634e72dbea3efc8f2 Mon Sep 17 00:00:00 2001
+From: XanthosXanthopoulos <xanxanthopoulos@gmail.com>
+Date: Fri, 2 May 2025 14:17:25 +0300
+Subject: [PATCH] remove header
+
+---
+ apis/r/src/rutilities.h | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/apis/r/src/rutilities.h b/apis/r/src/rutilities.h
+index a50acf2e..97f5fe06 100644
+--- a/apis/r/src/rutilities.h
++++ b/apis/r/src/rutilities.h
+@@ -6,7 +6,6 @@
+ #include <spdl.h>
+ #include <tiledb/tiledb>
+ #include "tiledbsoma_types.h"
+-#include <RcppSpdlog>
+ namespace tdbs = tiledbsoma;
+ 
+ // create a single 'comparable' number out of version, minor and patch
+-- 
+2.43.0
+
