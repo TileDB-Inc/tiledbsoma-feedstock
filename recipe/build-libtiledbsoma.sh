@@ -2,9 +2,6 @@
 
 set -exo pipefail
 
-# Clear default compiler flags
-export CXXFLAGS=${CXXFLAGS//"-fvisibility-inlines-hidden"/}
-
 mkdir libtiledbsoma-build && cd libtiledbsoma-build
 
 cmake \
