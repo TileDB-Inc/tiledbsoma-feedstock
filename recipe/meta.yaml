@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.16.2" %}
-{% set sha256 = "73deebfb0904e04da52ffdba7fd789797a8369b9ca8de95b6dbc62e0428d6904" %}
+{% set version = "1.17.0" %}
+{% set sha256 = "TDB" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -15,18 +15,18 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-## Post-tag real thing:
-source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
-
-## Pre-tag canary "will Conda be green if we release":
+### Post-tag real thing:
 #source:
-#  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release-1.16 branch 2025-04-25
-#  git_rev: 333d7b3c1c28761fde8eb913d90a6897c996831e
-#  git_depth: -1
-#  # most of the changes needed for 1.16.2rc2 <-- FILL IN HERE
+#  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+#  sha256: {{ sha256 }}
+
+# Pre-tag canary "will Conda be green if we release":
+source:
+  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  # release-1.17 branch 2025-05-16
+  git_rev: 9ba88ae46b3b74e3bf865ec4aacb0e1701174afe
+  git_depth: -1
+  # most of the changes needed for 1.17.0rc0 <-- FILL IN HERE
 
 build:
   number: 0
@@ -46,7 +46,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.27.0,<2.28
+        - tiledb >=2.28.0,<2.29
         - spdlog
         - fmt
     about:
@@ -109,7 +109,7 @@ outputs:
         - tiledbsoma.io.spatial
       requires:
         - pip
-        - tiledb-py >=0.33.0,<0.34.0
+        - tiledb-py >=0.34.0,<0.35.0
         # Spatial requirements
         # https://github.com/single-cell-data/TileDB-SOMA/blob/main/apis/python/requirements_spatial.txt
         - geopandas
@@ -154,7 +154,7 @@ outputs:
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
-        - r-tiledb >=0.31.0,<0.32    # [build_platform != target_platform]
+        - r-tiledb >=0.32.0,<0.33    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
         - r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
@@ -171,7 +171,7 @@ outputs:
         - r-matrix
         - r-bit64 >=4.6.0.1
         - r-rcppint64
-        - r-tiledb >=0.31.0,<0.32
+        - r-tiledb >=0.32.0,<0.33
         - r-arrow
         - r-fs
         - r-glue
@@ -188,7 +188,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64 >=4.6.0.1
-        - r-tiledb >=0.31.0,<0.32
+        - r-tiledb >=0.32.0
         - r-arrow
         - r-fs
         - r-glue
