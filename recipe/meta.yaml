@@ -28,6 +28,8 @@ source:
   # release-1.16 branch 2025-03-05
   git_rev: 9ba88ae46b3b74e3bf865ec4aacb0e1701174afe
   git_depth: -1
+  patches:
+  - remove-header.patch
   # hoping to be 1.17.0rc0 <-- FILL IN HERE
 
 build:
