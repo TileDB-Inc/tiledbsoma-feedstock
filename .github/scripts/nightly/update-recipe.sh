@@ -20,4 +20,15 @@ sed -i \
   s/"sha256: .\+"/"git_rev: main\n  git_depth: -1"/ \
   recipe/meta.yaml
 
+# (Temporary) Bump to 2.28 stack
+sed -i \
+  s/"tiledb >=2.27.0,<2.28"/"tiledb >=2.28.0,<2.29"/ \
+  recipe/meta.yaml
+sed -i \
+  s/"tiledb-py >=0.33.0,<0.34.0"/"tiledb-py >=0.34.0,<0.35.0"/ \
+  recipe/meta.yaml
+sed -i \
+  s/"r-tiledb >=0.31.0,<0.32"/"r-tiledb >=0.32.0,<0.33"/ \
+  recipe/meta.yaml
+
 git --no-pager diff recipe/meta.yaml
