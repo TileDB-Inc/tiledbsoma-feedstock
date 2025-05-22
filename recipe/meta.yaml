@@ -188,7 +188,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64 >=4.6.0.1
-        - r-tiledb >=0.32.0
+        - r-tiledb >=0.32.0,<0.33
         - r-arrow
         - r-fs
         - r-glue
