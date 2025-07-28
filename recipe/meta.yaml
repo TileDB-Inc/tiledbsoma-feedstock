@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.17.0" %}
-{% set sha256 = "c39be937059bdc6cf10a90dea847a28871f7b229fb102328374aaa40ed10e6a2" %}
+{% set version = "1.17.1" %}
+{% set sha256 = "tbd" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -15,22 +15,22 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-# Post-tag real thing:
+# # Post-tag real thing:
+# source:
+#   url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+#   sha256: {{ sha256 }}
+#   patches:
+#   - remove-header.patch
+
+# Pre-tag canary "will Conda be green if we release":
 source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  # release-1.16 branch 2025-03-05
+  git_rev: ba00213747f6ebdf8edda8a8f293cf64b77f0f70
+  git_depth: -1
   patches:
   - remove-header.patch
-
-## Pre-tag canary "will Conda be green if we release":
-#source:
-#  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release-1.16 branch 2025-03-05
-#  git_rev: 9ba88ae46b3b74e3bf865ec4aacb0e1701174afe
-#  git_depth: -1
-#  patches:
-#  - remove-header.patch
-#  # hoping to be 1.17.0rc0 <-- FILL IN HERE
+  # hoping to be 1.17.1 <-- FILL IN HERE
 
 build:
   number: 0
@@ -189,6 +189,7 @@ outputs:
         - r-seuratobject >= 4.1.0
         - r-testthat >=3.0.0
         - r-withr
+        - r-tibble
       source_files:
         - apis/r/tests/
       commands:
