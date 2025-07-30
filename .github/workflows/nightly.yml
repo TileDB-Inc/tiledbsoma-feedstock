@@ -53,6 +53,6 @@ jobs:
         with:
           name: nightly setup
           label: nightly-setup-failure
-          assignee: johnkerl,jdblischak
+          assignee: jp-dark,jdblischak
         env:
           TZ: "America/New_York"
