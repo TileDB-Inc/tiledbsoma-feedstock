@@ -94,7 +94,7 @@ outputs:
         - pyarrow
         - python
         - scipy
-        - anndata >=0.10.1
+        - anndata >=0.12
         - typing-extensions >=4.1
         - numba >=0.58.1
         - attrs >=22.2
