@@ -11,7 +11,7 @@ cdt_name:
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
-- tiledb main
+- tiledb nightlies
 cxx_compiler:
 - gxx
 cxx_compiler_version:
@@ -19,10 +19,9 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 fmt:
-- '11'
+- '11.2'
 numpy:
 - '2'
-- '2.0'
 pin_run_as_build:
   python:
     min_pin: x.x
