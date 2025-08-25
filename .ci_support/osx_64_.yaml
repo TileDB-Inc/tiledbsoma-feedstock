@@ -13,18 +13,17 @@ c_stdlib_version:
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
-- tiledb main
+- tiledb nightlies
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '19'
 fmt:
-- '11'
+- '11.2'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 numpy:
 - '2'
-- '2.0'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -36,7 +35,7 @@ python:
 - 3.10.* *_cpython
 - 3.11.* *_cpython
 - 3.12.* *_cpython
-- 3.9.* *_cpython
+- 3.13.* *_cp313
 r_base:
 - '4.3'
 - '4.4'
