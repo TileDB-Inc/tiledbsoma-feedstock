@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.17.1" %}
-{% set sha256 = "d8e8fe7dd460dae74e2da1ea95fb16c5144c7b8a47605e15e77a01dfed087d7f" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "TBD" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -15,22 +15,21 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-# Post-tag real thing:
-source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
-  patches:
-  - remove-header.patch
-
-## Pre-tag canary "will Conda be green if we release":
+## Post-tag real thing:
 #source:
-#  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release-1.16 branch 2025-03-05
-#  git_rev: ba00213747f6ebdf8edda8a8f293cf64b77f0f70
-#  git_depth: -1
+#  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+#  sha256: {{ sha256 }}
 #  patches:
 #  - remove-header.patch
-#  # hoping to be 1.17.1 <-- FILL IN HERE
+
+# Pre-tag canary "will Conda be green if we release":
+source:
+  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  # release 2.0.0rc0
+  git_rev: c579b340d8ce6e7c9904eb1d6c49c54b0adb6b4a
+  git_depth: -1
+  patches:
+  - remove-header.patch
 
 build:
   number: 0
