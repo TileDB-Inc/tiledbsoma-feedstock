@@ -23,8 +23,8 @@ package:
 # Pre-tag canary "will Conda be green if we release":
 source:
   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-  # release-2.0.0rc0
-  git_rev: c579b340d8ce6e7c9904eb1d6c49c54b0adb6b4a
+  # release-2.0.0rc1
+  git_rev: 6c6b0b47f9ee3138430141aa0c146ac3a125a91b
   git_depth: -1
 
 build:
@@ -148,7 +148,6 @@ outputs:
         - pkg-config
         # required for cross-compilation
         - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-        - r-rcppspdlog >=0.0.20      # [build_platform != target_platform]
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
@@ -177,7 +176,6 @@ outputs:
         - r-rcpp
         - r-dplyr
         - r-data.table
-        - r-spdl
         - r-rlang
         - r-nanoarrow
       run:
@@ -194,7 +192,6 @@ outputs:
         - r-rcpp
         - r-dplyr
         - r-data.table
-        - r-spdl
         - r-rlang
         - r-nanoarrow
     test:
