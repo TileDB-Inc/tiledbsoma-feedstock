@@ -19,8 +19,6 @@ package:
 source:
   url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-  - remove-header.patch
 
 ## Pre-tag canary "will Conda be green if we release":
 #source:
@@ -28,8 +26,6 @@ source:
 #  # release 2.0.0rc1
 #  git_rev: 6c6b0b47f9ee3138430141aa0c146ac3a125a91b
 #  git_depth: -1
-#  patches:
-#  - remove-header.patch
 
 build:
   number: 0
