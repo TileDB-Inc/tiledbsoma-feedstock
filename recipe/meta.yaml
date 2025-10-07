@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "1.17.1" %}
-{% set sha256 = "d8e8fe7dd460dae74e2da1ea95fb16c5144c7b8a47605e15e77a01dfed087d7f" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "78045a904ead7cff9666662d051ee90ee661a6f1f7e0652e8552228d35ebc6ad" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -19,18 +19,13 @@ package:
 source:
   url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-  - remove-header.patch
 
 ## Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release-1.16 branch 2025-03-05
-#  git_rev: ba00213747f6ebdf8edda8a8f293cf64b77f0f70
+#  # release 2.0.0rc1
+#  git_rev: 6c6b0b47f9ee3138430141aa0c146ac3a125a91b
 #  git_depth: -1
-#  patches:
-#  - remove-header.patch
-#  # hoping to be 1.17.1 <-- FILL IN HERE
 
 build:
   number: 0
@@ -95,11 +90,11 @@ outputs:
         - python
         - scipy
         - anndata >=0.10.1
-        - typing-extensions >=4.1
+        - typing-extensions >=4.5.0
         - numba >=0.58.1
         - attrs >=22.2
         # Keep this in sync with TileDB-SOMA's somacore version requirement.
-        - somacore ==1.0.28
+        - somacore ==1.0.29
         - scanpy >=1.9.2
         - more-itertools
         # WIP -- see TileDB-SOMA's apis/python/requirements_spatial.txt
@@ -148,7 +143,6 @@ outputs:
       host:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
-        - r-rcppspdlog >=0.0.19
         - r-r6
         - r-matrix
         - r-bit64 >=4.6.0.1
@@ -161,7 +155,6 @@ outputs:
         - r-rcpp
         - r-dplyr
         - r-data.table
-        - r-spdl
         - r-rlang
         - r-nanoarrow
       run:
@@ -178,7 +171,6 @@ outputs:
         - r-rcpp
         - r-dplyr
         - r-data.table
-        - r-spdl
         - r-rlang
         - r-nanoarrow
     test:
