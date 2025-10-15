@@ -20,9 +20,15 @@ sed -i \
   s/"sha256: .\+"/"git_rev: main\n  git_depth: -1"/ \
   recipe/meta.yaml
 
-# (Temporary) Bump somacore
+# (Temporary) Bump to 2.29 stack
 sed -i \
-  s/"somacore ==.\+"/"somacore ==1.0.29"/ \
+  s/"tiledb >=2.28.0,<2.29"/"tiledb >=2.29.0,<2.30"/ \
+  recipe/meta.yaml
+sed -i \
+  s/"tiledb-py >=0.34.0,<0.35.0"/"tiledb-py >=0.35.0,<0.36.0"/ \
+  recipe/meta.yaml
+sed -i \
+  s/"r-tiledb >=0.32.0,<0.33"/"r-tiledb >=0.33.1,<0.34"/ \
   recipe/meta.yaml
 
 git --no-pager diff recipe/meta.yaml
