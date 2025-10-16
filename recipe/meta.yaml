@@ -151,7 +151,7 @@ outputs:
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
-        - r-tiledb >=0.33.0,<0.34    # [build_platform != target_platform]
+        - r-tiledb >=0.33.1,<0.34    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
         - r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
@@ -169,7 +169,7 @@ outputs:
         - r-matrix
         - r-bit64 >=4.6.0.1
         - r-rcppint64
-        - r-tiledb >=0.33.0,<0.34
+        - r-tiledb >=0.33.1,<0.34
         - r-arrow
         - r-fs
         - r-glue
@@ -186,7 +186,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64 >=4.6.0.1
-        - r-tiledb >=0.33.0,<0.34
+        - r-tiledb >=0.33.1,<0.34
         - r-arrow
         - r-fs
         - r-glue
