@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "2.0.0" %}
-{% set sha256 = "78045a904ead7cff9666662d051ee90ee661a6f1f7e0652e8552228d35ebc6ad" %}
+{% set version = "2.1.0" %}
+{% set sha256 = "TBD" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -15,17 +15,17 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-# Post-tag real thing:
-source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
-
-## Pre-tag canary "will Conda be green if we release":
+## Post-tag real thing:
 #source:
-#  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release-2.0.0rc1
-#  git_rev: 6c6b0b47f9ee3138430141aa0c146ac3a125a91b
-#  git_depth: -1
+#  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+#  sha256: {{ sha256 }}
+
+# Pre-tag canary "will Conda be green if we release":
+source:
+  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  # release-2.0.0rc1
+  git_rev: 8af224955354e965b1922e12ea5690310475af3c
+  git_depth: -1
 
 build:
   number: 0
@@ -45,7 +45,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.28.0,<2.29
+        - tiledb >=2.29.0,<2.30
         - spdlog
         - fmt
     about:
@@ -107,7 +107,7 @@ outputs:
         - tiledbsoma.io.spatial
       requires:
         - pip
-        - tiledb-py >=0.34.0,<0.35.0
+        - tiledb-py >=0.35.0,<0.36.0
         # Spatial requirements
         # https://github.com/single-cell-data/TileDB-SOMA/blob/main/apis/python/requirements_spatial.txt
         - geopandas
@@ -115,7 +115,7 @@ outputs:
         - pillow
         - spatialdata >=0.2.5
         - xarray
-        - dask <=2024.11.2
+        - dask
       commands:
         - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
         # See also:
@@ -151,7 +151,7 @@ outputs:
         - r-matrix                   # [build_platform != target_platform]
         - r-bit64 >=4.6.0.1          # [build_platform != target_platform]
         - r-rcppint64                # [build_platform != target_platform]
-        - r-tiledb >=0.32.0,<0.33    # [build_platform != target_platform]
+        - r-tiledb >=0.33.0,<0.34    # [build_platform != target_platform]
         - r-arrow                    # [build_platform != target_platform]
         - r-fs                       # [build_platform != target_platform]
         - r-glue                     # [build_platform != target_platform]
@@ -161,6 +161,7 @@ outputs:
         - r-data.table               # [build_platform != target_platform]
         - r-rlang                    # [build_platform != target_platform]
         - r-nanoarrow                # [build_platform != target_platform]
+        - r-lifecycle                # [build_platform != target_platform]
       host:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
@@ -168,7 +169,7 @@ outputs:
         - r-matrix
         - r-bit64 >=4.6.0.1
         - r-rcppint64
-        - r-tiledb >=0.32.0,<0.33
+        - r-tiledb >=0.33.0,<0.34
         - r-arrow
         - r-fs
         - r-glue
@@ -178,13 +179,14 @@ outputs:
         - r-data.table
         - r-rlang
         - r-nanoarrow
+        - r-lifecycle
       run:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
         - r-r6
         - r-matrix
         - r-bit64 >=4.6.0.1
-        - r-tiledb >=0.32.0,<0.33
+        - r-tiledb >=0.33.0,<0.34
         - r-arrow
         - r-fs
         - r-glue
