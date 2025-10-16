@@ -10,10 +10,11 @@ channel_targets:
   - tiledb main
 channel_priority:
   - strict
-# Limit osx-arm64 to R 4.3 until build error is fixed
-# Please see https://github.com/TileDB-Inc/tiledbsoma-feedstock/issues/279
-r_base:  # [osx and arm64]
-  - 4.3  # [osx and arm64]
+
+# r-tiledb is only built with R 4.3 on linux-64
+r_base:
+  - 4.3  # [linux]
+  - 4.4
 
 # Required to continue building python 3.9
 python:
