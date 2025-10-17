@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "2.0.0" %}
-{% set sha256 = "78045a904ead7cff9666662d051ee90ee661a6f1f7e0652e8552228d35ebc6ad" %}
+{% set version = "2.1.0" %}
+{% set sha256 = "be810667130a3bb86ee40adff7592458c69f9336ee701c25856c5957b318c407" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -23,8 +23,8 @@ source:
 ## Pre-tag canary "will Conda be green if we release":
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release 2.0.0rc1
-#  git_rev: 6c6b0b47f9ee3138430141aa0c146ac3a125a91b
+#  # release 2.1.0rc0
+#  git_rev: 8af224955354e965b1922e12ea5690310475af3c
 #  git_depth: -1
 
 build:
@@ -45,7 +45,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.28.0,<2.29
+        - tiledb >=2.29.0,<2.30
         - spdlog
         - fmt
     about:
@@ -109,7 +109,7 @@ outputs:
         - tiledbsoma
       requires:
         - pip
-        - tiledb-py >=0.34.0,<0.35.0
+        - tiledb-py >=0.35.0,<0.36.0
       commands:
         - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
         # See also:
@@ -147,7 +147,7 @@ outputs:
         - r-matrix
         - r-bit64 >=4.6.0.1
         - r-rcppint64
-        - r-tiledb >=0.32.0,<0.33
+        - r-tiledb >=0.33.1,<0.34
         - r-arrow
         - r-fs
         - r-glue
@@ -157,13 +157,14 @@ outputs:
         - r-data.table
         - r-rlang
         - r-nanoarrow
+        - r-lifecycle
       run:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
         - r-base
         - r-r6
         - r-matrix
         - r-bit64 >=4.6.0.1
-        - r-tiledb >=0.32.0,<0.33
+        - r-tiledb >=0.33.1,<0.34
         - r-arrow
         - r-fs
         - r-glue
@@ -173,6 +174,7 @@ outputs:
         - r-data.table
         - r-rlang
         - r-nanoarrow
+        - r-lifecycle
     test:
       requires:
         - r-iterators
