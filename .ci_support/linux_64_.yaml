@@ -9,7 +9,7 @@ c_stdlib_version:
 channel_sources:
 - conda-forge,tiledb
 channel_targets:
-- tiledb main
+- tiledb nightlies
 cxx_compiler:
 - gxx
 cxx_compiler_version:
