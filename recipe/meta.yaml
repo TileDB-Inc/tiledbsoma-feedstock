@@ -100,31 +100,31 @@ outputs:
         - somacore ==1.0.29
         - scanpy >=1.9.2
         - more-itertools
-    test:
-      imports:
-        - tiledbsoma
-        - tiledbsoma.io
-        - tiledbsoma.io.spatial
-      requires:
-        - pip
-        - tiledb-py >=0.35.0,<0.36.0
+    test:                             # [py >= 310]
+      imports:                        # [py >= 310]
+        - tiledbsoma                  # [py >= 310]
+        - tiledbsoma.io               # [py >= 310]
+        - tiledbsoma.io.spatial       # [py >= 310]
+      requires:                       # [py >= 310]
+        - pip                         # [py >= 310]
+        - tiledb-py >=0.35.0,<0.36.0  # [py >= 310]
         # Spatial requirements
         # https://github.com/single-cell-data/TileDB-SOMA/blob/main/apis/python/requirements_spatial.txt
-        - geopandas
-        - tifffile
-        - pillow
-        - spatialdata >=0.2.5
-        - xarray
-        - dask
-      commands:
-        - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
+        - geopandas                   # [py >= 310]
+        - tifffile                    # [py >= 310]
+        - pillow                      # [py >= 310]
+        - spatialdata >=0.2.5         # [py >= 310]
+        - xarray                      # [py >= 310]
+        - dask                        # [py >= 310]
+      commands:                       # [py >= 310]
+        - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'                # [py >= 310]
         # See also:
         # https://github.com/single-cell-data/TileDB-SOMA/pull/2734
         # https://github.com/single-cell-data/TileDB-SOMA/pull/2692
         # https://github.com/TileDB-Inc/tiledbsoma-feedstock/pull/171
         # https://github.com/apache/arrow/issues/42154
-        - python -c 'import tiledbsoma; assert not tiledbsoma.DataFrame.exists("s3://abc/def")'
-        - pip check
+        - python -c 'import tiledbsoma; assert not tiledbsoma.DataFrame.exists("s3://abc/def")'  # [py >= 310]
+        - pip check                                                                              # [py >= 310]
     about:
       home: http://tiledb.com
       license: MIT
