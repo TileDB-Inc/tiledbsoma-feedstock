@@ -148,7 +148,7 @@ outputs:
         - r-bit64 >=4.6.0.1
         - r-rcppint64
         - r-tiledb >=0.33.1,<0.34
-        - r-arrow
+        - r-arrow >=19.0.1
         - r-fs
         - r-glue
         - r-urltools
@@ -165,7 +165,7 @@ outputs:
         - r-matrix
         - r-bit64 >=4.6.0.1
         - r-tiledb >=0.33.1,<0.34
-        - r-arrow
+        - r-arrow >=19.0.1
         - r-fs
         - r-glue
         - r-urltools
