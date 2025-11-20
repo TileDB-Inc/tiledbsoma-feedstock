@@ -28,7 +28,7 @@ source:
 #  git_depth: -1
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or linux32 or py2k]
 # Important: set this back to 0 on a new release
 
@@ -45,7 +45,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb >=2.29.0,<2.30
+        - tiledb ==2.29.2
         - spdlog
         - fmt
     about:
