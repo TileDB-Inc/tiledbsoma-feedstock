@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "2.1.2" %}
-{% set sha256 = "fc241df2baec16803bf485d0de1b48378b3afc1a35686655f0d02dce3b749835" %}
+{% set version = "2.2.0" %}
+{% set sha256 = "tbd" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -15,17 +15,17 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-# Post-tag real thing:
-source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
-
-## Pre-tag canary "will Conda be green if we release":
+## Post-tag real thing:
 #source:
-#  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release 2.1.2rc0
-#  git_rev: 9c5700b8b2d673b25878f53cd832db25665f9a62
-#  git_depth: -1
+#  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+#  sha256: {{ sha256 }}
+
+# Pre-tag canary "will Conda be green if we release":
+source:
+  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  # release 2.2.0rc0
+  git_rev: a2348992a3a2ff6a453e995a946ef6eb201e8b94
+  git_depth: -1
 
 build:
   number: 0
@@ -45,7 +45,7 @@ outputs:
         - cmake
         - make  # [not win]
       host:
-        - tiledb ==2.29.2
+        - tiledb ==2.30
         - spdlog
         - fmt
     about:
@@ -147,7 +147,7 @@ outputs:
         - r-matrix
         - r-bit64 >=4.6.0.1
         - r-rcppint64
-        - r-tiledb >=0.33.1,<0.34
+        - r-tiledb >=0.34.0,<0.35
         - r-arrow >=19.0.1
         - r-fs
         - r-glue
@@ -164,7 +164,7 @@ outputs:
         - r-r6
         - r-matrix
         - r-bit64 >=4.6.0.1
-        - r-tiledb >=0.33.1,<0.34
+        - r-tiledb >=0.34.0,<0.35
         - r-arrow >=19.0.1
         - r-fs
         - r-glue
