@@ -109,7 +109,7 @@ outputs:
         - tiledbsoma
       requires:
         - pip
-        - tiledb-py >=0.35.0,<0.36.0
+        - tiledb-py >=0.36.0,<0.37.0
       commands:
         - python -c 'import tiledbsoma; print(tiledbsoma.pytiledbsoma.version())'
         # See also:
