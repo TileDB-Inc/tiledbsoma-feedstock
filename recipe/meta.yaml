@@ -107,7 +107,7 @@ outputs:
         - tiledbsoma.io.spatial       # [py >= 310]
       requires:                       # [py >= 310]
         - pip                         # [py >= 310]
-        - tiledb-py >=0.35.0,<0.36.0  # [py >= 310]
+        - tiledb-py >=0.36.0,<0.37.0  # [py >= 310]
         # Spatial requirements
         # https://github.com/single-cell-data/TileDB-SOMA/blob/main/apis/python/requirements_spatial.txt
         - geopandas                   # [py >= 310]
