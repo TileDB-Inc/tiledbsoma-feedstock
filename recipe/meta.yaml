@@ -16,16 +16,16 @@ package:
   version: {{ version }}
 
 # Post-tag real thing:
-source:
-  url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+# source:
+  # url: https://github.com/single-cell-data/TileDB-SOMA/archive/{{ version }}.tar.gz
+  # sha256: {{ sha256 }}
 
 ## Pre-tag canary "will Conda be green if we release":
-#source:
-#  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
-#  # release-2.2.0rc0
-#  git_rev: a2348992a3a2ff6a453e995a946ef6eb201e8b94
-#  git_depth: -1
+source:
+  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
+  # release-2.2.0rc0
+  git_rev: b450973430e02458ab55e06629153ef3e459b7b5
+  git_depth: -1
 
 build:
   number: 0
