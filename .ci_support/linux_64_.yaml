@@ -32,8 +32,8 @@ pyarrow:
 python:
 - 3.9.* *_cpython
 r_base:
+- '4.3'
 - '4.4'
-- '4.5'
 spdlog:
 - '1.11'
 target_platform:
