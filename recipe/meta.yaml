@@ -1,6 +1,6 @@
 {% set name = "tiledbsoma" %}
-{% set version = "2.2.0" %}
-{% set sha256 = "30dbc6206bf3710eff177340ce27e90608ee1ce10c6559ffc9f585346780514d" %}
+{% set version = "2.3.0" %}
+{% set sha256 = "d9d2844ceb9863f00f1ae2e0cfe6554150ee04ce7791fc87ef5f27a00d91dd13" %}
 # This is the SHA256 of
 #   TileDB-SOMA-i.j.k.tar.gz
 # from
@@ -24,7 +24,7 @@ source:
 #source:
 #  git_url: https://github.com/single-cell-data/TileDB-SOMA.git
 #  # release 2.2.0rc0
-#  git_rev: a2348992a3a2ff6a453e995a946ef6eb201e8b94
+#  git_rev: aac88138d12a5fb87ed2601500fdab103ba8a8a0
 #  git_depth: -1
 
 build:
@@ -85,7 +85,7 @@ outputs:
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.27') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
-        - pandas
+        - pandas <=3.0.0
         - pyarrow
         - python
         - scipy
