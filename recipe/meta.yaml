@@ -24,7 +24,7 @@ package:
 source:
   git_url: https://github.com/single-cell-data/TileDB-SOMA.git
   # release-2.3.0rc0
-  git_rev: da72c648b3058e8d93d42b345c37193762ccdb81
+  git_rev: aac88138d12a5fb87ed2601500fdab103ba8a8a0
   git_depth: -1
 
 build:
