@@ -28,7 +28,7 @@ source:
 #  git_depth: -1
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
 # Important: set this back to 0 on a new release
 
@@ -85,7 +85,7 @@ outputs:
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.27') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
-        - pandas <=3.0.0
+        - pandas <3.0.0
         - pyarrow
         - python
         - scipy
