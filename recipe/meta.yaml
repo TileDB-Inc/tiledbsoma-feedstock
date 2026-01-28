@@ -85,7 +85,7 @@ outputs:
       run:
         - {{ pin_compatible('numpy', lower_bound='1.16', upper_bound='1.27') }}
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
-        - pandas <=3.0.0
+        - pandas <3.0.0
         - pyarrow
         - python
         - scipy
