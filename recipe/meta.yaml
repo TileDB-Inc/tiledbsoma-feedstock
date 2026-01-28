@@ -28,7 +28,7 @@ source:
 #  git_depth: -1
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
 # Important: set this back to 0 on a new release
 
