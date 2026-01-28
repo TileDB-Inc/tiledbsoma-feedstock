@@ -89,7 +89,7 @@ outputs:
         - pyarrow
       run:
         - {{ pin_subpackage('libtiledbsoma', exact=True) }}
-        - pandas <=3.0.0
+        - pandas <3.0.0
         - pyarrow
         - python
         - scipy
