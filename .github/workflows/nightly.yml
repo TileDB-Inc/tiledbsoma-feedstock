@@ -9,7 +9,9 @@ on:
     paths:
       - '.github/workflows/nightly.yml'
   schedule:
-     - cron: "27 1 * * *" # Every night at 1:27 AM UTC (8:27 PM EST; 9:27 PM EDT)
+    # 1:27 AM UTC Tues-Fri (8:27 PM EST; 9:27 PM EDT Mon-Thurs)
+    # https://crontab.guru/#27_1_*_*_2-5
+    - cron: "27 1 * * 2-5"
   workflow_dispatch:
 jobs:
   nightly:

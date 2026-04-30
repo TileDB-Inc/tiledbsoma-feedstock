@@ -4,8 +4,9 @@
 name: nightly-azure-status
 on:
   schedule:
-     # https://crontab.guru/#0_11_*_*_*
-     - cron: "0 11 * * *" # Every day at 11 AM UTC (6 AM EST; 7 AM EDT)
+    # 11 AM UTC Tues-Fri (6 AM EST; 7 AM EDT Tues-Fri)
+    # https://crontab.guru/#0_11_*_*_2-5
+    - cron: "0 11 * * 2-5"
   workflow_dispatch:
 jobs:
   nightly-azure-status:
