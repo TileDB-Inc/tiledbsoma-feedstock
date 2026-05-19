@@ -15,7 +15,7 @@ jobs:
     permissions:
       issues: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Check Azure Status API
         if: github.repository_owner == 'TileDB-Inc' # do not run on forks
         env:
@@ -30,7 +30,7 @@ jobs:
     needs: nightly-azure-status
     if: ( failure() || cancelled() ) && github.repository_owner == 'TileDB-Inc' && github.event_name == 'schedule'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Open Issue
         uses: TileDB-Inc/github-actions/open-issue@main
         with:
