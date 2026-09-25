@@ -95,13 +95,6 @@ Current build status
                   <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
-            </tr><tr>
-              <td>osx_arm64</td>
-              <td>
-                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
-                </a>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -122,49 +115,93 @@ Current release info
 Installing tiledbsoma
 =====================
 
-Installing `tiledbsoma` from the `tiledb` channel can be achieved by adding `tiledb` to your channels with:
+Installing `tiledbsoma` from the `tiledb/label/nightlies` channel can be achieved by adding `tiledb/label/nightlies` to your channels with:
 
 ```
-conda config --add channels tiledb
+conda config --add channels tiledb/label/nightlies
 conda config --set channel_priority strict
 ```
 
-Once the `tiledb` channel has been enabled, `libtiledbsoma, r-tiledbsoma, tiledbsoma-py` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install libtiledbsoma r-tiledbsoma tiledbsoma-py
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install libtiledbsoma r-tiledbsoma tiledbsoma-py
 ```
 
-It is possible to list all of the versions of `libtiledbsoma` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
 
 ```
-conda search libtiledbsoma --channel tiledb
+# for adding to your local project
+pixi add libtiledbsoma r-tiledbsoma tiledbsoma-py
+# for installing globally
+pixi global install libtiledbsoma r-tiledbsoma tiledbsoma-py
 ```
 
-or with `mamba`:
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `libtiledbsoma` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
-mamba search libtiledbsoma --channel tiledb
+conda search libtiledbsoma --channel tiledb/label/nightlies
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With mamba</summary>
+
+```
+mamba search libtiledbsoma --channel tiledb/label/nightlies
+```
+
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search libtiledbsoma --channel tiledb/label/nightlies
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search libtiledbsoma --channel tiledb
+mamba repoquery search libtiledbsoma --channel tiledb/label/nightlies
 
 # List packages depending on `libtiledbsoma`:
-mamba repoquery whoneeds libtiledbsoma --channel tiledb
+mamba repoquery whoneeds libtiledbsoma --channel tiledb/label/nightlies
 
 # List dependencies of `libtiledbsoma`:
-mamba repoquery depends libtiledbsoma --channel tiledb
+mamba repoquery depends libtiledbsoma --channel tiledb/label/nightlies
 ```
+
+</details>
 
 
 
