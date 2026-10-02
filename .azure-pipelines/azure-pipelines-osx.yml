@@ -11,13 +11,25 @@ jobs:
       osx_64_:
         CONFIG: osx_64_
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_
         VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        CONFIG_SHORT: osx_64_
       osx_arm64_:
         CONFIG: osx_arm64_
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_
         VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: skip
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        CONFIG_SHORT: osx_arm64_
   timeoutInMinutes: 360
   variables: {}
 
@@ -25,13 +37,15 @@ jobs:
   # TODO: Fast finish on azure pipelines?
   - script: |
       export CI=azure
+      export CONDA_BLD_PATH=$(build_workspace_dir)
+      export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+      export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+      export MINIFORGE_HOME=$(tools_install_dir)
+      export OSX_FORCE_SDK_DOWNLOAD="1"
+      export UPLOAD_ON_BRANCH="nightly-build"
       export flow_run_id=azure_$(Build.BuildNumber).$(System.JobAttempt)
       export remote_url=$(Build.Repository.Uri)
       export sha=$(Build.SourceVersion)
-      export OSX_FORCE_SDK_DOWNLOAD="1"
-      export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
-      export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
-      export UPLOAD_ON_BRANCH="main"
       if [[ "${BUILD_REASON:-}" == "PullRequest" ]]; then
         export IS_PR_BUILD="True"
       else
@@ -41,21 +55,26 @@ jobs:
     displayName: Run OSX build
     env:
       BINSTAR_TOKEN: $(BINSTAR_TOKEN)
+
   - script: |
+      export ARTIFACT_STAGING_DIR="$(Build.ArtifactStagingDirectory)"
+      # Archive everything in CONDA_BLD_PATH except environments
+      export BLD_ARTIFACT_PREFIX=conda_pkgs
       export CI=azure
       export CI_RUN_ID=$(build.BuildNumber).$(system.JobAttempt)
+      export CONDA_BLD_PATH=$(build_workspace_dir)
       export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
-      export CONDA_BLD_DIR=/Users/runner/miniforge3/conda-bld
-      export ARTIFACT_STAGING_DIR="$(Build.ArtifactStagingDirectory)"
-      # Archive everything in CONDA_BLD_DIR except environments
-      export BLD_ARTIFACT_PREFIX=conda_artifacts
+      export MINIFORGE_HOME=$(tools_install_dir)
       if [[ "$AGENT_JOBSTATUS" == "Failed" ]]; then
-        # Archive the CONDA_BLD_DIR environments only when the job fails
+        # Use a distinct prefix on failure (to match GHA).
+        export BLD_ARTIFACT_PREFIX=conda_pkgs_failed
+        # Archive the CONDA_BLD_PATH environments only when the job fails
         export ENV_ARTIFACT_PREFIX=conda_envs
+        export WRK_ARTIFACT_PREFIX=conda_work
       fi
       ./.scripts/create_conda_build_artifacts.sh
     displayName: Prepare conda build artifacts
-    condition: succeededOrFailed()
+    condition: and(succeededOrFailed(), eq(variables.store_build_artifacts, true))
 
   - task: PublishPipelineArtifact@1
     displayName: Store conda build artifacts
@@ -63,6 +82,13 @@ jobs:
     inputs:
       targetPath: $(BLD_ARTIFACT_PATH)
       artifactName: $(BLD_ARTIFACT_NAME)
+
+  - task: PublishPipelineArtifact@1
+    displayName: Store conda work directoryartifacts
+    condition: not(eq(variables.WRK_ARTIFACT_PATH, ''))
+    inputs:
+      targetPath: $(WRK_ARTIFACT_PATH)
+      artifactName: $(WRK_ARTIFACT_NAME)
 
   - task: PublishPipelineArtifact@1
     displayName: Store conda build environment artifacts
