@@ -9,7 +9,7 @@ provider:
   osx_64: azure
 conda_forge_output_validation: false
 test: native_and_emulated
-upload_on_branch: main
+upload_on_branch: nightly-build
 azure:
   build_id: 43
   user_or_org: TileDB-Inc
