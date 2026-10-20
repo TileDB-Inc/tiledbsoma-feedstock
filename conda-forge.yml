@@ -15,3 +15,5 @@ azure:
   user_or_org: TileDB-Inc
   project_name: CI
   store_build_artifacts: True
+workflow_settings:
+  free_disk_space: max
