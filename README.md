@@ -95,13 +95,6 @@ Current build status
                   <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
-            </tr><tr>
-              <td>osx_arm64</td>
-              <td>
-                <a href="https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=43&branchName=main">
-                  <img src="https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/tiledbsoma-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
-                </a>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -129,31 +122,73 @@ conda config --add channels tiledb
 conda config --set channel_priority strict
 ```
 
-Once the `tiledb` channel has been enabled, `libtiledbsoma, r-tiledbsoma, tiledbsoma-py` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install libtiledbsoma r-tiledbsoma tiledbsoma-py
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install libtiledbsoma r-tiledbsoma tiledbsoma-py
 ```
 
-It is possible to list all of the versions of `libtiledbsoma` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add libtiledbsoma r-tiledbsoma tiledbsoma-py
+# for installing globally
+pixi global install libtiledbsoma r-tiledbsoma tiledbsoma-py
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `libtiledbsoma` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search libtiledbsoma --channel tiledb
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search libtiledbsoma --channel tiledb
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search libtiledbsoma --channel tiledb
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -165,6 +200,8 @@ mamba repoquery whoneeds libtiledbsoma --channel tiledb
 # List dependencies of `libtiledbsoma`:
 mamba repoquery depends libtiledbsoma --channel tiledb
 ```
+
+</details>
 
 
 
