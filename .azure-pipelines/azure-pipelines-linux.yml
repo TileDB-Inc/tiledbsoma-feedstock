@@ -14,7 +14,7 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
         docker_run_args: ''
         build_workspace_dir: build_artifacts
-        free_disk_space: skip
+        free_disk_space: max
         pagefile_size: 0
         resize_partitions: false
         store_build_artifacts: true
@@ -24,6 +24,11 @@ jobs:
   variables: {}
 
   steps:
+  - script: |
+        .scripts/free_disk_space.sh "$(free_disk_space)"
+    env:
+      OS: ubuntu
+    displayName: Manage disk space
   # configure qemu binfmt-misc running.  This allows us to run docker containers
   # embedded qemu-static
   - script: |
